@@ -19,3 +19,35 @@ form div {
   margin: 1em;
   display: inline-block;
 }
+
+/* #keyboard {
+  position: absolute;
+  height: 200px;
+  top: calc(50% - 100px);
+  left: calc(50% - 350px);
+  overflow: hidden;
+  box-shadow: 0 9px #999;
+}
+
+.whitenote {
+  height: 100%;
+  width: 50px;
+  background: #414157;
+  float: left;
+  border-right: 1px solid #dbd8c5;
+  position: relative;
+}
+.whitenote:hover {
+  background-color: #878f99;
+}
+.blacknote {
+  position: absolute;
+  height: 65%;
+  width: 55%;
+  z-index: 1;
+  background: linear-gradient(white, #dbd8c5);
+  left: 68%;
+}
+.blacknote:hover {
+  background-color: #878f99;
+} */
