@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {Piano, KeyboardShortcuts, MidiNumbers} from 'react-piano'
-import 'react-piano/dist/styles.css'
+//import 'react-piano/dist/styles.css'
 
 import DimensionsProvider from './DimensionsProvider'
 import SoundfontProvider from './SoundfontProvider'
-import './styles.css'
+//import '../public/style.css'
 
 // webkitAudioContext fallback needed to support Safari
 const audioContext = new (window.AudioContext || window.webkitAudioContext)()
@@ -66,7 +66,7 @@ const keyboardShortcuts = KeyboardShortcuts.create({
 //   )
 // }
 
-function Keyboard(props) {
+export function Keyboard(props) {
   return (
     <DimensionsProvider>
       {({containerWidth, containerHeight}) => (
@@ -90,7 +90,5 @@ function Keyboard(props) {
   )
 }
 
-const rootElement = document.getElementById('root')
-ReactDOM.render(<App />, rootElement)
-
-export default Keyboard
+// const rootElement = document.getElementById('root')
+// ReactDOM.render(<App />, rootElement)
