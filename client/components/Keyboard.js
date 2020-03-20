@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {Piano, KeyboardShortcuts, MidiNumbers} from 'react-piano'
+import Canvas from './Canvas'
 //import 'react-piano/dist/styles.css'
 
 import DimensionsProvider from './DimensionsProvider'
@@ -21,72 +22,38 @@ const keyboardShortcuts = KeyboardShortcuts.create({
   keyboardConfig: KeyboardShortcuts.HOME_ROW
 })
 
-// function App() {
-//   return (
-//     <div>
-//       <h1>react-piano demos</h1>
-//       <div className="mt-5">
-//         <p>Basic piano with hardcoded width</p>
-//         <BasicPiano />
-//       </div>
-
-//       <div className="mt-5">
-//         <p>
-//           Responsive piano which resizes to container's width. Try resizing the
-//           window!
-//         </p>
-//         <ResponsivePiano />
-//       </div>
-
 //       <div className="mt-5">
 //         <p>Piano with custom styling - see styles.css</p>
 //         <ResponsivePiano className="PianoDarkTheme" />
 //       </div>
 //     </div>
-//   )
-// }
-
-// function BasicPiano() {
-//   return (
-//     <SoundfontProvider
-//       instrumentName="acoustic_grand_piano"
-//       audioContext={audioContext}
-//       hostname={soundfontHostname}
-//       render={({isLoading, playNote, stopNote}) => (
-//         <Piano
-//           noteRange={noteRange}
-//           width={300}
-//           playNote={playNote}
-//           stopNote={stopNote}
-//           disabled={isLoading}
-//           keyboardShortcuts={keyboardShortcuts}
-//         />
-//       )}
-//     />
-//   )
-// }
 
 export function Keyboard(props) {
   return (
-    <DimensionsProvider>
-      {({containerWidth, containerHeight}) => (
-        <SoundfontProvider
-          instrumentName="acoustic_grand_piano"
-          audioContext={audioContext}
-          hostname={soundfontHostname}
-          render={({isLoading, playNote, stopNote}) => (
-            <Piano
-              noteRange={noteRange}
-              width={containerWidth}
-              playNote={playNote}
-              stopNote={stopNote}
-              disabled={isLoading}
-              {...props}
+    <>
+      <DimensionsProvider>
+        {({containerWidth, containerHeight}) =>
+          <Canvas width={containerWidth} />(
+            <SoundfontProvider
+              instrumentName="acoustic_grand_piano"
+              audioContext={audioContext}
+              hostname={soundfontHostname}
+              render={({isLoading, playNote, stopNote}) => (
+                <Piano
+                  noteRange={noteRange}
+                  width={containerWidth}
+                  playNote={playNote}
+                  stopNote={stopNote}
+                  disabled={isLoading}
+                  keyboardShortcuts={keyboardShortcuts}
+                  {...props}
+                />
+              )}
             />
-          )}
-        />
-      )}
-    </DimensionsProvider>
+          )
+        }
+      </DimensionsProvider>
+    </>
   )
 }
 

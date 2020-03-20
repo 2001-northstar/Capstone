@@ -20,6 +20,10 @@ form div {
   display: inline-block;
 }
 
+#canvas {
+  border: 1px solid black;
+}
+
 /* #keyboard {
   position: absolute;
   height: 200px;
