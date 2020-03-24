@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import {Navbar} from './components'
+import {Navbar, Keyboard} from './components'
 import Routes from './routes'
 
 const App = () => {
