@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {Piano, KeyboardShortcuts, MidiNumbers} from 'react-piano'
-import Canvas from './Canvas'
+import NoteContainer from './NoteContainer'
 //import 'react-piano/dist/styles.css'
 
 import DimensionsProvider from './DimensionsProvider'
@@ -22,40 +22,30 @@ const keyboardShortcuts = KeyboardShortcuts.create({
   keyboardConfig: KeyboardShortcuts.HOME_ROW
 })
 
-//       <div className="mt-5">
-//         <p>Piano with custom styling - see styles.css</p>
-//         <ResponsivePiano className="PianoDarkTheme" />
-//       </div>
-//     </div>
-
 export function Keyboard(props) {
   return (
     <>
+      <NoteContainer />
       <DimensionsProvider>
-        {({containerWidth, containerHeight}) =>
-          <Canvas width={containerWidth} />(
-            <SoundfontProvider
-              instrumentName="acoustic_grand_piano"
-              audioContext={audioContext}
-              hostname={soundfontHostname}
-              render={({isLoading, playNote, stopNote}) => (
-                <Piano
-                  noteRange={noteRange}
-                  width={containerWidth}
-                  playNote={playNote}
-                  stopNote={stopNote}
-                  disabled={isLoading}
-                  keyboardShortcuts={keyboardShortcuts}
-                  {...props}
-                />
-              )}
-            />
-          )
-        }
+        {({containerWidth, containerHeight}) => (
+          <SoundfontProvider
+            instrumentName="acoustic_grand_piano"
+            audioContext={audioContext}
+            hostname={soundfontHostname}
+            render={({isLoading, playNote, stopNote}) => (
+              <Piano
+                noteRange={noteRange}
+                width={containerWidth}
+                playNote={playNote}
+                stopNote={stopNote}
+                disabled={isLoading}
+                keyboardShortcuts={keyboardShortcuts}
+                {...props}
+              />
+            )}
+          />
+        )}
       </DimensionsProvider>
     </>
   )
 }
-
-// const rootElement = document.getElementById('root')
-// ReactDOM.render(<App />, rootElement)

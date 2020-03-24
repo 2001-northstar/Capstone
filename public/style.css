@@ -2,6 +2,16 @@ body {
   font-family: sans-serif;
 }
 
+#notes {
+  height: 25em;
+  display: flex;
+  border: 1px solid black;
+}
+
+svg {
+  height: 100%;
+}
+
 a {
   text-decoration: none;
 }
