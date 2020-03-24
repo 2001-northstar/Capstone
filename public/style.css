@@ -5,6 +5,7 @@ body {
 #notes {
   height: 25em;
   display: flex;
+  border: 1px solid black;
 }
 
 svg {

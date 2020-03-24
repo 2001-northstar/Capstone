@@ -23,7 +23,6 @@ const keyboardShortcuts = KeyboardShortcuts.create({
 })
 
 export function Keyboard(props) {
-  console.log(props)
   return (
     <>
       <NoteContainer />
