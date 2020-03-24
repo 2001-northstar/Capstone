@@ -2,6 +2,15 @@ body {
   font-family: sans-serif;
 }
 
+#notes {
+  height: 25em;
+  display: flex;
+}
+
+svg {
+  height: 100%;
+}
+
 a {
   text-decoration: none;
 }
