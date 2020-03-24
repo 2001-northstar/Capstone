@@ -46,25 +46,25 @@ const keyboardShortcuts = KeyboardShortcuts.create({
 //   )
 // }
 
-// function BasicPiano() {
-//   return (
-//     <SoundfontProvider
-//       instrumentName="acoustic_grand_piano"
-//       audioContext={audioContext}
-//       hostname={soundfontHostname}
-//       render={({isLoading, playNote, stopNote}) => (
-//         <Piano
-//           noteRange={noteRange}
-//           width={300}
-//           playNote={playNote}
-//           stopNote={stopNote}
-//           disabled={isLoading}
-//           keyboardShortcuts={keyboardShortcuts}
-//         />
-//       )}
-//     />
-//   )
-// }
+function BasicPiano() {
+  return (
+    <SoundfontProvider
+      instrumentName="acoustic_grand_piano"
+      audioContext={audioContext}
+      hostname={soundfontHostname}
+      render={({isLoading, playNote, stopNote}) => (
+        <Piano
+          noteRange={noteRange}
+          width={800}
+          playNote={playNote}
+          stopNote={stopNote}
+          disabled={isLoading}
+          keyboardShortcuts={keyboardShortcuts}
+        />
+      )}
+    />
+  )
+}
 
 export function Keyboard(props) {
   return (
@@ -75,7 +75,7 @@ export function Keyboard(props) {
           audioContext={audioContext}
           hostname={soundfontHostname}
           render={({isLoading, playNote, stopNote}) => (
-            <Piano
+            <BasicPiano
               noteRange={noteRange}
               width={containerWidth}
               playNote={playNote}
