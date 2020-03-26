@@ -1,7 +1,7 @@
 'use strict'
 
 const db = require('../server/db')
-const {User} = require('../server/db/models')
+const {User, Lesson} = require('../server/db/models')
 
 async function seed() {
   await db.sync({force: true})
@@ -12,7 +12,21 @@ async function seed() {
     User.create({email: 'murphy@email.com', password: '123'})
   ])
 
+  const lessons = await Lesson.bulkCreate([
+    {
+      name: 'Keys',
+      overview: 'Learn what keys are.',
+      content: 'You can tell that it is a scale, cause of the way that it is.'
+    },
+    {
+      name: 'Scales',
+      overview: 'Learn what a scale is.',
+      content: 'You can tell that it is a scale, cause of the way that it is.'
+    }
+  ])
+
   console.log(`seeded ${users.length} users`)
+  console.log(`seeded ${lessons.length} lessons`)
   console.log(`seeded successfully`)
 }
 

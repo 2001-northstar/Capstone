@@ -7,9 +7,14 @@ class NoteContainer extends React.Component {
   render() {
     return (
       <div id="notes">
-        <svg viewBox="0 0 220 100" xmlns="http://www.w3.org/2000/svg">
-          <rect x="120" width="100" height="100" rx="15" />
-        </svg>
+        {
+          <svg
+            width={`${window.innerWidth}`}
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect x="0" width="9.01%" height="100%" rx="1" />
+          </svg>
+        }
       </div>
     )
   }
