@@ -1,23 +1,87 @@
 body {
   font-family: sans-serif;
 }
-
-.svg1 {
-  border: 2px solid slateblue;
-}
-
-.svg2 {
-  border: 2px solid greenyellow;
-}
-
-.svg3 {
-  border: 2px solid whitesmoke;
-}
-
-#notes {
+.noteContainer {
   height: 25em;
   display: flex;
   border: 1px solid black;
+}
+
+.C3 {
+  width: 9.1%;
+  height: 10em;
+  margin-right: 1px;
+  border: 2px solid slateblue;
+}
+
+.D3 {
+  width: 9.1%;
+  height: 10em;
+  margin-right: 1px;
+  border: 2px solid greenyellow;
+}
+
+.E3 {
+  width: 9.1%;
+  height: 10em;
+  margin-right: 1px;
+  border: 2px solid whitesmoke;
+}
+
+.F3 {
+  width: 9.1%;
+  height: 10em;
+  margin-right: 1px;
+  border: 2px solid brown;
+}
+
+.G3 {
+  width: 9.1%;
+  height: 10em;
+  margin-right: 1px;
+  border: 2px solid blue;
+}
+
+.A3 {
+  width: 9.1%;
+  height: 10em;
+  margin-right: 1px;
+  border: 2px solid blue;
+}
+
+.B3 {
+  width: 9.1%;
+  height: 10em;
+  margin-right: 1px;
+  border: 2px solid blue;
+}
+
+.C4 {
+  width: 9.1%;
+  height: 10em;
+  margin-right: 1px;
+  border: 2px solid slateblue;
+}
+
+.D4 {
+  width: 9.1%;
+  height: 10em;
+  margin-right: 1px;
+  border: 2px solid greenyellow;
+}
+
+.E4 {
+  width: 9.1%;
+  height: 10em;
+  margin-right: 1px;
+  border: 2px solid whitesmoke;
+}
+
+.F4 {
+  width: 9.1%;
+  height: 10em;
+  margin-right: 1px;
+  border: 2px solid brown;
 }
 
 svg {
