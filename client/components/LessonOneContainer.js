@@ -1,34 +1,43 @@
 import React, {useEffect} from 'react' // don't forget to import useEffect
 import {Link} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux' // import redux hooks
-import {fetchLesson} from '../store/lessons'
+import {fetchSingleLesson} from '../store/lesson'
+import StepOne from './StepOne'
 import styled from 'styled-components'
 
-const SingleLesson = props => {
+const LessonOneContainer = props => {
   // declare dispatch function - always when you need dispatch
 
   const dispatch = useDispatch()
 
   // just like map state to props but assigning to a const variable
-  const {lesson, user} = useSelector(state => {
+  const {lesson} = useSelector(state => {
     return {
-      lesson: state.lesson,
-      user: state.user //Why is this greyed out above?
+      lesson: state.lesson
     }
   })
 
-  const exercises = props.lesson.exercises
-
   // just like component did mount
   useEffect(() => {
-    dispatch(fetchLesson(props.match.params.lessonId))
+    dispatch(fetchSingleLesson(1))
   }, [])
 
   if (!lesson) {
     return <div>No Lesson Found</div>
   }
 
-  return <></>
+  const handleNext = () => {}
+
+  return (
+    <>
+      <div id="notes">
+        <StepOne lesson={lesson} />
+        <button type="button" onClick={handleNext} className="btn btn-primary">
+          Next
+        </button>
+      </div>
+    </>
+  )
 }
 
-export default SingleLesson
+export default LessonOneContainer
