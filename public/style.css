@@ -1,31 +1,131 @@
 body {
   font-family: sans-serif;
 }
-.noteContainer {
-  height: 25em;
+.fixed {
   display: flex;
+  height: 25em;
+  background: #f00;
+  overflow: hidden;
+}
+
+.col {
+  border: 1px solid black;
+}
+
+.row {
+  border: 1px solid black;
+}
+
+.noteContainer {
+  width: 100%;
+  display: flex;
+  height: 100%;
+  border: 1px solid black;
+}
+
+.lane1 {
+  display: flex;
+  flex-direction: column-reverse;
+  border: 1px solid #ff00ff;
+  width: calc(100% / 11);
+}
+
+.lane2 {
+  display: flex;
+  flex-direction: column-reverse;
+  border: 1px solid #ff00ff;
+  width: calc(100% / 11);
+}
+
+.lane3 {
+  display: flex;
+  flex-direction: column-reverse;
+  border: 1px solid #ff00ff;
+  width: calc(100% / 11);
+}
+
+.lane4 {
+  display: flex;
+  flex-direction: column-reverse;
+  border: 1px solid #ff00ff;
+  width: calc(100% / 11);
+}
+
+.lane5 {
+  display: flex;
+  flex-direction: column-reverse;
+  border: 1px solid #ff00ff;
+  width: calc(100% / 11);
+}
+
+.lane6 {
+  display: flex;
+  flex-direction: column-reverse;
+  border: 1px solid #ff00ff;
+  width: calc(100% / 11);
+}
+
+.lane7 {
+  display: flex;
+  flex-direction: column-reverse;
+  border: 1px solid #ff00ff;
+  width: calc(100% / 11);
+}
+
+.lane8 {
+  display: flex;
+  flex-direction: column-reverse;
+  border: 1px solid #ff00ff;
+  width: calc(100% / 11);
+}
+
+.lane9 {
+  display: flex;
+  flex-direction: column-reverse;
+  border: 1px solid #ff00ff;
+  width: calc(100% / 11);
+}
+
+.lane10 {
+  display: flex;
+  flex-direction: column-reverse;
+  border: 1px solid #ff00ff;
+  width: calc(100% / 11);
+}
+
+.lane11 {
+  display: flex;
+  flex-direction: column-reverse;
+  border: 1px solid #ff00ff;
+  width: calc(100% / 11);
+}
+
+.rest {
+  /* width: 9.1%; */
+  height: 10em;
+  margin-right: 1px;
   border: 1px solid black;
 }
 
 .C3 {
-  width: 9.1%;
+  /* width: 9.1%; */
   height: 10em;
   margin-right: 1px;
-  border: 2px solid slateblue;
+  background-color: slateblue;
 }
 
 .D3 {
-  width: 9.1%;
+  /* width: 9.1%; */
   height: 10em;
   margin-right: 1px;
-  border: 2px solid greenyellow;
+  background-color: greenyellow;
 }
 
 .E3 {
-  width: 9.1%;
+  /* width: 9.1%; */
   height: 10em;
   margin-right: 1px;
-  border: 2px solid whitesmoke;
+  background-color: whitesmoke;
 }
 
 .F3 {

@@ -25,7 +25,7 @@ const keyboardShortcuts = KeyboardShortcuts.create({
 export function Keyboard(props) {
   return (
     <>
-      <NoteContainer />
+      <NoteContainer midiNumber={props.midiNumber} {...props} />
       <DimensionsProvider>
         {({containerWidth, containerHeight}) => (
           <SoundfontProvider
@@ -34,6 +34,7 @@ export function Keyboard(props) {
             hostname={soundfontHostname}
             render={({isLoading, playNote, stopNote}) => (
               <Piano
+                // midiNumber={midiNumber}
                 noteRange={noteRange}
                 width={containerWidth}
                 playNote={playNote}
