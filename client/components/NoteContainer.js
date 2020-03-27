@@ -44,8 +44,10 @@ const NoteContainer = props => {
           <div className="C3">note 1</div>
           <div className="rest" />
           <div className="C3">note 3</div>
+          <div className="C3">note 4</div>
+          <div className="C3">note 5</div>
         </div>
-        <div className="lane2">
+        {/* <div className="lane2">
           <div className="rest" />
           <div className="D3">note 2</div>
           <div className="rest" />
@@ -62,7 +64,7 @@ const NoteContainer = props => {
         <div className="lane8">Lane 8</div>
         <div className="lane9">Lane 9</div>
         <div className="lane10">Lane 10</div>
-        <div className="lane11">Lane 11</div>
+        <div className="lane11">Lane 11</div> */}
       </div>
     </div>
   )
