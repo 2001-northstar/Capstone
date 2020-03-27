@@ -18,7 +18,7 @@ body {
 
 .lane1 {
   display: flex;
-  flex-wrap: wrap-reverse;
+  flex-direction: column-reverse;
   overflow: hidden;
   max-height: 300px;
   border: 1px solid #ff00ff;

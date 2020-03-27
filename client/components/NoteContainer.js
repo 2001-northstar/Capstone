@@ -1,5 +1,5 @@
-import React, {useEffect, useRef} from 'react'
-import {gsap, TweenLite, TweenMax, Power0, TimelineLite} from 'gsap'
+import React, {useEffect, useRef, useState} from 'react'
+import {gsap, TweenMax, Power0, TimelineMax} from 'gsap'
 import wholeNote from '../../public/wholeNote.svg'
 
 // let song = [{C3}, {E3}, {G3}]
@@ -17,37 +17,46 @@ const NoteContainer = props => {
   // let D4 = useRef(null)
   // let E4 = useRef(null)
   // let F4 = useRef(null)
+  const [clickAnimation, setClickAnimation] = useState()
 
-  let tl = new TimelineLite({delay: 0.8})
+  let [tl] = useState(new TimelineMax({paused: true}))
 
-  useEffect(() => {
-    console.log('note props', props)
-    tl.to(containerMove, 5, {x: 0, y: 500})
-
-    // tl.to(C3, 3, {x: 0, y: 500})
-    // tl.to(D3, 3, {x: 0, y: 500})
-    // tl.to(E3, 3, {x: 0, y: 500})
-    // tl.to(F3, 3, {x: 0, y: 500})
-    // tl.to(G3, 3, {x: 0, y: 500})
-    // tl.to(A3, 3, {x: 0, y: 500})
-    // tl.to(B3, 3, {x: 0, y: 500})
-    // tl.to(C4, 3, {x: 0, y: 500})
-    // tl.to(D4, 3, {x: 0, y: 500})
-    // tl.to(E4, 3, {x: 0, y: 500})
-    // tl.to(F4, 3, {x: 0, y: 500})
-  }, [])
+  useEffect(
+    () => {
+      setClickAnimation(tl.to(containerMove, 5, {x: 0, y: 500}))
+      // tl.to(C3, 3, {x: 0, y: 500})
+      // tl.to(D3, 3, {x: 0, y: 500})
+      // tl.to(E3, 3, {x: 0, y: 500})
+      // tl.to(F3, 3, {x: 0, y: 500})
+      // tl.to(G3, 3, {x: 0, y: 500})
+      // tl.to(A3, 3, {x: 0, y: 500})
+      // tl.to(B3, 3, {x: 0, y: 500})
+      // tl.to(C4, 3, {x: 0, y: 500})
+      // tl.to(D4, 3, {x: 0, y: 500})
+      // tl.to(E4, 3, {x: 0, y: 500})
+      // tl.to(F4, 3, {x: 0, y: 500})
+    },
+    [tl]
+  )
 
   return (
-    <div className="fixed">
-      <div className="noteContainer" ref={el => (containerMove = el)}>
-        <div className="lane1">
-          <div className="C3">note 1</div>
-          <div className="rest" />
-          <div className="C3">note 3</div>
-          <div className="C3">note 4</div>
-          <div className="C3">note 5</div>
-        </div>
-        {/* <div className="lane2">
+    <>
+      <div>
+        <button onClick={() => clickAnimation.play()}>Start</button>
+      </div>
+      <div className="fixed">
+        <div
+          className="noteContainer"
+          ref={el => {
+            containerMove = el
+          }}
+        >
+          <div className="lane1">
+            <div className="C3">note 1</div>
+            <div className="rest" />
+            <div className="C3">note 3</div>
+          </div>
+          {/* <div className="lane2">
           <div className="rest" />
           <div className="D3">note 2</div>
           <div className="rest" />
@@ -65,8 +74,9 @@ const NoteContainer = props => {
         <div className="lane9">Lane 9</div>
         <div className="lane10">Lane 10</div>
         <div className="lane11">Lane 11</div> */}
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 
