@@ -15,7 +15,7 @@ const setSingleLesson = lesson => {
 export const fetchSingleLesson = lessonId => {
   return async dispatch => {
     try {
-      const {data} = await axios.get(`/api/lessonss/${lessonId}`)
+      const {data} = await axios.get(`/api/lessons/${lessonId}`)
       dispatch(setSingleLesson(data))
     } catch (err) {
       console.log(err)
@@ -24,7 +24,7 @@ export const fetchSingleLesson = lessonId => {
 }
 
 //reducers
-const initialState = []
+const initialState = {}
 
 export default (state = initialState, action) => {
   switch (action.type) {
