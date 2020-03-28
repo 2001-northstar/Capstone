@@ -1,10 +1,10 @@
 const router = require('express').Router()
-const {lesson, exercise} = require('../db/models')
+const {Lesson, Exercise} = require('../db/models')
 module.exports = router
 
 router.get('/', async (req, res, next) => {
   try {
-    const lessons = await lesson.findAll()
+    const lessons = await Lesson.findAll()
     res.json(lessons)
   } catch (err) {
     next(err)
@@ -13,8 +13,8 @@ router.get('/', async (req, res, next) => {
 
 router.get('/:lessonId', async (req, res, next) => {
   try {
-    const singleLesson = await lesson.findByPk(req.params.lessonId, {
-      include: [exercise]
+    const singleLesson = await Lesson.findByPk(req.params.lessonId, {
+      include: [Exercise]
     })
     res.json(singleLesson)
   } catch (err) {
