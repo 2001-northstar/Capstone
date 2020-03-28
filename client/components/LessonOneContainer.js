@@ -30,12 +30,10 @@ const LessonOneContainer = props => {
 
   return (
     <>
-      <div id="notes">
-        <StepOne lesson={lesson} />
+      {/* <StepOne lesson={lesson} />
         <button type="button" onClick={handleNext} className="btn btn-primary">
           Next
-        </button>
-      </div>
+        </button> */}
     </>
   )
 }
