@@ -10,7 +10,8 @@ const StepOne = props => {
           situation? How am I supposed to remember all of these notes?!” Don’t
           shit yourself just yet. We have to start somewhere You can start by
           clicking any number of keys on this keyboard. Pay attention to how
-          high or low the tone sounds.
+          high or low the tone sounds. When you're to move on, just click the
+          Next button!
         </p>
       </div>
     </>

@@ -1,12 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {Piano, KeyboardShortcuts, MidiNumbers} from 'react-piano'
-import NoteContainer from './NoteContainer'
-//import 'react-piano/dist/styles.css'
-
+import LessonOneContainer from './LessonOneContainer'
+import NoteLabels from './NoteLabels'
 import DimensionsProvider from './DimensionsProvider'
 import SoundfontProvider from './SoundfontProvider'
-//import '../public/style.css'
+import {Piano, KeyboardShortcuts, MidiNumbers} from 'react-piano'
 
 // webkitAudioContext fallback needed to support Safari
 const audioContext = new (window.AudioContext || window.webkitAudioContext)()
@@ -22,10 +20,11 @@ const keyboardShortcuts = KeyboardShortcuts.create({
   keyboardConfig: KeyboardShortcuts.HOME_ROW
 })
 
-export function Keyboard(props) {
+export default function Lesson(props) {
   return (
     <>
       {/* <NoteContainer /> */}
+      <LessonOneContainer />
       <DimensionsProvider>
         {({containerWidth, containerHeight}) => (
           <SoundfontProvider
@@ -36,6 +35,7 @@ export function Keyboard(props) {
               <Piano
                 noteRange={noteRange}
                 width={containerWidth}
+                highlightedNotes={[52]}
                 playNote={playNote}
                 stopNote={stopNote}
                 disabled={isLoading}
@@ -46,6 +46,7 @@ export function Keyboard(props) {
           />
         )}
       </DimensionsProvider>
+      <NoteLabels />
     </>
   )
 }
