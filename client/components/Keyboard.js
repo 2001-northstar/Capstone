@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {Piano, KeyboardShortcuts, MidiNumbers} from 'react-piano'
 import NoteContainer from './NoteContainer'
+import LessonOneContainer from './LessonOneContainer'
 //import 'react-piano/dist/styles.css'
 
 import DimensionsProvider from './DimensionsProvider'
@@ -25,7 +26,8 @@ const keyboardShortcuts = KeyboardShortcuts.create({
 export function Keyboard(props) {
   return (
     <>
-      <NoteContainer />
+      {/* <NoteContainer /> */}
+      <LessonOneContainer />
       <DimensionsProvider>
         {({containerWidth, containerHeight}) => (
           <SoundfontProvider

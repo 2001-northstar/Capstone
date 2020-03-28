@@ -4,13 +4,7 @@ const LessonGIF = require('./lessonGIF')
 const Exercise = require('./exercise')
 const AudioFile = require('./audioFile')
 const Progress = require('./progress')
-
-/**
- * If we had any associations to make, this would be a great place to put them!
- * ex. if we had another model called BlogPost, we might say:
- *
- *    BlogPost.belongsTo(User)
- */
+const Step = require('./step')
 
 User.belongsToMany(Lesson, {through: Progress})
 Lesson.belongsToMany(User, {through: Progress})
@@ -20,6 +14,9 @@ Exercise.belongsToMany(User, {through: Progress})
 
 Lesson.hasMany(LessonGIF)
 LessonGIF.belongsTo(Lesson)
+
+Lesson.hasMany(Step)
+Step.belongsTo(Lesson)
 
 Lesson.hasMany(Exercise)
 Exercise.belongsTo(Lesson)
@@ -39,6 +36,7 @@ module.exports = {
   LessonGIF,
   Exercise,
   AudioFile,
-  Progress
+  Progress,
+  Step
   // SheetMusic
 }
