@@ -18,7 +18,7 @@ const Navbar = ({handleClick, isLoggedIn}) => (
           <Link to="/">Free Play</Link>
           <Link to="/lesson">Lessons</Link>
           <Link to="/songs">Song Book</Link>
-          <Link to="/userAnalytics">User Analytics</Link>
+          <Link to="/useranalytics">Analytics</Link>
         </div>
       ) : (
         <div>

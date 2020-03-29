@@ -35,7 +35,7 @@ class Routes extends Component {
             {/* Routes placed here are only available after logging in */}
             <Route path="/home" component={UserHome} />
             <Route exact path="/" component={Keyboard} />
-            <Route exact path="/home/user" component={UserAnalytics} />
+            <Route exact path="/useranalytics" component={UserAnalytics} />
             <Route exact path="/lesson" component={Lesson} />
           </Switch>
         )}
