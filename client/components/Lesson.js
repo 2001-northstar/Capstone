@@ -3,7 +3,7 @@
 
 //need to decide on how to move to an exercise at the end of a steps array, & then how to move to next lesson
 
-import React from 'react'
+import React, {useEffect} from 'react'
 import ReactDOM from 'react-dom'
 import {useDispatch, useSelector} from 'react-redux'
 import LessonOneContainer from './LessonOneContainer'
@@ -27,19 +27,11 @@ const keyboardShortcuts = KeyboardShortcuts.create({
   keyboardConfig: KeyboardShortcuts.HOME_ROW
 })
 
-const dispatch = useDispatch()
-const {lesson, step} = useSelector(state => {
-  return {
-    lesson: state.lesson,
-    step: state.step
-  }
-})
-
 export default function Lesson(props) {
   const dispatch = useDispatch()
 
-  const {lessons, user} = useSelector(state => {
-    return {lessons: state.lessons, user: state.user}
+  const {lessons, user, step} = useSelector(state => {
+    return {lesson: state.lesson, user: state.user, step: state.step}
   })
 
   useEffect(() => {
