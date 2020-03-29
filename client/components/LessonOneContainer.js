@@ -1,5 +1,4 @@
 //need to advance through steps in array loaded from lesson
-//write hook to re render new text
 
 import React, {useEffect, useState} from 'react' // don't forget to import useEffect
 import {Link} from 'react-router-dom'
@@ -41,7 +40,6 @@ const LessonOneContainer = props => {
   //   return <div>No Lesson Found</div>
   // }
 
-  //don't render note labels until step 2 just to try it. or leave it i don't care
   const handleNext = () => {
     dispatch(setStep(steps[++currentStep]))
     //setStep(++stepNum)
