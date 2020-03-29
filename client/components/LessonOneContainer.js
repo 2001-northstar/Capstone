@@ -5,15 +5,14 @@ import React, {useEffect, useState} from 'react' // don't forget to import useEf
 import {Link} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux' // import redux hooks
 import {fetchSingleLesson} from '../store/lesson'
+import {setStep} from '../store/step'
 import StepOne from './StepOne'
 import StepTwo from './StepTwo'
 import styled from 'styled-components'
 
 const LessonOneContainer = props => {
   // declare dispatch function - always when you need dispatch
-
   const dispatch = useDispatch()
-  let [stepNum, setStep] = useState(1)
 
   // just like map state to props but assigning to a const variable
   const {lesson, step} = useSelector(state => {
@@ -23,26 +22,35 @@ const LessonOneContainer = props => {
     }
   })
 
-  // just like component did mount
+  //just like component did mount
   useEffect(() => {
-    dispatch(fetchSingleLesson(1))
+    dispatch(fetchSingleLesson(props.match.params.id))
   }, [])
 
-  if (!lesson) {
-    return <div>No Lesson Found</div>
-  }
+  const steps = lesson.steps.map(step => ({
+    text: step.text,
+    noteLabels: step.noteLabels,
+    highlightedNotes: step.highlightedNotes
+  }))
+
+  let currentStep = 0
+  dispatch(setStep(steps[0]))
+  //let [stepNum, setStep] = useState(1)
+
+  // if (!lesson) {
+  //   return <div>No Lesson Found</div>
+  // }
 
   //don't render note labels until step 2 just to try it. or leave it i don't care
   const handleNext = () => {
-    setStep(++stepNum)
-    //fetchStep(props.stepNum?)
-    //Can we dispatch here? Do we need useEffect here as well? -- sure can. just gotta map fetchstep to props & import it ^
+    dispatch(setStep(steps[++currentStep]))
+    //setStep(++stepNum)
   }
 
   return (
     <>
       <div id="lesson-one-container">
-        {/* possibly just step.text hooked to state change */}
+        {step.text}
         {/* {step === 1 ? (
           <StepOne lesson={lesson} />
         ) : step === 2 ? (

@@ -5,8 +5,9 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 import user from './user'
 import lesson from './lesson'
 import lessons from './lessons'
+import step from './step'
 
-const reducer = combineReducers({user, lessons, lesson})
+const reducer = combineReducers({user, lessons, lesson, step})
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
 )

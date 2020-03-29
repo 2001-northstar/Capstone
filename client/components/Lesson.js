@@ -1,6 +1,3 @@
-//need to connect to store - step.higlighted notes & step.noteLables mapped to props
-//write hooks to change notelabels component to render or not
-//write hooks to re-render keyboard with higlighted notes or not
 //need to update lesson & steps models
 //need to seed file
 
@@ -8,6 +5,7 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
+import {useDispatch, useSelector} from 'react-redux'
 import LessonOneContainer from './LessonOneContainer'
 import NoteLabels from './NoteLabels'
 import DimensionsProvider from './DimensionsProvider'
@@ -28,7 +26,13 @@ const keyboardShortcuts = KeyboardShortcuts.create({
   keyboardConfig: KeyboardShortcuts.HOME_ROW
 })
 
-let highlightedNotes = []
+const dispatch = useDispatch()
+const {lesson, step} = useSelector(state => {
+  return {
+    lesson: state.lesson,
+    step: state.step
+  }
+})
 
 export default function Lesson(props) {
   return (
@@ -45,7 +49,7 @@ export default function Lesson(props) {
               <Piano
                 noteRange={noteRange}
                 width={containerWidth}
-                highlightedNotes={highlightedNotes}
+                highlightedNotes={step.highlightedNotes}
                 playNote={playNote}
                 stopNote={stopNote}
                 disabled={isLoading}
@@ -56,7 +60,7 @@ export default function Lesson(props) {
           />
         )}
       </DimensionsProvider>
-      <NoteLabels />
+      {step.noteLabels ? <NoteLabels /> : null}
     </>
   )
 }
