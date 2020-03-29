@@ -36,7 +36,6 @@ export function Keyboard(props) {
             hostname={soundfontHostname}
             render={({isLoading, playNote, stopNote}) => (
               <Piano
-                // midiNumber={midiNumber}
                 noteRange={noteRange}
                 width={containerWidth}
                 playNote={playNote}

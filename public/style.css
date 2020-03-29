@@ -4,16 +4,66 @@ body {
 .fixed {
   display: flex;
   height: 300px;
-  background: #f00;
   overflow: hidden;
 }
 
-.noteContainer {
+/* .noteContainer {
   width: 100%;
   display: flex;
   overflow: hidden;
   max-height: 300px;
+  flex-wrap: wrap-reverse;
+  align-content: flex-start;
   border: 1px solid black;
+}
+
+._48 {
+  width: 100%;
+  height: 100px;
+  border: 1px solid black;
+}
+
+._50 {
+  width: 100%;
+  height: 100px;
+  border: 1px solid limegreen;
+} */
+.noteContainer {
+  width: 100%;
+  overflow: hidden;
+  max-height: 400px;
+  border: 1px solid black;
+}
+
+._48 {
+  width: calc(100% / 11);
+  position: relative;
+  left: 0;
+  height: 100px;
+  background-color: black;
+}
+
+._50 {
+  width: calc(100% / 11);
+  position: relative;
+  left: calc(100% / 11);
+  height: 100px;
+  background-color: black;
+}
+._52 {
+  width: calc(100% / 11);
+  position: relative;
+  left: calc(2 * (100% / 11));
+  height: 100px;
+  background-color: black;
+}
+
+._53 {
+  width: calc(100% / 11);
+  position: relative;
+  left: calc(3 * (100% / 11));
+  height: 100px;
+  background-color: black;
 }
 
 .lane1 {
@@ -109,7 +159,11 @@ body {
   background-color: slateblue;
 }
 
-/* .D3 { */
+.D3 {
+  height: 100px;
+  margin-right: 1px;
+  background-color: green;
+}
 /* width: 9.1%;
   height: 100px;
   margin-right: 1px;
