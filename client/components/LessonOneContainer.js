@@ -46,25 +46,24 @@ const LessonOneContainer = props => {
   }
 
   return (
-    <>
-      <div id="lesson-one-container">
-        {step.text}
-        {/* {step === 1 ? (
+    <div id="lesson-one-container">
+      {step.text}
+      {/* {step === 1 ? (
           <StepOne lesson={lesson} />
         ) : step === 2 ? (
           <StepTwo lesson={lesson} />
         ) : (
           <div>Got Nothing</div>
         )} */}
-        <button
-          type="button"
-          onClick={handleNext}
-          className="btn btn-primary btn-lg btn-block"
-        >
-          Next
-        </button>
-      </div>
-    </>
+      <button
+        type="button"
+        onClick={handleNext}
+        className="btn btn-primary btn-lg btn-block"
+      >
+        Next
+      </button>{' '}
+      */}
+    </div>
   )
 }
 
