@@ -8,6 +8,7 @@ import {
   UserHome,
   Keyboard,
   Lesson,
+  AllLessons,
   UserAnalytics
 } from './components'
 import {me} from './store'
@@ -29,14 +30,14 @@ class Routes extends Component {
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route exact path="/" component={Keyboard} />
-        <Route exact path="/lesson" component={Lesson} />
+        <Route path="/lesson" component={AllLessons} />
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
             <Route path="/home" component={UserHome} />
             <Route exact path="/" component={Keyboard} />
             <Route exact path="/useranalytics" component={UserAnalytics} />
-            <Route exact path="/lesson" component={Lesson} />
+            <Route path="/lesson" component={AllLessons} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}

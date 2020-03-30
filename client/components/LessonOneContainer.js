@@ -17,24 +17,25 @@ const LessonOneContainer = props => {
   const {lesson, step} = useSelector(state => {
     return {
       lesson: state.lesson,
-      step: state.step
+      step: state.step // This looks superfluous?
     }
   })
 
   //just like component did mount
-  useEffect(() => {
-    dispatch(fetchSingleLesson(props.match.params.id))
-  }, [])
+  // useEffect(() => {
+  //   dispatch(fetchSingleLesson(props.match.params.id))
+  // }, [])
 
-  const steps = lesson.steps.map(step => ({
-    text: step.content,
-    noteLabels: step.noteLabels,
-    highlightedNotes: step.highlightedNotes
-  }))
-
-  let currentStep = 0
-  dispatch(setStep(steps[0]))
-  //let [stepNum, setStep] = useState(1)
+  if (lesson.steps) {
+    const steps = lesson.steps.map(st => ({
+      text: st.content,
+      noteLabels: st.noteLabels,
+      highlightedNotes: st.highlightedNotes
+    }))
+    let currentStep = 0
+    dispatch(setStep(steps[0]))
+    //let [stepNum, setStep] = useState(1)
+  }
 
   // if (!lesson) {
   //   return <div>No Lesson Found</div>
