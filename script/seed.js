@@ -26,12 +26,12 @@ async function seed() {
     {
       name: 'Keys',
       overview: 'Learn what keys are.',
-      content: 'You can tell that it is a key, cause of the way that it is.'
+      numOfSteps: 7
     },
     {
       name: 'Scales',
       overview: 'Learn what a scale is.',
-      content: 'You can tell that it is a scale, cause of the way that it is.'
+      numOfSteps: 0
     }
   ])
 
