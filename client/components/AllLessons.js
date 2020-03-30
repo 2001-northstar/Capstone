@@ -15,15 +15,12 @@ const AllLessons = () => {
     dispatch(fetchLessons())
   }, [])
 
-  console.log('LESSONS: ', lessons)
-  console.log('USERS: ', user)
-
   return (
     <div className="lessons-container">
       <ul className="list-group">
         {lessons.map(lesson => (
           <div key={lesson.id}>
-            <Link to={`/lessons/${lesson.id}`}>
+            <Link to={`/lesson/${lesson.id}`}>
               <li className="list-group-item">{lesson.name}</li>
             </Link>
           </div>
