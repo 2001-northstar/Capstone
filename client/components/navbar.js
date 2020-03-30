@@ -5,8 +5,8 @@ import {Link} from 'react-router-dom'
 import {logout} from '../store'
 
 const Navbar = ({handleClick, isLoggedIn}) => (
-  <div>
-    <h1>OUR UNNAMED PIANO LESSONS CAPSTONE</h1>
+  <nav className="navbar navbar-primary bg-light sticky-top">
+    <h1>O P U S</h1>
     <nav>
       {isLoggedIn ? (
         <div>
@@ -31,7 +31,7 @@ const Navbar = ({handleClick, isLoggedIn}) => (
       )}
     </nav>
     <hr />
-  </div>
+  </nav>
 )
 
 /**

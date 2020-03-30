@@ -13,9 +13,6 @@ const Exercise = db.define('exercise', {
   content: {
     type: Sequelize.TEXT,
     allowNull: false
-  },
-  notes: {
-    type: Sequelize.ARRAY(Sequelize.INTEGER)
   }
 })
 

@@ -5,7 +5,6 @@ const Exercise = require('./exercise')
 const AudioFile = require('./audioFile')
 const Progress = require('./progress')
 const Step = require('./step')
-const Song = require('./song')
 
 User.belongsToMany(Lesson, {through: Progress})
 Lesson.belongsToMany(User, {through: Progress})
@@ -38,7 +37,6 @@ module.exports = {
   Exercise,
   AudioFile,
   Progress,
-  Step,
-  Song
+  Step
   // SheetMusic
 }
