@@ -1,42 +1,46 @@
-import React, {useEffect} from 'react' // don't forget to import useEffect
-import {Link} from 'react-router-dom'
+import React from 'react'
 import {useDispatch, useSelector} from 'react-redux' // import redux hooks
-import {fetchSingleLesson} from '../store/lesson'
-import StepOne from './StepOne'
+import {setStep} from '../store'
 import styled from 'styled-components'
 
 const LessonOneContainer = props => {
   // declare dispatch function - always when you need dispatch
-
   const dispatch = useDispatch()
 
   // just like map state to props but assigning to a const variable
-  const {lesson} = useSelector(state => {
+  const {step} = useSelector(state => {
     return {
-      lesson: state.lesson
+      step: state.step
     }
   })
 
-  // just like component did mount
-  useEffect(() => {
-    dispatch(fetchSingleLesson(1))
-  }, [])
+  if (!props.lesson.steps) props.lesson.steps = []
 
-  if (!lesson) {
-    return <div>No Lesson Found</div>
+  let steps = []
+  if (props.lesson.steps.length) {
+    steps = props.lesson.steps.map((st, idx) => ({
+      text: st.content,
+      noteLabels: st.noteLabels,
+      highlightedNotes: st.highlightedNotes,
+      index: idx
+    }))
   }
 
-  const handleNext = () => {}
+  const handleNext = () => {
+    dispatch(setStep(steps[++step.index]))
+  }
 
   return (
-    <>
-      <div id="notes">
-        <StepOne lesson={lesson} />
-        <button type="button" onClick={handleNext} className="btn btn-primary">
-          Next
-        </button>
-      </div>
-    </>
+    <div id="lesson-one-container">
+      {step.text}
+      <button
+        type="button"
+        onClick={handleNext}
+        className="btn btn-primary btn-lg btn-block"
+      >
+        Next
+      </button>{' '}
+    </div>
   )
 }
 
