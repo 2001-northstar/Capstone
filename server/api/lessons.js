@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const {Lesson, Exercise} = require('../db/models')
+const {Lesson, Step} = require('../db/models')
 module.exports = router
 
 router.get('/', async (req, res, next) => {
@@ -14,7 +14,7 @@ router.get('/', async (req, res, next) => {
 router.get('/:lessonId', async (req, res, next) => {
   try {
     const singleLesson = await Lesson.findByPk(req.params.lessonId, {
-      include: [Exercise]
+      include: [Step]
     })
     res.json(singleLesson)
   } catch (err) {

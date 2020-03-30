@@ -49,6 +49,32 @@ body {
   border-radius: 5px;
 }
 
+#lesson-one-container {
+  height: 25em;
+  display: inline-block;
+  border: 1px solid black;
+}
+
+#noteLabelContainer {
+  width: 100%;
+  display: flex;
+  height: 100%;
+}
+
+.noteLabel {
+  display: flex;
+  flex-direction: column-reverse;
+  width: calc(100% / 11);
+  text-align: center;
+  font-family: Parkavenue, cursive;
+  color: darkblue;
+  font-size: 20px;
+}
+
+svg {
+  height: 100%;
+}
+
 a {
   text-decoration: none;
 }
