@@ -14,11 +14,19 @@ const AllLessons = () => {
   useEffect(() => {
     dispatch(fetchLessons())
   }, [])
+
+  return (
+    <div className="lessons-container">
+      <ul className="list-group">
+        {lessons.map(lesson => (
+          <div key={lesson.id}>
+            <Link to={`/lesson/${lesson.id}`}>
+              <li className="list-group-item">{lesson.name}</li>
+            </Link>
+          </div>
+        ))}
+      </ul>
+    </div>
+  )
 }
-
 export default AllLessons
-
-const DefaultDiv = styled.div`
-  max-width: 18rem;
-  max-height: 25rem;
-`

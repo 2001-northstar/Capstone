@@ -10,14 +10,10 @@ const Lesson = db.define('lesson', {
     type: Sequelize.TEXT,
     allowNull: false
   },
-  content: {
-    type: Sequelize.TEXT,
+  numOfSteps: {
+    type: Sequelize.INTEGER,
     allowNull: false
   }
-  // completed: {
-  //   type: Sequelize.BOOLEAN,
-  //   defaultValue: false
-  // }  // ON THE THRU TABLE?
 })
 
 module.exports = Lesson
