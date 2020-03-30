@@ -1,12 +1,6 @@
-//need to advance through steps in array loaded from lesson
-
-import React, {useEffect, useState} from 'react' // don't forget to import useEffect
-import {Link} from 'react-router-dom'
+import React from 'react'
 import {useDispatch, useSelector} from 'react-redux' // import redux hooks
-import {fetchSingleLesson} from '../store/lesson'
-import {setStep, SET_STEP} from '../store/step'
-import StepOne from './StepOne'
-import StepTwo from './StepTwo'
+import {setStep} from '../store'
 import styled from 'styled-components'
 
 const LessonOneContainer = props => {
