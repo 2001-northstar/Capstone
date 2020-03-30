@@ -1,11 +1,13 @@
+//need to connect to store - step.higlighted notes & step.noteLables mapped to props
+//write hooks to change notelabels component to render or not
+//write hooks to re-render keyboard with higlighted notes or not
 //need to update lesson & steps models
 //need to seed file
 
 //need to decide on how to move to an exercise at the end of a steps array, & then how to move to next lesson
 
-import React, {useEffect} from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
-import {useDispatch, useSelector} from 'react-redux'
 import LessonOneContainer from './LessonOneContainer'
 import NoteLabels from './NoteLabels'
 import DimensionsProvider from './DimensionsProvider'
@@ -27,15 +29,17 @@ const keyboardShortcuts = KeyboardShortcuts.create({
   keyboardConfig: KeyboardShortcuts.HOME_ROW
 })
 
+let highlightedNotes = []
+
 export default function Lesson(props) {
   const dispatch = useDispatch()
 
-  const {lessons, user, step} = useSelector(state => {
-    return {lesson: state.lesson, user: state.user, step: state.step}
+  const {lessons, user} = useSelector(state => {
+    return {lessons: state.lessons, user: state.user}
   })
 
   useEffect(() => {
-    dispatch(fetchSingleLesson())
+    dispatch(fetchSingleLesson(props.match.params.id))
   }, [])
 
   //How do we pull the right lesson number? Reference the User or match params?
@@ -54,7 +58,7 @@ export default function Lesson(props) {
               <Piano
                 noteRange={noteRange}
                 width={containerWidth}
-                highlightedNotes={step.highlightedNotes}
+                highlightedNotes={highlightedNotes}
                 playNote={playNote}
                 stopNote={stopNote}
                 disabled={isLoading}
@@ -65,7 +69,7 @@ export default function Lesson(props) {
           />
         )}
       </DimensionsProvider>
-      {step.noteLabels ? <NoteLabels /> : null}
+      <NoteLabels />
     </>
   )
 }

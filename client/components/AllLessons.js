@@ -32,5 +32,4 @@ const AllLessons = () => {
     </div>
   )
 }
-
 export default AllLessons
