@@ -1,5 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react'
 import {gsap, TimelineMax} from 'gsap'
+import Keyboard from './Keyboard'
 
 const NoteContainer = props => {
   let _48 = useRef(null)
@@ -60,6 +61,7 @@ const NoteContainer = props => {
           <div className="_48" ref={el => (_48 = el)} />
         </div>
       </div>
+      <Keyboard />
     </>
   )
 }
