@@ -4,7 +4,7 @@ import axios from 'axios'
 
 const SET_STEP = 'SET_STEP'
 
-const setStep = step => ({
+export const setStep = step => ({
   type: SET_STEP,
   step
 })
@@ -14,7 +14,8 @@ const setStep = step => ({
 const initialState = {
   text: '',
   noteLabels: false,
-  highlightedNotes: []
+  highlightedNotes: [],
+  index: 0
 }
 
 export default (state = initialState, action) => {
