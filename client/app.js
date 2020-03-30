@@ -19,7 +19,6 @@ export default App
 const Content = styled.div`
   text-align: left;
   color: #000000;
-  background-color: aqua;
   padding-top: 15px;
   padding-bottom: 15px;
   padding-right: 15px;

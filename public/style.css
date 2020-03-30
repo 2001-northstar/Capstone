@@ -1,11 +1,52 @@
 body {
   font-family: sans-serif;
 }
-
-#notes {
-  height: 25em;
+.fixed {
   display: flex;
-  border: 1px solid black;
+  height: 400px;
+  overflow: hidden;
+}
+
+.noteContainer {
+  width: 100%;
+  overflow: hidden;
+  max-height: 400px;
+  /* border: 1px solid black; */
+}
+
+._48 {
+  width: calc(100% / 11);
+  position: relative;
+  left: 0;
+  height: 100px;
+  background-color: salmon;
+  border-radius: 5px;
+}
+
+._50 {
+  width: calc(100% / 11);
+  position: relative;
+  left: calc(100% / 11);
+  height: 100px;
+  background-color: salmon;
+  border-radius: 5px;
+}
+._52 {
+  width: calc(100% / 11);
+  position: relative;
+  left: calc(2 * (100% / 11));
+  height: 100px;
+  background-color: salmon;
+  border-radius: 5px;
+}
+
+._53 {
+  width: calc(100% / 11);
+  position: relative;
+  left: calc(3 * (100% / 11));
+  height: 100px;
+  background-color: salmon;
+  border-radius: 5px;
 }
 
 #lesson-one-container {
@@ -55,38 +96,6 @@ form div {
 #canvas {
   border: 1px solid black;
 }
-
-/* #keyboard {
-  position: absolute;
-  height: 200px;
-  top: calc(50% - 100px);
-  left: calc(50% - 350px);
-  overflow: hidden;
-  box-shadow: 0 9px #999;
-}
-
-.whitenote {
-  height: 100%;
-  width: 50px;
-  background: #414157;
-  float: left;
-  border-right: 1px solid #dbd8c5;
-  position: relative;
-}
-.whitenote:hover {
-  background-color: #878f99;
-}
-.blacknote {
-  position: absolute;
-  height: 65%;
-  width: 55%;
-  z-index: 1;
-  background: linear-gradient(white, #dbd8c5);
-  left: 68%;
-}
-.blacknote:hover {
-  background-color: #878f99;
-} */
 
 .ReactPiano__Keyboard {
   /* Used for absolute positioning of .ReactPiano__Key--accidental elements */
