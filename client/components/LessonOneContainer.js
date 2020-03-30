@@ -27,7 +27,7 @@ const LessonOneContainer = props => {
   }, [])
 
   const steps = lesson.steps.map(step => ({
-    text: step.text,
+    text: step.content,
     noteLabels: step.noteLabels,
     highlightedNotes: step.highlightedNotes
   }))
