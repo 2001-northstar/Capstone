@@ -1,7 +1,7 @@
 'use strict'
 
 const db = require('../server/db')
-const {User, Lesson, Step} = require('../server/db/models')
+const {User, Lesson, Step, Song} = require('../server/db/models')
 
 async function seed() {
   await db.sync({force: true})
@@ -87,9 +87,24 @@ async function seed() {
     }
   ])
 
+  const songs = await Song.bulkCreate([
+    {
+      title: 'song one',
+      notes: [48, 50, 52, 53]
+    },
+    {
+      title: 'song two',
+      notes: [48, 50, 52, 53, 48, 50]
+    },
+    {
+      title: 'song three',
+      notes: [48, 50, 52, 53, 55, 57]
+    }
+  ])
+
   console.log(`seeded ${users.length} users`)
   console.log(`seeded ${lessons.length} lessons`)
-  console.log(`seeded successfully`)
+  console.log(`seeded ${songs.length} songs successfully`)
 }
 
 // We've separated the `seed` function from the `runSeed` function.

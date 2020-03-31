@@ -1,6 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react'
 import {gsap, TimelineMax} from 'gsap'
 import Keyboard from './Keyboard'
+import {useDispatch, mapDispatch} from 'react-redux'
 
 // using song data from backend
 // in backwards order, need to reverse
@@ -21,17 +22,30 @@ const NoteContainer = props => {
 
   useEffect(
     () => {
-      setClickAnimation(
-        tl
-          .to(refArray.slice(counter, 4 + counter), 1, {
-            ease: 'none',
-            top: 100 * counter
-          })
-          // .to(_52, 1, {ease: 'none', top: 100})
-          // .to(_50, 1, {ease: 'none', top: 100})
-          // .to(_53, 1, {ease: 'none', top: 100})
-          .addPause()
-      )
+      for (let i = 0; i < song.length; i++) {
+        setClickAnimation(
+          tl
+            .to(refArray.slice(i, 4 + i), 1, {
+              ease: 'none',
+              top: 100 * i
+            })
+            // .to(_52, 1, {ease: 'none', top: 100})
+            // .to(_50, 1, {ease: 'none', top: 100})
+            // .to(_53, 1, {ease: 'none', top: 100})
+            .addPause()
+        )
+      }
+      // setClickAnimation(
+      //   tl
+      //     .to(refArray.slice(counter, 4 + counter), 1, {
+      //       ease: 'none',
+      //       top: 100 * counter
+      //     })
+      //     // .to(_52, 1, {ease: 'none', top: 100})
+      //     // .to(_50, 1, {ease: 'none', top: 100})
+      //     // .to(_53, 1, {ease: 'none', top: 100})
+      //     .addPause()
+      // )
       setCounter(counter + 1)
       setNotes(song.slice(counter, 4 + counter))
       // setClickAnimation(
@@ -59,11 +73,11 @@ const NoteContainer = props => {
       // .to(_50, 1, {ease: 'none', top: 400})
       // .to(_53, 1, {ease: 'none', top: 400})
       // .addPause()
+      console.log('notes', currentNotes)
     },
     [tl]
   )
-  console.log('counter', counter)
-  console.log('notes', currentNotes)
+
   return (
     <>
       <div className="container">
@@ -77,7 +91,11 @@ const NoteContainer = props => {
       <div className="fixed">
         <div className="noteContainer">
           {song.map((element, idx) => (
-            <div className={`_${element}`} ref={el => (refArray[idx] = el)} />
+            <div
+              key={`${idx}`}
+              className={`_${element}`}
+              ref={el => (refArray[idx] = el)}
+            />
           ))}
           {/* <div className="_48" ref={el => (_48 = el)} />
           <div className="_53" ref={el => (_53 = el)} />
