@@ -4,7 +4,7 @@
 // on keyboard:
 // callback that sets state, pass to piano as props
 
-import React from 'react'
+import React, {useState} from 'react'
 import ReactDOM from 'react-dom'
 import {Piano, KeyboardShortcuts, MidiNumbers} from 'react-piano'
 import {
@@ -28,12 +28,11 @@ const keyboardShortcuts = KeyboardShortcuts.create({
   keyboardConfig: KeyboardShortcuts.HOME_ROW
 })
 
-let toggleOn = true
-const handleKeyboardLabel = () => {
-  toggleOn = !toggleOn
-}
-
 export default function Keyboard(props) {
+  const [toggleOn, toggle] = useState(true)
+  const handleKeyboardLabel = () => {
+    toggle(!toggleOn)
+  }
   return (
     <>
       {/* <NoteContainer /> */}
@@ -54,7 +53,7 @@ export default function Keyboard(props) {
                 playNote={playNote}
                 stopNote={stopNote}
                 disabled={isLoading}
-                keyboardShortcuts={toggleOn ? keyboardShortcuts : {}}
+                keyboardShortcuts={toggleOn ? keyboardShortcuts : []}
                 {...props}
               />
             )}
