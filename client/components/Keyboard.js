@@ -1,5 +1,5 @@
-// in react piano:
-// write handle key down: call callback with event
+// in react piano piano:
+// write handle key down: call callback with active notes
 
 // on keyboard:
 // callback that sets state, pass to piano as props
@@ -28,10 +28,19 @@ const keyboardShortcuts = KeyboardShortcuts.create({
   keyboardConfig: KeyboardShortcuts.HOME_ROW
 })
 
+let toggleOn = true
+const handleKeyboardLabel = () => {
+  toggleOn = !toggleOn
+}
+
 export default function Keyboard(props) {
   return (
     <>
       {/* <NoteContainer /> */}
+      <button type="button" onClick={handleKeyboardLabel}>
+        {toggleOn ? 'Hide Keyboard Labels' : 'Show Keyboard Labels'}
+      </button>
+      {/* <input type="checkbox" {toggleOn ? "checked" : null} data-toggle="toggle"/> */}
       <DimensionsProvider>
         {({containerWidth, containerHeight}) => (
           <SoundfontProvider
@@ -45,7 +54,7 @@ export default function Keyboard(props) {
                 playNote={playNote}
                 stopNote={stopNote}
                 disabled={isLoading}
-                keyboardShortcuts={keyboardShortcuts}
+                keyboardShortcuts={toggleOn ? keyboardShortcuts : {}}
                 {...props}
               />
             )}
