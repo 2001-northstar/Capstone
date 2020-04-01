@@ -21,12 +21,14 @@ const AllLessons = () => {
         <DefaultDiv key={lesson.id}>
           <div className="col">
             <div className="card text-center">
-              <img
-                src="https://www.svgrepo.com/show/72278/piano.svg"
-                className="card-img mx-10 my-10"
-                height="100em"
-                width="100em"
-              />
+              <Link to={`/lesson/${lesson.id}`}>
+                <img
+                  src="https://www.svgrepo.com/show/72278/piano.svg"
+                  className="card-img mx-10 my-10"
+                  height="100em"
+                  width="100em"
+                />
+              </Link>
               <div className="card-body">
                 <Link to={`/lesson/${lesson.id}`}>
                   <h2 className="card-title">{lesson.name}</h2>
