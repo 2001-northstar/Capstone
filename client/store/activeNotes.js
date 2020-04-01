@@ -17,7 +17,7 @@ const initialState = []
 export default (state = initialState, action) => {
   switch (action.type) {
     case SET_ACTIVE_NOTE:
-      return state.push(action.activeNote)
+      return [...state, action.activeNote]
     default:
       return state
   }

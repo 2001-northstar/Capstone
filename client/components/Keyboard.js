@@ -6,6 +6,7 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
+import {useDispatch, useSelector} from 'react-redux'
 import {Piano, KeyboardShortcuts, MidiNumbers} from 'react-piano'
 import {
   NoteContainer,
@@ -13,6 +14,7 @@ import {
   SoundfontProvider
 } from '../components'
 import {Dropdown} from 'react-bootstrap'
+import {setActiveNote} from '../store/activeNotes'
 
 // webkitAudioContext fallback needed to support Safari
 const audioContext = new (window.AudioContext || window.webkitAudioContext)()
@@ -29,6 +31,23 @@ const keyboardShortcuts = KeyboardShortcuts.create({
 })
 
 export default function Keyboard(props) {
+  const dispatch = useDispatch()
+  const activeNote = useSelector(state => state.activeNotes)
+
+  const handlePlayNote = activeNoteNumber => {
+    console.log(
+      "in Keyboard component's `handlePlayNote`, here's the current active midi number: ",
+      activeNoteNumber
+    )
+    //    setActiveNote(activeNoteNumber)
+    dispatch(setActiveNote(activeNoteNumber))
+  }
+
+  console.log(
+    "in the Keyboard component, here is the active note's midi number: ",
+    activeNote
+  )
+
   return (
     <>
       {/* <NoteContainer /> */}
@@ -38,6 +57,7 @@ export default function Keyboard(props) {
             instrumentName="acoustic_grand_piano"
             audioContext={audioContext}
             hostname={soundfontHostname}
+            handlePlayNote={handlePlayNote}
             render={({isLoading, playNote, stopNote}) => (
               <Piano
                 noteRange={noteRange}
