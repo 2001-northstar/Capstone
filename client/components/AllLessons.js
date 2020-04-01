@@ -16,17 +16,35 @@ const AllLessons = () => {
   }, [])
 
   return (
-    <div className="lessons-container">
-      <ul className="list-group">
-        {lessons.map(lesson => (
-          <div key={lesson.id}>
-            <Link to={`/lesson/${lesson.id}`}>
-              <li className="list-group-item">{lesson.name}</li>
-            </Link>
+    <div className="row">
+      {lessons.map(lesson => (
+        <DefaultDiv key={lesson.id}>
+          <div className="col">
+            <div className="card text-center">
+              <Link to={`/lesson/${lesson.id}`}>
+                <img
+                  src="https://www.svgrepo.com/show/72278/piano.svg"
+                  className="card-img mx-10 my-10"
+                  height="100em"
+                  width="100em"
+                />
+              </Link>
+              <div className="card-body">
+                <Link to={`/lesson/${lesson.id}`}>
+                  <h2 className="card-title">{lesson.name}</h2>
+                </Link>
+                <p className="card-text">{lesson.overview}</p>
+              </div>
+            </div>
           </div>
-        ))}
-      </ul>
+        </DefaultDiv>
+      ))}
     </div>
   )
 }
 export default AllLessons
+
+const DefaultDiv = styled.div`
+  width: 50%;
+  height: 50%;
+`
