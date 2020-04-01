@@ -3,11 +3,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 
 const SingleExercise = props => {
-  return <></>
+  return <div>This would be an exercise.</div>
 }
 
-const mapState = state => ({
-  lesson: state.lesson
-})
-
-export default connect(mapState)(SingleExercise)
+export default SingleExercise
