@@ -16,21 +16,28 @@ const AllLessons = () => {
   }, [])
 
   return (
-    <div className="lessons-container">
+    <div className="row">
       {lessons.map(lesson => (
-        <div key={lesson.id}>
-          <div className="card mb-3">
-            <img src="..." className="card-img-top" />
-            <div className="card-body">
-              <Link to={`/lesson/${lesson.id}`}>
-                <div className="card-title">{lesson.name}</div>
-              </Link>
-              <p className="card-text">{lesson.overview}</p>
+        <DefaultDiv key={lesson.id}>
+          <div className="col-md">
+            <div className="card mb-3">
+              <img src="..." className="card-img-top" />
+              <div className="card-body">
+                <Link to={`/lesson/${lesson.id}`}>
+                  <h5 className="card-title">{lesson.name}</h5>
+                </Link>
+                <p className="card-text">{lesson.overview}</p>
+              </div>
             </div>
           </div>
-        </div>
+        </DefaultDiv>
       ))}
     </div>
   )
 }
 export default AllLessons
+
+const DefaultDiv = styled.div`
+  width: 50%;
+  height: 50%;
+`
