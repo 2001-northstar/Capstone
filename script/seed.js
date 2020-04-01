@@ -52,7 +52,7 @@ async function seed() {
     },
     {
       content:
-        'If you look closely, you’ll realize that the same 7 notes are repeated over and over. These notes are:\n A B C D E F G\nWhether it’s a teeny little keyboard like the one here, or a full-sized grand piano, the pattern of the notes is the same: A B C D E F G looped over and over again. Easy, right?\nWhen you are ready to move on, just click the Next button!',
+        'If you look closely, you’ll realize that the same 7 notes are repeated over and over. These notes are:\nA B C D E F G\nWhether it’s a teeny little keyboard like the one here, or a full-sized grand piano, the pattern of the notes is the same: A B C D E F G looped over and over again. Easy, right?\nWhen you are ready to move on, just click the Next button!',
       highlightedNotes: [],
       noteLabels: true,
       lessonId: 1
@@ -89,6 +89,7 @@ async function seed() {
 
   console.log(`seeded ${users.length} users`)
   console.log(`seeded ${lessons.length} lessons`)
+  console.log(`seeded ${steps.length} steps`)
   console.log(`seeded successfully`)
 }
 
