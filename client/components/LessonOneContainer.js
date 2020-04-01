@@ -30,16 +30,34 @@ const LessonOneContainer = props => {
     dispatch(setStep(steps[++step.index]))
   }
 
+  const handlePrevious = () => {
+    dispatch(setStep(steps[--step.index]))
+  }
+
+  const previous = step.index === 0
+  const next = step.index === steps.length - 1
+
   return (
     <div id="lesson-one-container">
       {step.text}
       <button
         type="button"
+        onClick={handlePrevious}
+        className={`btn btn-primary btn-lg btn-block ${
+          previous ? 'disabled' : null
+        }`}
+      >
+        Previous
+      </button>
+      <button
+        type="button"
         onClick={handleNext}
-        className="btn btn-primary btn-lg btn-block"
+        className={`btn btn-primary btn-lg btn-block ${
+          next ? 'disabled' : null
+        }`}
       >
         Next
-      </button>{' '}
+      </button>
     </div>
   )
 }
