@@ -5,14 +5,15 @@ body {
   display: flex;
   height: 400px;
   overflow: hidden;
+  position: relative;
 }
 
-.noteContainer {
+/* .noteContainer {
   width: 100%;
-  overflow: hidden;
+  position: absolute;
   max-height: 400px;
-  /* border: 1px solid black; */
-}
+  border: 1px solid black;
+} */
 
 ._48 {
   width: calc(100% / 11);
@@ -44,6 +45,23 @@ body {
   width: calc(100% / 11);
   position: relative;
   left: calc(3 * (100% / 11));
+  height: 100px;
+  background-color: salmon;
+  border-radius: 5px;
+}
+
+._55 {
+  width: calc(100% / 11);
+  position: relative;
+  left: calc(4 * (100% / 11));
+  height: 100px;
+  background-color: salmon;
+  border-radius: 5px;
+}
+._57 {
+  width: calc(100% / 11);
+  position: relative;
+  left: calc(5 * (100% / 11));
   height: 100px;
   background-color: salmon;
   border-radius: 5px;
