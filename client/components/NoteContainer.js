@@ -45,14 +45,9 @@ const NoteContainer = props => {
 
   return (
     <>
-      <div className="container">
-        <button
-          className="btn btn-primary"
-          onClick={() => clickAnimation.play()}
-        >
-          Move Notes Down
-        </button>
-      </div>
+      <button className="btn btn-primary" onClick={() => clickAnimation.play()}>
+        Move Notes Down
+      </button>
       <div className="fixed">
         <div className="noteContainer">
           <div className="_53" ref={el => (_53 = el)} />
