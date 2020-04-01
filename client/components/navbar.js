@@ -4,36 +4,38 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
 
-const Navbar = ({handleClick, isLoggedIn}) => (
-  <nav className="navbar navbar-primary bg-light sticky-top">
-    <h1>O P U S</h1>
-    <nav>
-      {isLoggedIn ? (
-        <div>
-          {/* The navbar will show these links after you log in */}
-          <Link to="/home">Home</Link>
-          <a href="#" onClick={handleClick}>
-            Logout
-          </a>
-          <Link to="/">Free Play</Link>
-          <Link to="/lesson">Lessons</Link>
-          <Link to="/songs">Song Book</Link>
-          <Link to="/useranalytics">Analytics</Link>
-        </div>
-      ) : (
-        <div>
-          {/* The navbar will show these links before you log in */}
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Sign Up</Link>
-          <Link to="/">Free Play</Link>
-          <Link to="/lesson">Lessons</Link>
-          <Link to="/songs">Song Book</Link>
-        </div>
-      )}
+const Navbar = ({handleClick, isLoggedIn}) => {
+  return (
+    <nav className="navbar navbar-primary bg-light sticky-top">
+      <h1>O P U S</h1>
+      <nav>
+        {isLoggedIn ? (
+          <div>
+            {/* The navbar will show these links after you log in */}
+            <Link to="/home">Home</Link>
+            <a href="#" onClick={handleClick}>
+              Logout
+            </a>
+            <Link to="/">Free Play</Link>
+            <Link to="/lesson">Lessons</Link>
+            <Link to="/songs">Song Book</Link>
+            <Link to="/useranalytics">Analytics</Link>
+          </div>
+        ) : (
+          <div>
+            {/* The navbar will show these links before you log in */}
+            <Link to="/login">Login</Link>
+            <Link to="/signup">Sign Up</Link>
+            <Link to="/">Free Play</Link>
+            <Link to="/lesson">Lessons</Link>
+            <Link to="/songs">Song Book</Link>
+          </div>
+        )}
+      </nav>
+      <hr />
     </nav>
-    <hr />
-  </nav>
-)
+  )
+}
 
 /**
  * CONTAINER
