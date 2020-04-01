@@ -24,13 +24,18 @@ async function seed() {
 
   const lessons = await Lesson.bulkCreate([
     {
-      name: 'Keys',
+      name: 'I. The Basics',
       overview: 'Learn what keys are.',
       numOfSteps: 7
     },
     {
-      name: 'Scales',
+      name: 'II. Scales',
       overview: 'Learn what a scale is.',
+      numOfSteps: 6
+    },
+    {
+      name: 'III. Chords',
+      overview: 'Learn what a chords is.',
       numOfSteps: 0
     }
   ])
@@ -84,6 +89,49 @@ async function seed() {
       highlightedNotes: [],
       noteLabels: false,
       lessonId: 1
+    },
+
+    {
+      content:
+        'Let’s get fancy.\nYou may have heard about musical scales. A scale is simply a group of pitches...specifically, an organized group of pitches. Ever been part of ‘the wave’ at Yankee Stadium? Neither have I. But it’s kind of like that, anything is possible with our imaginations.',
+      highlightedNotes: [],
+      noteLabels: false,
+      lessonId: 2
+    },
+    {
+      content:
+        'Scales move in consecutive steps, one after another. Us heavy hitters describe the distance between two notes that are a ‘step’ apart as the interval of a second (2nd). For all intents and purposes, steps and 2nds mean the same thing.\nLook below for an example of a 2nd. Can you use your imagination and identify others on the keyboard?',
+      highlightedNotes: [55, 57],
+      noteLabels: false,
+      lessonId: 2
+    },
+    {
+      content:
+        'We’re about to build our first 5 note scale: an ascending C scale. “What does that even fucking mean” you might ask. Well listen here, you little shit, and let me break this down for you.\n1. Ascending means the pitches are organized from low to high - in other words, we’re travelling by 2nds on the keyboard from left to right.\n2. C means the first note we play is C (if it’s an F scale, the first would be F).\n3. A scale is what silently reminds you in the morning that you need to cut back on those oreos and fried cheese curds.',
+      highlightedNotes: [],
+      noteLabels: true,
+      lessonId: 2
+    },
+    {
+      content:
+        'A 5 note ascending C scale consists of the notes C, D, E, F, and G. Try it for yourself below and play a 5 note scale starting on C.',
+      highlightedNotes: [48],
+      noteLabels: false,
+      lessonId: 2
+    },
+    {
+      content:
+        'What goes up must come back down. A descending scale simply moves down in 2nds. Try playing a descending scale, starting from G.',
+      highlightedNotes: [55],
+      noteLabels: false,
+      lessonId: 2
+    },
+    {
+      content:
+        'You can really impress the folks back home by playing a continuous sequence of ascending AND descending notes. For our final challenge: try starting a scale starting from C, up to G, then bring it back home to C.',
+      highlightedNotes: [],
+      noteLabels: false,
+      lessonId: 2
     }
   ])
 
