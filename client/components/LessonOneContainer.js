@@ -30,9 +30,20 @@ const LessonOneContainer = props => {
     dispatch(setStep(steps[++step.index]))
   }
 
+  const handlePrevious = () => {
+    dispatch(setStep(steps[--step.index]))
+  }
+
   return (
     <div id="lesson-one-container">
       {step.text}
+      <button
+        type="button"
+        onClick={handlePrevious}
+        className="btn btn-primary btn-lg btn-block"
+      >
+        Previous
+      </button>
       <button
         type="button"
         onClick={handleNext}

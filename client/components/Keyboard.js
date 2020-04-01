@@ -1,3 +1,9 @@
+// in react piano:
+// write handle key down: call callback with event
+
+// on keyboard:
+// callback that sets state, pass to piano as props
+
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {Piano, KeyboardShortcuts, MidiNumbers} from 'react-piano'
@@ -6,6 +12,7 @@ import {
   DimensionsProvider,
   SoundfontProvider
 } from '../components'
+import {Dropdown} from 'react-bootstrap'
 
 // webkitAudioContext fallback needed to support Safari
 const audioContext = new (window.AudioContext || window.webkitAudioContext)()
