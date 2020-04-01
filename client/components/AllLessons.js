@@ -19,12 +19,12 @@ const AllLessons = () => {
     <div className="row">
       {lessons.map(lesson => (
         <DefaultDiv key={lesson.id}>
-          <div className="col-md">
-            <div className="card mb-3">
+          <div className="col">
+            <div className="card text-center">
               <img src="..." className="card-img-top" />
               <div className="card-body">
                 <Link to={`/lesson/${lesson.id}`}>
-                  <h5 className="card-title">{lesson.name}</h5>
+                  <h2 className="card-title">{lesson.name}</h2>
                 </Link>
                 <p className="card-text">{lesson.overview}</p>
               </div>
