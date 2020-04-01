@@ -17,15 +17,19 @@ const AllLessons = () => {
 
   return (
     <div className="lessons-container">
-      <ul className="list-group">
-        {lessons.map(lesson => (
-          <div key={lesson.id}>
-            <Link to={`/lesson/${lesson.id}`}>
-              <li className="list-group-item">{lesson.name}</li>
-            </Link>
+      {lessons.map(lesson => (
+        <div key={lesson.id}>
+          <div className="card mb-3">
+            <img src="..." className="card-img-top" />
+            <div className="card-body">
+              <Link to={`/lesson/${lesson.id}`}>
+                <div className="card-title">{lesson.name}</div>
+              </Link>
+              <p className="card-text">{lesson.overview}</p>
+            </div>
           </div>
-        ))}
-      </ul>
+        </div>
+      ))}
     </div>
   )
 }
