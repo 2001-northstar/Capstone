@@ -24,6 +24,7 @@ const NoteContainer = props => {
   const notes = song.notes || []
 
   let refArray = []
+  let reverseArray = refArray.reverse()
 
   // useRef accesses the dom nodes (html element) so that we can interact with that dom element
   // this way state doesn't change to a new timeline and it keeps updating the old one
@@ -35,7 +36,7 @@ const NoteContainer = props => {
     // .play() is a method on gsap. if you pause the animation, it restarts it
     tlRef.current.play()
     tlRef.current
-      .to(refArray, 1, {
+      .to(reverseArray, 1, {
         ease: 'none',
         top: counter
       })
@@ -72,7 +73,7 @@ const NoteContainerStyle = styled.div`
 width: 100%;
 position: absolute;
 vertical-align: baseline;
-bottom: ${600 - 400}px;
+bottom: ${2600 - 400}px;
 max-height: 400px;
 border: 1px solid black;
 }

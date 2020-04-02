@@ -137,13 +137,37 @@ async function seed() {
 
   const songs = await Song.bulkCreate([
     {
-      title: 'song one',
+      title: 'Mary Had A Little Lamb',
       notes: [
-        {note: 48, order: 5},
+        {note: 48, order: 26},
+        {note: 50, order: 25},
+        {note: 52, order: 24},
+        {note: 50, order: 23},
+        {note: 50, order: 22},
+        {note: 52, order: 21},
+
+        {note: 55, order: 20},
+        {note: 55, order: 19},
+        {note: 55, order: 18},
+        {note: 50, order: 17},
+        {note: 48, order: 16},
+        {note: 50, order: 15},
+        {note: 52, order: 14},
+
+        {note: 52, order: 13},
+        {note: 52, order: 12},
+        {note: 52, order: 11},
+        {note: 50, order: 10},
+        {note: 50, order: 9},
+        {note: 50, order: 8},
+
+        {note: 52, order: 7},
+        {note: 52, order: 6},
+        {note: 52, order: 5},
         {note: 50, order: 4},
-        {note: 52, order: 3},
-        {note: 53, order: 2},
-        {note: 53, order: 1}
+        {note: 48, order: 3},
+        {note: 50, order: 2},
+        {note: 52, order: 1}
       ]
     },
     {

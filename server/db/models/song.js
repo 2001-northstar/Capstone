@@ -7,7 +7,7 @@ const Song = db.define('song', {
     allowNull: false
   },
   notes: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
     get: function() {
       return JSON.parse(this.getDataValue('notes'))
     },
