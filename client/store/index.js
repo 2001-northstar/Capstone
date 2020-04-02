@@ -6,9 +6,9 @@ import user from './user'
 import lesson from './lesson'
 import lessons from './lessons'
 import step from './step'
-import userinfo from './userinfo'
+import activeNotes from './activeNotes'
 
-const reducer = combineReducers({user, lessons, lesson, step, userinfo})
+const reducer = combineReducers({user, lessons, lesson, step, activeNotes})
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
 )
@@ -19,4 +19,4 @@ export * from './user'
 export * from './lesson'
 export * from './step'
 export * from './lessons'
-export * from './userinfo'
+export * from './activeNotes'
