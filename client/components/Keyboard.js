@@ -1,17 +1,6 @@
-// in react piano piano:
-// write handle key down: call callback with active notes
-
-// on keyboard:
-// callback that sets state, pass to piano as props
-
 import React, {useState} from 'react'
-import ReactDOM from 'react-dom'
 import {Piano, KeyboardShortcuts, MidiNumbers} from 'react-piano'
-import {
-  NoteContainer,
-  DimensionsProvider,
-  SoundfontProvider
-} from '../components'
+import {DimensionsProvider, SoundfontProvider} from '../components'
 import {Dropdown} from 'react-bootstrap'
 
 // webkitAudioContext fallback needed to support Safari
@@ -35,11 +24,6 @@ export default function Keyboard(props) {
   }
   return (
     <>
-      {/* <NoteContainer /> */}
-      <button type="button" onClick={handleKeyboardLabel}>
-        {toggleOn ? 'Hide Keyboard Labels' : 'Show Keyboard Labels'}
-      </button>
-      {/* <input type="checkbox" {toggleOn ? "checked" : null} data-toggle="toggle"/> */}
       <DimensionsProvider>
         {({containerWidth, containerHeight}) => (
           <SoundfontProvider
@@ -60,6 +44,10 @@ export default function Keyboard(props) {
           />
         )}
       </DimensionsProvider>
+      <button type="button" onClick={handleKeyboardLabel}>
+        {toggleOn ? 'Hide Keyboard Labels' : 'Show Keyboard Labels'}
+      </button>
+      {/* <input type="checkbox" {toggleOn ? "checked" : null} data-toggle="toggle"/> */}
     </>
   )
 }
