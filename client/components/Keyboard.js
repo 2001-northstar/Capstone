@@ -8,6 +8,7 @@ import {
 } from '../components'
 import {Dropdown} from 'react-bootstrap'
 import Fade from 'react-reveal/Fade'
+import {setActiveNote} from '../store'
 
 // webkitAudioContext fallback needed to support Safari
 const audioContext = new (window.AudioContext || window.webkitAudioContext)()
