@@ -7,50 +7,12 @@ import Fade from 'react-reveal/Fade'
 
 const Navbar = ({handleClick, isLoggedIn}) => {
   return (
-    // <nav className="navbar navbar-primary bg-light sticky-top">
-    //   <h1>OPUS</h1>
-    //   <nav>
-    //     {isLoggedIn ? (
-    //       <div>
-    //         {/* The navbar will show these links after you log in */}
-    //         <Link to="/home">Home</Link>
-    //         <a href="#" onClick={handleClick}>
-    //           Logout
-    //         </a>
-    //         <Link to="/">Free Play</Link>
-    //         <Link to="/lesson">Lessons</Link>
-    //         <Link to="/songs">Song Book</Link>
-    //       </div>
-    //     ) : (
-    //       <div>
-    //         {/* The navbar will show these links before you log in */}
-    //         <Link to="/login">
-    //           Login
-    //         </Link>
-    //         <Link to="/signup">
-    //           Signup
-    //         </Link>
-    //         <Link to="/">
-    //           Free Play
-    //         </Link>
-    //         <Link to="/lesson">
-    //           Lessons
-    //         </Link>
-    //         <Link to="/songs">
-    //           Song Book
-    //         </Link>
-    //       </div>
-    //     )}
-    //   </nav>
-    //   <hr />
-    // </nav>
-
     // <!--Navbar-->
     <Fade top>
-      <nav className="navbar navbar-light">
+      <nav className="navbar navbar-primary bg-light mb-30">
         {/* <!-- Navbar brand --> */}
-        <a className="navbar-brand" href="/">
-          <h1>OPUS</h1>
+        <a className="navbar-brand mx-auto" href="/">
+          <h1 style={{color: 'black'}}>OPUS</h1>
         </a>
 
         {/* <!-- Collapse button --> */}
@@ -90,7 +52,7 @@ const Navbar = ({handleClick, isLoggedIn}) => {
                 <Link to="/songs">Song Book</Link>
               </div>
             ) : (
-              <div>
+              <div className="d-flex justify-content-center">
                 {/* The navbar will show these links before you log in */}
                 <Link to="/login">Login</Link>
                 <Link to="/signup">Signup</Link>
@@ -140,10 +102,19 @@ $(document).ready(function() {
   $('.first-button').on('click', function() {
     $('.animated-icon1').toggleClass('open')
   })
-  $('.second-button').on('click', function() {
-    $('.animated-icon2').toggleClass('open')
-  })
-  $('.third-button').on('click', function() {
-    $('.animated-icon3').toggleClass('open')
-  })
+
+  // $('.first-button').mouseenter(function() {
+  //   $('.animated-icon1').toggleClass('open')
+  // })
+  // $('.first-button').mouseleave(function() {
+  //   $('.animated-icon1').removeClass('open')
+  // })
+
+  // $('.second-button').on('click', function() {
+  //   $('.animated-icon2').toggleClass('open')
+  // })
+
+  // $('.third-button').on('click', function() {
+  //   $('.animated-icon3').toggleClass('open')
+  // })
 })

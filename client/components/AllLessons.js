@@ -20,7 +20,7 @@ const AllLessons = () => {
     <div className="row">
       {lessons.map(lesson => (
         <DefaultDiv key={lesson.id}>
-          <Fade left>
+          <Fade bottom>
             <div className="col mx-5">
               {/* <div className="card text-center">
               <Link to={`/lesson/${lesson.id}`}>
