@@ -1,4 +1,5 @@
-import React from 'react'
+
+import React, {useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {Piano, KeyboardShortcuts, MidiNumbers} from 'react-piano'
 import {
@@ -31,9 +32,18 @@ export default function Keyboard(props) {
     dispatch(setActiveNote(notes))
   }
 
+  const [toggleOn, toggle] = useState(true)
+  const handleKeyboardLabel = () => {
+    toggle(!toggleOn)
+  }
+
   return (
     <>
       {/* <NoteContainer /> */}
+      <button type="button" onClick={handleKeyboardLabel}>
+        {toggleOn ? 'Hide Keyboard Labels' : 'Show Keyboard Labels'}
+      </button>
+      {/* <input type="checkbox" {toggleOn ? "checked" : null} data-toggle="toggle"/> */}
       <DimensionsProvider>
         {({containerWidth, containerHeight}) => (
           <SoundfontProvider
@@ -48,7 +58,7 @@ export default function Keyboard(props) {
                 playNote={playNote}
                 stopNote={stopNote}
                 disabled={isLoading}
-                keyboardShortcuts={keyboardShortcuts}
+                keyboardShortcuts={toggleOn ? keyboardShortcuts : []}
                 {...props}
               />
             )}
