@@ -11,6 +11,7 @@ import DimensionsProvider from './DimensionsProvider'
 import SoundfontProvider from './SoundfontProvider'
 import {Piano, KeyboardShortcuts, MidiNumbers} from 'react-piano'
 import {fetchSingleLesson} from '../store/lesson'
+import Keyboard from './Keyboard'
 
 // webkitAudioContext fallback needed to support Safari
 const audioContext = new (window.AudioContext || window.webkitAudioContext)()
@@ -41,27 +42,7 @@ export default function Lesson(props) {
     <>
       {/* <NoteContainer /> */}
       <LessonOneContainer lesson={lesson} />
-      <DimensionsProvider>
-        {({containerWidth, containerHeight}) => (
-          <SoundfontProvider
-            instrumentName="acoustic_grand_piano"
-            audioContext={audioContext}
-            hostname={soundfontHostname}
-            render={({isLoading, playNote, stopNote}) => (
-              <Piano
-                noteRange={noteRange}
-                width={containerWidth}
-                highlightedNotes={step.highlightedNotes}
-                playNote={playNote}
-                stopNote={stopNote}
-                disabled={isLoading}
-                keyboardShortcuts={keyboardShortcuts}
-                {...props}
-              />
-            )}
-          />
-        )}
-      </DimensionsProvider>
+      <Keyboard />
       {/* {step.highlightedNotes.length ? (
         <DimensionsProvider>
           {({containerWidth, containerHeight}) => (
