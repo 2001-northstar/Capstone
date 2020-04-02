@@ -58,10 +58,56 @@ body {
   background-color: salmon;
   border-radius: 5px;
 }
+
 ._57 {
   width: calc(100% / 11);
   position: relative;
   left: calc(5 * (100% / 11));
+  height: 100px;
+  background-color: salmon;
+  border-radius: 5px;
+}
+
+._59 {
+  width: calc(100% / 11);
+  position: relative;
+  left: calc(6 * (100% / 11));
+  height: 100px;
+  background-color: salmon;
+  border-radius: 5px;
+}
+
+._60 {
+  width: calc(100% / 11);
+  position: relative;
+  left: calc(7 * (100% / 11));
+  height: 100px;
+  background-color: salmon;
+  border-radius: 5px;
+}
+
+._62 {
+  width: calc(100% / 11);
+  position: relative;
+  left: calc(8 * (100% / 11));
+  height: 100px;
+  background-color: salmon;
+  border-radius: 5px;
+}
+
+._64 {
+  width: calc(100% / 11);
+  position: relative;
+  left: calc(9 * (100% / 11));
+  height: 100px;
+  background-color: salmon;
+  border-radius: 5px;
+}
+
+._65 {
+  width: calc(100% / 11);
+  position: relative;
+  left: calc(10 * (100% / 11));
   height: 100px;
   background-color: salmon;
   border-radius: 5px;

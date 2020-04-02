@@ -35,7 +35,6 @@ export default function Keyboard(props) {
   }
   return (
     <>
-      {/* <NoteContainer /> */}
       <button type="button" onClick={handleKeyboardLabel}>
         {toggleOn ? 'Hide Keyboard Labels' : 'Show Keyboard Labels'}
       </button>

@@ -8,8 +8,17 @@ import lessons from './lessons'
 import step from './step'
 import userinfo from './userinfo'
 import song from './song'
+import songs from './songs'
 
-const reducer = combineReducers({user, lessons, lesson, step, userinfo, song})
+const reducer = combineReducers({
+  user,
+  lessons,
+  lesson,
+  step,
+  userinfo,
+  songs,
+  song
+})
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
 )
@@ -22,3 +31,4 @@ export * from './step'
 export * from './lessons'
 export * from './userinfo'
 export * from './song'
+export * from './songs'

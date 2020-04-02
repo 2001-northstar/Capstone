@@ -41,7 +41,6 @@ export default function Lesson(props) {
 
   return (
     <>
-      {/* <NoteContainer /> */}
       <LessonOneContainer lesson={lesson} />
       <DimensionsProvider>
         {({containerWidth, containerHeight}) => (

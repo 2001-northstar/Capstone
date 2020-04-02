@@ -1,27 +1,27 @@
 import React, {useEffect} from 'react' // don't forget to import useEffect
 import {Link} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux' // import redux hooks
-import {fetchLessons} from '../store/lessons'
+import {fetchSongs} from '../store/songs'
 import styled from 'styled-components'
 
-const AllLessons = () => {
+const AllSongs = () => {
   const dispatch = useDispatch()
 
-  const {lessons, user} = useSelector(state => {
-    return {lessons: state.lessons, user: state.user}
+  const {songs} = useSelector(state => {
+    return {songs: state.songs}
   })
 
   useEffect(() => {
-    dispatch(fetchLessons())
+    dispatch(fetchSongs())
   }, [])
 
   return (
     <div className="row">
-      {lessons.map(lesson => (
-        <DefaultDiv key={lesson.id}>
+      {songs.map(song => (
+        <DefaultDiv key={song.id}>
           <div className="col">
             <div className="card text-center">
-              <Link to={`/lesson/${lesson.id}`}>
+              <Link to={`/songs/${song.id}`}>
                 <img
                   src="https://www.svgrepo.com/show/72278/piano.svg"
                   className="card-img mx-10 my-10"
@@ -30,10 +30,9 @@ const AllLessons = () => {
                 />
               </Link>
               <div className="card-body">
-                <Link to={`/lesson/${lesson.id}`}>
-                  <h2 className="card-title">{lesson.name}</h2>
+                <Link to={`/songs/${song.id}`}>
+                  <h2 className="card-title">{song.title}</h2>
                 </Link>
-                <p className="card-text">{lesson.overview}</p>
               </div>
             </div>
           </div>
@@ -42,7 +41,7 @@ const AllLessons = () => {
     </div>
   )
 }
-export default AllLessons
+export default AllSongs
 
 const DefaultDiv = styled.div`
   width: 50%;

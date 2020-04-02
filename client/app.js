@@ -1,16 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
-import {Navbar, Keyboard} from './components'
+import {Navbar, Footer, Keyboard} from './components'
 import Routes from './routes'
 
 const App = () => {
   return (
-    <div>
-      <Content>
+    <>
+      <div>
         <Navbar />
-        <Routes />
-      </Content>
-    </div>
+        <div className="container">
+          <Content>
+            <Routes />
+          </Content>
+        </div>
+      </div>
+      {/* <Footer /> */}
+    </>
   )
 }
 

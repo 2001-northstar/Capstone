@@ -1,45 +1,38 @@
 import React, {useEffect, useRef, useState} from 'react'
 import {gsap, TimelineMax, TweenMax} from 'gsap'
 import Keyboard from './Keyboard'
-import {useDispatch, mapDispatch, useSelector} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import {fetchSingleSong} from '../store'
 import styled from 'styled-components'
 
-// using song data from backend
-// in backwards order, need to reverse
-// const notes = [48, 52, 53, 55, 57]
-// const reverseSong = notes.reverse()
-
 const NoteContainer = props => {
+  // dispatch action to the store to grab the current song info
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(fetchSingleSong(3))
+    dispatch(fetchSingleSong(props.match.params.id))
   }, [])
 
   const {song} = useSelector(state => {
     return {song: state.song}
   })
 
-  console.log(song)
+  // const {song, activeNotes} = useSelector(state => {
+  //   return {song: state.song,
+  //   activeNotes: state.activeNotes}
+  // })
+
   const notes = song.notes || []
 
-  //  let refArray = notes.map(element => useRef(null))
   let refArray = []
-
   let reverseArray = refArray.reverse()
 
-  // const [clickAnimation, setClickAnimation] = useState()
-  // const [counter, setCounter] = useState(0)
-  // const [currentNotes, setNotes] = useState([])
-
-  // let [tl, playTimeline] = useState(new TimelineMax({paused: false}))
   let tlRef = useRef(new TimelineMax({paused: false}))
   let [counter, setCounter] = useState(100)
 
   const handleClick = () => {
-    console.count()
-    console.log('timeline in handleclick', tlRef.current)
-    console.log('in handleclick', tlRef.current.paused())
+    // console.count()
+    // console.log('timeline in handleclick', tlRef.current)
+    // console.log('in handleclick', tlRef.current.paused())
     tlRef.current.play()
     tlRef.current
       .to(reverseArray, 1, {
@@ -49,43 +42,6 @@ const NoteContainer = props => {
       .addPause()
     setCounter(counter + 100)
   }
-
-  // const handleClick = () => {
-  //   console.count()
-  //   console.log('timeline in handleclick', tl)
-  //   playTimeline(
-  //     tl
-  //       .to(reverseArray, 1, {
-  //         ease: 'none',
-  //         top: 100
-  //       })
-  //       .addPause()
-  //   )
-  // }
-
-  // useEffect(() => {
-  //   // reverse the order of the refArray so most movement happens at the top of of the array. needs to be OUTSIDE the for loop
-  //   refArray.reverse()
-  //   for (let i = 0; i < notes.length + 1; i++) {
-  //     setClickAnimation(
-  //       tl
-  //         .to(refArray.slice(i, 4 + i), 1, {
-  //           ease: 'none',
-  //           top: 100 * (i + 1)
-  //         })
-  //         .addPause()
-  //     )
-  //   }
-  // }, [tl])
-
-  // useEffect(() => {
-  //   setCounter(counter + 1)
-  // }, [])
-
-  // useEffect(() => {
-  //   setNotes(reverseSong.slice(counter, 4 + counter))
-  // }, [])
-
   return (
     <>
       <div className="container">
@@ -98,8 +54,8 @@ const NoteContainer = props => {
           {/* <div className="noteContainer"> */}
           {notes.map((element, idx) => (
             <div
-              key={`${idx}`}
-              className={`_${element}`}
+              key={`${element.order}`}
+              className={`_${element.note}`}
               ref={el => (refArray[idx] = el)}
             />
           ))}

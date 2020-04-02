@@ -13,6 +13,7 @@ const setSingleSong = song => {
 
 // thunk-creators
 export const fetchSingleSong = songId => {
+  console.log('song id', songId)
   return async dispatch => {
     try {
       const {data} = await axios.get(`/api/songs/${songId}`)
