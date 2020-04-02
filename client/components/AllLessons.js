@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux' // import redux hooks
 import {fetchLessons} from '../store/lessons'
 import styled from 'styled-components'
+import Fade from 'react-reveal/Fade'
 
 const AllLessons = () => {
   const dispatch = useDispatch()
@@ -19,8 +20,9 @@ const AllLessons = () => {
     <div className="row">
       {lessons.map(lesson => (
         <DefaultDiv key={lesson.id}>
-          <div className="col">
-            <div className="card text-center">
+          <Fade bottom>
+            <div className="col mx-5">
+              {/* <div className="card text-center">
               <Link to={`/lesson/${lesson.id}`}>
                 <img
                   src="https://www.svgrepo.com/show/72278/piano.svg"
@@ -35,8 +37,29 @@ const AllLessons = () => {
                 </Link>
                 <p className="card-text">{lesson.overview}</p>
               </div>
+            </div> */}
+              <div className="card">
+                <div className="row no-gutters">
+                  <div className="col-md-3">
+                    <Link to={`/lesson/${lesson.id}`}>
+                      <img
+                        src="https://www.pngrepo.com/png/8331/180/sheet-music.png"
+                        className="card-img px-3 py-5"
+                      />
+                    </Link>
+                  </div>
+                  <div className="col-md-8">
+                    <div className="card-body text-center">
+                      <Link to={`/lesson/${lesson.id}`}>
+                        <h2 className="card-title">{lesson.name}</h2>
+                      </Link>
+                      <p className="card-text">{lesson.overview}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
+          </Fade>
         </DefaultDiv>
       ))}
     </div>
@@ -46,5 +69,5 @@ export default AllLessons
 
 const DefaultDiv = styled.div`
   width: 50%;
-  height: 50%;
+  margin-bottom: 20px;
 `

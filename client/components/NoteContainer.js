@@ -1,6 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react'
 import {gsap, TimelineMax} from 'gsap'
 import Keyboard from './Keyboard'
+import Fade from 'react-reveal/Fade'
 
 const NoteContainer = props => {
   let _48 = useRef(null)
@@ -45,17 +46,22 @@ const NoteContainer = props => {
 
   return (
     <>
-      <button className="btn btn-primary" onClick={() => clickAnimation.play()}>
-        Move Notes Down
-      </button>
-      <div className="fixed">
-        <div className="noteContainer">
-          <div className="_53" ref={el => (_53 = el)} />
-          <div className="_50" ref={el => (_50 = el)} />
-          <div className="_52" ref={el => (_52 = el)} />
-          <div className="_48" ref={el => (_48 = el)} />
+      <Fade top>
+        <button
+          className="btn btn-primary"
+          onClick={() => clickAnimation.play()}
+        >
+          Move Notes Down
+        </button>
+        <div className="fixed">
+          <div className="noteContainer">
+            <div className="_53" ref={el => (_53 = el)} />
+            <div className="_50" ref={el => (_50 = el)} />
+            <div className="_52" ref={el => (_52 = el)} />
+            <div className="_48" ref={el => (_48 = el)} />
+          </div>
         </div>
-      </div>
+      </Fade>
       <Keyboard />
     </>
   )
