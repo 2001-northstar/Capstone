@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Soundfont from 'soundfont-player'
+import {setActiveNote} from '../store'
+import {connect} from 'react-redux'
 
 class SoundfontProvider extends React.Component {
   static propTypes = {
@@ -105,4 +107,12 @@ class SoundfontProvider extends React.Component {
   }
 }
 
-export default SoundfontProvider
+const mapState = state => ({
+  activeNotes: state.activeNotes
+})
+
+const mapDispatch = dispatch => ({
+  setActiveNote: note => dispatch(setActiveNote(note))
+})
+
+export default connect(mapState, mapDispatch)(SoundfontProvider)

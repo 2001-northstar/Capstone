@@ -1,11 +1,5 @@
-// in react piano piano:
-// write handle key down: call callback with active notes
-
-// on keyboard:
-// callback that sets state, pass to piano as props
-
 import React, {useState} from 'react'
-import ReactDOM from 'react-dom'
+import {useDispatch, useSelector} from 'react-redux'
 import {Piano, KeyboardShortcuts, MidiNumbers} from 'react-piano'
 import {
   NoteContainer,
@@ -30,10 +24,18 @@ const keyboardShortcuts = KeyboardShortcuts.create({
 })
 
 export default function Keyboard(props) {
+  const dispatch = useDispatch()
+  const activeNote = useSelector(state => state.activeNotes)
+
+  const callback = notes => {
+    dispatch(setActiveNote(notes))
+  }
+
   const [toggleOn, toggle] = useState(true)
   const handleKeyboardLabel = () => {
     toggle(!toggleOn)
   }
+
   return (
     <Fade bottom>
       {/* <NoteContainer /> */}
@@ -49,6 +51,7 @@ export default function Keyboard(props) {
             hostname={soundfontHostname}
             render={({isLoading, playNote, stopNote}) => (
               <Piano
+                callback={callback}
                 noteRange={noteRange}
                 width={containerWidth}
                 playNote={playNote}
