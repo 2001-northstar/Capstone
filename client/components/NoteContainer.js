@@ -4,6 +4,7 @@ import Keyboard from './Keyboard'
 import {useDispatch, useSelector} from 'react-redux'
 import {fetchSingleSong} from '../store'
 import styled from 'styled-components'
+import Fade from 'react-reveal/Fade'
 
 const NoteContainer = props => {
   // dispatch action to the store to grab the current song info
@@ -45,24 +46,26 @@ const NoteContainer = props => {
   }
   return (
     <>
-      <div className="container">
-        <button className="btn btn-primary" onClick={() => handleClick()}>
-          Move Notes Down
-        </button>
-      </div>
-      <div className="fixed">
-        <NoteContainerStyle>
-          {/* <div className="noteContainer"> */}
-          {notes.map((element, idx) => (
-            <div
-              key={`${element.order}`}
-              className={`_${element.note}`}
-              ref={el => (refArray[idx] = el)}
-            />
-          ))}
-        </NoteContainerStyle>
-      </div>
-      <Keyboard />
+      <Fade top>
+        <div className="container">
+          <button className="btn btn-primary" onClick={() => handleClick()}>
+            Move Notes Down
+          </button>
+        </div>
+        <div className="fixed">
+          <NoteContainerStyle>
+            {/* <div className="noteContainer"> */}
+            {notes.map((element, idx) => (
+              <div
+                key={`${element.order}`}
+                className={`_${element.note}`}
+                ref={el => (refArray[idx] = el)}
+              />
+            ))}
+          </NoteContainerStyle>
+        </div>
+        <Keyboard />
+      </Fade>
     </>
   )
 }
