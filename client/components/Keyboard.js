@@ -1,4 +1,3 @@
-
 import React, {useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {Piano, KeyboardShortcuts, MidiNumbers} from 'react-piano'
@@ -8,7 +7,7 @@ import {
   SoundfontProvider
 } from '../components'
 import {Dropdown} from 'react-bootstrap'
-import {setActiveNote} from '../store/activeNotes'
+import Fade from 'react-reveal/Fade'
 
 // webkitAudioContext fallback needed to support Safari
 const audioContext = new (window.AudioContext || window.webkitAudioContext)()
@@ -38,7 +37,7 @@ export default function Keyboard(props) {
   }
 
   return (
-    <>
+    <Fade bottom>
       {/* <NoteContainer /> */}
       <button type="button" onClick={handleKeyboardLabel}>
         {toggleOn ? 'Hide Keyboard Labels' : 'Show Keyboard Labels'}
@@ -65,6 +64,6 @@ export default function Keyboard(props) {
           />
         )}
       </DimensionsProvider>
-    </>
+    </Fade>
   )
 }
