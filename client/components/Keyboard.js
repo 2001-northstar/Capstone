@@ -1,11 +1,4 @@
-// in react piano:
-// write handle key down: call callback with event
-
-// on keyboard:
-// callback that sets state, pass to piano as props
-
 import React from 'react'
-import ReactDOM from 'react-dom'
 import {useDispatch, useSelector} from 'react-redux'
 import {Piano, KeyboardShortcuts, MidiNumbers} from 'react-piano'
 import {
@@ -34,19 +27,9 @@ export default function Keyboard(props) {
   const dispatch = useDispatch()
   const activeNote = useSelector(state => state.activeNotes)
 
-  const handlePlayNote = activeNoteNumber => {
-    console.log(
-      "in Keyboard component's `handlePlayNote`, here's the current active midi number: ",
-      activeNoteNumber
-    )
-    //    setActiveNote(activeNoteNumber)
-    dispatch(setActiveNote(activeNoteNumber))
+  const callback = notes => {
+    dispatch(setActiveNote(notes))
   }
-
-  console.log(
-    "in the Keyboard component, here is the active note's midi number: ",
-    activeNote
-  )
 
   return (
     <>
@@ -57,9 +40,9 @@ export default function Keyboard(props) {
             instrumentName="acoustic_grand_piano"
             audioContext={audioContext}
             hostname={soundfontHostname}
-            handlePlayNote={handlePlayNote}
             render={({isLoading, playNote, stopNote}) => (
               <Piano
+                callback={callback}
                 noteRange={noteRange}
                 width={containerWidth}
                 playNote={playNote}

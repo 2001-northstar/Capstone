@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Soundfont from 'soundfont-player'
-import {setActiveNote} from '../store/activeNotes'
+import {setActiveNote} from '../store'
 import {connect} from 'react-redux'
 
 class SoundfontProvider extends React.Component {
@@ -11,7 +11,6 @@ class SoundfontProvider extends React.Component {
     format: PropTypes.oneOf(['mp3', 'ogg']),
     soundfont: PropTypes.oneOf(['MusyngKite', 'FluidR3_GM']),
     audioContext: PropTypes.instanceOf(window.AudioContext),
-    handlePlayNote: PropTypes.func,
     render: PropTypes.func
   }
 
@@ -65,7 +64,6 @@ class SoundfontProvider extends React.Component {
           [midiNumber]: audioNode
         })
       })
-      this.props.handlePlayNote(midiNumber)
     })
   }
 

@@ -14,10 +14,9 @@ const LessonOneContainer = props => {
     }
   })
 
-  if (!props.lesson.steps) props.lesson.steps = []
+  let steps = (props.lesson.steps = [])
 
-  let steps = []
-  if (props.lesson.steps.length) {
+  if (steps.length) {
     steps = props.lesson.steps.map((st, idx) => ({
       text: st.content,
       noteLabels: st.noteLabels,
@@ -50,7 +49,7 @@ const LessonOneContainer = props => {
         className="btn btn-primary btn-lg btn-block"
       >
         Next
-      </button>{' '}
+      </button>
     </div>
   )
 }
