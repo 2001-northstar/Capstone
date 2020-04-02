@@ -24,18 +24,18 @@ const NoteContainer = props => {
   const notes = song.notes || []
 
   let refArray = []
-  let reverseArray = refArray.reverse()
 
+  // useRef accesses the dom nodes (html element) so that we can interact with that dom element
+  // this way state doesn't change to a new timeline and it keeps updating the old one
   let tlRef = useRef(new TimelineMax({paused: false}))
   let [counter, setCounter] = useState(100)
 
   const handleClick = () => {
-    // console.count()
-    // console.log('timeline in handleclick', tlRef.current)
-    // console.log('in handleclick', tlRef.current.paused())
+    // refs have a current property so you can stay on the same ref
+    // .play() is a method on gsap. if you pause the animation, it restarts it
     tlRef.current.play()
     tlRef.current
-      .to(reverseArray, 1, {
+      .to(refArray, 1, {
         ease: 'none',
         top: counter
       })
