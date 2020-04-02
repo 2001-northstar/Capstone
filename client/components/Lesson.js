@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import {LessonOneContainer, NoteLabels, Keyboard} from '../components'
+import {NoteLabels, Keyboard, LessonOneContainer} from '../components'
 import {fetchSingleLesson} from '../store'
 
 export default function Lesson(props) {
