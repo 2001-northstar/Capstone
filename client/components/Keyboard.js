@@ -13,6 +13,7 @@ import {
   SoundfontProvider
 } from '../components'
 import {Dropdown} from 'react-bootstrap'
+import Fade from 'react-reveal/Fade'
 
 // webkitAudioContext fallback needed to support Safari
 const audioContext = new (window.AudioContext || window.webkitAudioContext)()
@@ -34,7 +35,7 @@ export default function Keyboard(props) {
     toggle(!toggleOn)
   }
   return (
-    <>
+    <Fade bottom>
       {/* <NoteContainer /> */}
       <button type="button" onClick={handleKeyboardLabel}>
         {toggleOn ? 'Hide Keyboard Labels' : 'Show Keyboard Labels'}
@@ -60,6 +61,6 @@ export default function Keyboard(props) {
           />
         )}
       </DimensionsProvider>
-    </>
+    </Fade>
   )
 }
