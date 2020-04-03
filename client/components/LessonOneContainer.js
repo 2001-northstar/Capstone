@@ -62,7 +62,9 @@ const LessonOneContainer = props => {
       </button>
 
       {next ? (
-        <Link to="/exercise">Click here to test your skills!</Link>
+        <Link to={`/exercise/${props.lesson.id}`}>
+          Click here to test your skills!
+        </Link>
       ) : null}
     </div>
   )

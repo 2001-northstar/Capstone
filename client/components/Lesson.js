@@ -1,7 +1,3 @@
-//write hooks to re-render keyboard with higlighted notes or not
-
-//need to decide on how to move to an exercise at the end of a steps array
-
 import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {NoteLabels, Keyboard, LessonOneContainer} from '../components'
@@ -21,7 +17,7 @@ export default function Lesson(props) {
   return (
     <>
       <LessonOneContainer lesson={lesson} />
-      <Keyboard />
+      <Keyboard highlightedNotes={step.highlightedNotes} />
       {step.noteLabels ? <NoteLabels /> : null}
     </>
   )

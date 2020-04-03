@@ -1,7 +1,7 @@
 'use strict'
 
 const db = require('../server/db')
-const {User, Lesson, Step, Song} = require('../server/db/models')
+const {User, Lesson, Step, Song, Progress} = require('../server/db/models')
 
 async function seed() {
   await db.sync({force: true})
@@ -37,6 +37,33 @@ async function seed() {
       name: 'III. Chords',
       overview: 'Learn what a chords is.',
       numOfSteps: 0
+    }
+  ])
+
+  const progressRows = await Progress.bulkCreate([
+    {
+      userId: 1,
+      lessonId: 1
+    },
+    {
+      userId: 1,
+      lessonId: 2
+    },
+    {
+      userId: 1,
+      lessonId: 3
+    },
+    {
+      userId: 2,
+      lessonId: 1
+    },
+    {
+      userId: 2,
+      lessonId: 2
+    },
+    {
+      userId: 2,
+      lessonId: 3
     }
   ])
 
@@ -214,6 +241,7 @@ async function seed() {
   console.log(`seeded ${lessons.length} lessons`)
   console.log(`seeded ${songs.length} songs successfully`)
   console.log(`seeded ${steps.length} steps`)
+  console.log(`seeded ${progressRows.length} progress rows successfully`)
   console.log(`seeded successfully`)
 }
 
