@@ -171,12 +171,42 @@ async function seed() {
       ]
     },
     {
-      title: 'song two',
-      notes: [48, 50, 52, 53, 48, 50]
+      title: 'Do Re Mi',
+      notes: [
+        {note: 53, order: 4},
+        {note: 52, order: 3},
+        {note: 50, order: 2},
+        {note: 48, order: 1}
+      ]
     },
     {
-      title: 'song three',
-      notes: [48, 50, 52, 53, 55, 57]
+      title: 'Jingle Bells',
+      notes: [
+        {note: 55, order: 24},
+        {note: 50, order: 23},
+        {note: 52, order: 22},
+        {note: 50, order: 21},
+        {note: 50, order: 20},
+        {note: 52, order: 19},
+        {note: 52, order: 18},
+        {note: 52, order: 17},
+        {note: 53, order: 16},
+        {note: 53, order: 15},
+        {note: 53, order: 14},
+        {note: 53, order: 13},
+        {note: 53, order: 12},
+        {note: 52, order: 11},
+        {note: 50, order: 10},
+        {note: 48, order: 9},
+        {note: 55, order: 8},
+        {note: 52, order: 7},
+        {note: 52, order: 6},
+        {note: 52, order: 5},
+        {note: 52, order: 4},
+        {note: 52, order: 3},
+        {note: 52, order: 2},
+        {note: 52, order: 1}
+      ]
     }
   ])
 

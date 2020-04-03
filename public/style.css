@@ -8,12 +8,11 @@ body {
   position: relative;
 }
 
-/* .noteContainer {
+.noteContainer {
   width: 100%;
   position: absolute;
   max-height: 400px;
-  border: 1px solid black;
-} */
+}
 
 ._48 {
   width: calc(100% / 11);
@@ -135,10 +134,6 @@ body {
   font-size: 20px;
 }
 
-svg {
-  height: 100%;
-}
-
 a {
   text-decoration: none;
 }
@@ -155,10 +150,6 @@ nav a {
 form div {
   margin: 1em;
   display: inline-block;
-}
-
-#canvas {
-  border: 1px solid black;
 }
 
 .ReactPiano__Keyboard {

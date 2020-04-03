@@ -3,29 +3,26 @@ import {gsap, TimelineMax, TweenMax} from 'gsap'
 import Keyboard from './Keyboard'
 import {useDispatch, useSelector} from 'react-redux'
 import {fetchSingleSong} from '../store'
-import styled from 'styled-components'
 import Fade from 'react-reveal/Fade'
 
 const NoteContainer = props => {
   // dispatch action to the store to grab the current song info
+  // issues using more than one use effect
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchSingleSong(props.match.params.id))
   }, [])
 
-  const {song} = useSelector(state => {
-    return {song: state.song}
+  const {song, activeNotes} = useSelector(state => {
+    return {song: state.song, activeNotes: state.activeNotes}
   })
 
-  // const {song, activeNotes} = useSelector(state => {
-  //   return {song: state.song,
-  //   activeNotes: state.activeNotes}
-  // })
-
+  let refArray = []
   const notes = song.notes || []
 
-  let refArray = []
-  let reverseArray = refArray.reverse()
+  // length is dependent on the song loaded in
+  // line 58 style is called in the JSX because we need access the variable as it's loaded in
+  let length = notes.length
 
   // useRef accesses the dom nodes (html element) so that we can interact with that dom element
   // this way state doesn't change to a new timeline and it keeps updating the old one
@@ -37,11 +34,14 @@ const NoteContainer = props => {
     // .play() is a method on gsap. if you pause the animation, it restarts it
     tlRef.current.play()
     tlRef.current
-      .to(reverseArray, 1, {
+      .to(refArray, 0.5, {
         ease: 'none',
+        // moves down by 100px
         top: counter
       })
+      // pauses at each movement
       .addPause()
+    // adds 100 to previous state
     setCounter(counter + 100)
   }
   return (
@@ -53,8 +53,10 @@ const NoteContainer = props => {
           </button>
         </div>
         <div className="fixed">
-          <NoteContainerStyle>
-            {/* <div className="noteContainer"> */}
+          <div
+            style={{bottom: `${length * 100 - 400}px`}}
+            className="noteContainer"
+          >
             {notes.map((element, idx) => (
               <div
                 key={`${element.order}`}
@@ -62,7 +64,7 @@ const NoteContainer = props => {
                 ref={el => (refArray[idx] = el)}
               />
             ))}
-          </NoteContainerStyle>
+          </div>
         </div>
         <Keyboard />
       </Fade>
@@ -72,12 +74,17 @@ const NoteContainer = props => {
 
 export default NoteContainer
 
-const NoteContainerStyle = styled.div`
-width: 100%;
-position: absolute;
-vertical-align: baseline;
-bottom: ${2600 - 400}px;
-max-height: 400px;
-border: 1px solid black;
-}
-`
+// you can't use .reverse b/c it flips the order with each iteration
+// active note will
+
+// 48 idx 0
+// 50 idx 1
+// 52 idx 2
+// 53 idx 3
+
+// 53 idx 3
+// 52 idx 2
+// 59 idx 1
+// 48 idx 0
+
+// looking
