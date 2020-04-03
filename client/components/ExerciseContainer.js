@@ -1,11 +1,9 @@
 import React, {useState} from 'react'
-import {useDispatch, useSelector} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux' // import redux hooks
 import {Link} from 'react-router-dom'
-import updateCompleted from '../store'
-import {Keyboard} from '../components'
-import axios from 'axios'
+import {setStep} from '../store'
 
-const SingleExercise = props => {
+const LessonOneContainer = props => {
   const dispatch = useDispatch()
 
   const {lesson, user} = useSelector(state => {
@@ -43,4 +41,4 @@ const SingleExercise = props => {
   )
 }
 
-export default SingleExercise
+export default LessonOneContainer
