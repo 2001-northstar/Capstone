@@ -22,7 +22,10 @@ const keyboardShortcuts = KeyboardShortcuts.create({
 
 export default function Keyboard(props) {
   const dispatch = useDispatch()
-  const activeNote = useSelector(state => state.activeNotes)
+  const {activeNote, step} = useSelector(state => ({
+    activeNote: state.activeNotes,
+    step: state.step
+  }))
 
   const callback = notes => {
     dispatch(setActiveNote(notes))
@@ -44,6 +47,7 @@ export default function Keyboard(props) {
             hostname={soundfontHostname}
             render={({isLoading, playNote, stopNote}) => (
               <Piano
+                highlightedNotes={props.highlightedNotes}
                 callback={callback}
                 noteRange={noteRange}
                 width={containerWidth}

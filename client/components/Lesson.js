@@ -18,7 +18,7 @@ export default function Lesson(props) {
     <>
       {/* <NoteContainer /> */}
       <LessonOneContainer lesson={lesson} />
-      <Keyboard />
+      <Keyboard highlightedNotes={step.highlightedNotes} />
       {step.noteLabels ? <NoteLabels /> : null}
     </>
   )

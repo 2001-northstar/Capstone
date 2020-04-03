@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {Link} from 'react-router-dom'
 import updateCompleted from '../store'
+import axios from 'axios'
 
 const SingleExercise = props => {
   const dispatch = useDispatch()
@@ -13,8 +14,8 @@ const SingleExercise = props => {
 
   const [complete, setComplete] = useState(false)
 
-  const handleCompleted = () => {
-    dispatch(updateCompleted(lesson.id))
+  const handleCompleted = async () => {
+    await axios.put(`/api/lessons/${lesson.id}`)
     setComplete(true)
   }
 
@@ -29,7 +30,13 @@ const SingleExercise = props => {
       <button type="button" onClick={handleCompleted}>
         Mark Lesson as Completed
       </button>
-      {complete ? <div>Lesson Progress Saved!</div> : null}
+      {complete ? (
+        <>
+          <div>Lesson Progress Saved!</div>
+          <Link to={`/lesson/${lesson.id + 1}`}>Next Lesson</Link>
+          <Link to="/lesson">Back to Lessons List</Link>
+        </>
+      ) : null}
     </>
   )
 }

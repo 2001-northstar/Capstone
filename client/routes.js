@@ -32,7 +32,11 @@ class Routes extends Component {
         <Route path="/songs" component={NoteContainer} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
-        <Route exact path="/" component={Keyboard} />
+        <Route
+          exact
+          path="/"
+          render={props => <Keyboard {...props} highlightedNotes={[]} />}
+        />
         <Route exact path="/lesson" component={AllLessons} />
         <Route exact path="/lesson/:id" component={Lesson} />
         <Route path="/exercise/:id" component={SingleExercise} />
@@ -40,9 +44,13 @@ class Routes extends Component {
           <Switch>
             {/* Routes placed here are only available after logging in */}
             <Route path="/home" component={UserHome} />
-            <Route exact path="/" component={Keyboard} />
+            <Route
+              exact
+              path="/"
+              render={props => <Keyboard {...props} highlightedNotes={[]} />}
+            />
             <Route exact path="/useranalytics" component={UserAnalytics} />
-            <Route exaact path="/lesson" component={AllLessons} />
+            <Route exact path="/lesson" component={AllLessons} />
             <Route exact path="/lesson/:id" component={Lesson} />
             <Route path="/exercise/:id" component={SingleExercise} />
           </Switch>

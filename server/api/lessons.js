@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const {Lesson, Step, Exercise} = require('../db/models')
+const {Lesson, Step, Exercise, Progress, User} = require('../db/models')
 module.exports = router
 
 router.get('/', async (req, res, next) => {
@@ -17,6 +17,22 @@ router.get('/:lessonId', async (req, res, next) => {
       include: [Step, Exercise]
     })
     res.json(singleLesson)
+  } catch (err) {
+    next(err)
+  }
+})
+
+router.put('/:lessonId', async (req, res, next) => {
+  try {
+    const row = await Progress.findOne({
+      where: {
+        userId: req.user.id,
+        lessonId: req.params.lessonId
+      }
+    })
+    row.completed = true
+    row.save()
+    res.sendStatus(200)
   } catch (err) {
     next(err)
   }
