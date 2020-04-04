@@ -12,6 +12,7 @@ import {
   AllSongs,
   UserAnalytics,
   NoteContainer,
+  AllExercises,
   SingleExercise
 } from './components'
 import {me} from './store'
@@ -39,6 +40,8 @@ class Routes extends Component {
           path="/"
           render={props => <Keyboard {...props} highlightedNotes={[]} />}
         />
+        <Route exact path="/exercise" component={AllExercises} />
+        <Route exact path="/exercise/:id" component={SingleExercise} />
         <Route exact path="/lesson" component={AllLessons} />
         <Route exact path="/lesson/:id" component={Lesson} />
         <Route path="/exercise/:id" component={SingleExercise} />
@@ -51,10 +54,10 @@ class Routes extends Component {
               path="/"
               render={props => <Keyboard {...props} highlightedNotes={[]} />}
             />
-            <Route exact path="/useranalytics" component={UserAnalytics} />
+            <Route exact path="/exercise" component={AllExercises} />
+            <Route exact path="/exercise/:id" component={SingleExercise} />
             <Route exact path="/lesson" component={AllLessons} />
-            <Route exact path="/lesson/:id" component={Lesson} />
-            <Route path="/exercise/:id" component={SingleExercise} />
+            <Route exact path="/lesson/:id" component={Lesson} />\{' '}
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}
