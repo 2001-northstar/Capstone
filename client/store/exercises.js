@@ -1,9 +1,7 @@
 import axios from 'axios'
 
-// action-types
 const SET_EXERCISES = 'SET_EXERCISES'
 
-// action-creators
 const setExercises = exercises => {
   return {
     type: SET_EXERCISES,
