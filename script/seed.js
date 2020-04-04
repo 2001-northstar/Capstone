@@ -1,7 +1,7 @@
 'use strict'
 
 const db = require('../server/db')
-const {User, Lesson, Step} = require('../server/db/models')
+const {User, Lesson, Step, Song} = require('../server/db/models')
 
 async function seed() {
   await db.sync({force: true})
@@ -24,13 +24,18 @@ async function seed() {
 
   const lessons = await Lesson.bulkCreate([
     {
-      name: 'Keys',
+      name: 'I. The Basics',
       overview: 'Learn what keys are.',
       numOfSteps: 7
     },
     {
-      name: 'Scales',
+      name: 'II. Scales',
       overview: 'Learn what a scale is.',
+      numOfSteps: 6
+    },
+    {
+      name: 'III. Chords',
+      overview: 'Learn what a chords is.',
       numOfSteps: 0
     }
   ])
@@ -52,7 +57,7 @@ async function seed() {
     },
     {
       content:
-        'If you look closely, you’ll realize that the same 7 notes are repeated over and over. These notes are:\n A B C D E F G\nWhether it’s a teeny little keyboard like the one here, or a full-sized grand piano, the pattern of the notes is the same: A B C D E F G looped over and over again. Easy, right?\nWhen you are ready to move on, just click the Next button!',
+        'If you look closely, you’ll realize that the same 7 notes are repeated over and over. These notes are:\nA B C D E F G\nWhether it’s a teeny little keyboard like the one here, or a full-sized grand piano, the pattern of the notes is the same: A B C D E F G looped over and over again. Easy, right?\nWhen you are ready to move on, just click the Next button!',
       highlightedNotes: [],
       noteLabels: true,
       lessonId: 1
@@ -84,11 +89,382 @@ async function seed() {
       highlightedNotes: [],
       noteLabels: false,
       lessonId: 1
+    },
+
+    {
+      content:
+        'Let’s get fancy.\nYou may have heard about musical scales. A scale is simply a group of pitches...specifically, an organized group of pitches. Ever been part of ‘the wave’ at Yankee Stadium? Neither have I. But it’s kind of like that, anything is possible with our imaginations.',
+      highlightedNotes: [],
+      noteLabels: false,
+      lessonId: 2
+    },
+    {
+      content:
+        'Scales move in consecutive steps, one after another. Us heavy hitters describe the distance between two notes that are a ‘step’ apart as the interval of a second (2nd). For all intents and purposes, steps and 2nds mean the same thing.\nLook below for an example of a 2nd. Can you use your imagination and identify others on the keyboard?',
+      highlightedNotes: [55, 57],
+      noteLabels: false,
+      lessonId: 2
+    },
+    {
+      content:
+        'We’re about to build our first 5 note scale: an ascending C scale. “What does that even fucking mean” you might ask. Well listen here, you little shit, and let me break this down for you.\n1. Ascending means the pitches are organized from low to high - in other words, we’re travelling by 2nds on the keyboard from left to right.\n2. C means the first note we play is C (if it’s an F scale, the first would be F).\n3. A scale is what silently reminds you in the morning that you need to cut back on those oreos and fried cheese curds.',
+      highlightedNotes: [],
+      noteLabels: true,
+      lessonId: 2
+    },
+    {
+      content:
+        'A 5 note ascending C scale consists of the notes C, D, E, F, and G. Try it for yourself below and play a 5 note scale starting on C.',
+      highlightedNotes: [48],
+      noteLabels: false,
+      lessonId: 2
+    },
+    {
+      content:
+        'What goes up must come back down. A descending scale simply moves down in 2nds. Try playing a descending scale, starting from G.',
+      highlightedNotes: [55],
+      noteLabels: false,
+      lessonId: 2
+    },
+    {
+      content:
+        'You can really impress the folks back home by playing a continuous sequence of ascending AND descending notes. For our final challenge: try starting a scale starting from C, up to G, then bring it back home to C.',
+      highlightedNotes: [],
+      noteLabels: false,
+      lessonId: 2
+    }
+  ])
+
+  const songs = await Song.bulkCreate([
+    {
+      title: 'Mary Had A Little Lamb',
+      artist: 'Mother Goose',
+      level: '★',
+      description: 'The thrilling adventures of Mary & her pet lamb.',
+      notes: [
+        {note: 48, order: 26},
+        {note: 50, order: 25},
+        {note: 52, order: 24},
+        {note: 50, order: 23},
+        {note: 50, order: 22},
+        {note: 52, order: 21},
+
+        {note: 52, order: 20},
+        {note: 52, order: 19},
+        {note: 52, order: 18},
+        {note: 50, order: 17},
+        {note: 48, order: 16},
+        {note: 50, order: 15},
+        {note: 52, order: 14},
+
+        {note: 55, order: 13},
+        {note: 55, order: 12},
+        {note: 52, order: 11},
+        {note: 50, order: 10},
+        {note: 50, order: 9},
+        {note: 50, order: 8},
+
+        {note: 52, order: 7},
+        {note: 52, order: 6},
+        {note: 52, order: 5},
+        {note: 50, order: 4},
+        {note: 48, order: 3},
+        {note: 50, order: 2},
+        {note: 52, order: 1}
+      ],
+      answer: [
+        52,
+        50,
+        48,
+        50,
+        52,
+        52,
+        52,
+        50,
+        50,
+        50,
+        52,
+        55,
+        55,
+        52,
+        50,
+        48,
+        50,
+        52,
+        52,
+        52,
+        52,
+        50,
+        50,
+        52,
+        50,
+        48
+      ]
+    },
+    {
+      title: 'Do-Re-Mi',
+      artist: 'Sound Of Music',
+      level: '★',
+      description: 'Pretty basic scale.',
+      notes: [
+        {note: 60, order: 8},
+        {note: 59, order: 7},
+        {note: 57, order: 6},
+        {note: 55, order: 5},
+        {note: 53, order: 4},
+        {note: 52, order: 3},
+        {note: 50, order: 2},
+        {note: 48, order: 1}
+      ],
+      answer: [48, 50, 52, 53, 55, 57, 59, 60]
+    },
+    {
+      title: 'Jingle Bells',
+      artist: 'Your Neighborhood Children',
+      level: '★',
+      description: "It's the most wonderful time of the year!",
+      notes: [
+        {note: 55, order: 26},
+        {note: 50, order: 25},
+        {note: 52, order: 24},
+        {note: 50, order: 23},
+        {note: 50, order: 22},
+        {note: 52, order: 21},
+        {note: 52, order: 20},
+        {note: 52, order: 19},
+        {note: 52, order: 18},
+        {note: 52, order: 17},
+        {note: 53, order: 16},
+        {note: 53, order: 15},
+        {note: 53, order: 14},
+        {note: 53, order: 13},
+        {note: 53, order: 12},
+        {note: 52, order: 11},
+        {note: 50, order: 10},
+        {note: 48, order: 9},
+        {note: 55, order: 8},
+        {note: 52, order: 7},
+        {note: 52, order: 6},
+        {note: 52, order: 5},
+        {note: 52, order: 4},
+        {note: 52, order: 3},
+        {note: 52, order: 2},
+        {note: 52, order: 1}
+      ],
+      answer: [
+        52,
+        52,
+        52,
+        52,
+        52,
+        52,
+        52,
+        55,
+        48,
+        50,
+        52,
+        53,
+        53,
+        53,
+        53,
+        53,
+        52,
+        52,
+        52,
+        52,
+        52,
+        50,
+        50,
+        52,
+        50,
+        55
+      ]
+    },
+    {
+      title: 'Baby Shark',
+      artist: 'Pinkfong',
+      level: '★',
+      description: "Doo-doo-doo, dang that's catchy.",
+      notes: [
+        {note: 64, order: 30},
+        {note: 65, order: 29},
+        {note: 65, order: 28},
+
+        {note: 65, order: 27},
+        {note: 65, order: 26},
+        {note: 65, order: 25},
+        {note: 65, order: 24},
+        {note: 65, order: 23},
+        {note: 65, order: 22},
+        {note: 65, order: 21},
+        {note: 62, order: 20},
+        {note: 60, order: 19},
+
+        {note: 65, order: 18},
+        {note: 65, order: 17},
+        {note: 65, order: 16},
+        {note: 65, order: 15},
+        {note: 65, order: 14},
+        {note: 65, order: 13},
+        {note: 65, order: 12},
+        {note: 62, order: 11},
+        {note: 60, order: 10},
+
+        {note: 65, order: 9},
+        {note: 65, order: 8},
+        {note: 65, order: 7},
+        {note: 65, order: 6},
+        {note: 65, order: 5},
+        {note: 65, order: 4},
+        {note: 65, order: 3},
+        {note: 62, order: 2},
+        {note: 60, order: 1}
+        // note 60 is the first note to appear on the bottom of the note container
+      ],
+      answer: [
+        // note 60 is the first to play in the song
+        60,
+        62,
+        65,
+        65,
+        65,
+        65,
+        65,
+        65,
+        65,
+        60,
+        62,
+        65,
+        65,
+        65,
+        65,
+        65,
+        65,
+        65,
+        60,
+        62,
+        65,
+        65,
+        65,
+        65,
+        65,
+        65,
+        65,
+        65,
+        65,
+        64
+      ]
+    },
+    {
+      title: 'Canon in D',
+      artist: 'Pachelbel',
+      level: '★★',
+      description: '90% chance you heard this at a wedding.',
+      notes: [
+        {note: 53, order: 4},
+        {note: 52, order: 3},
+        {note: 50, order: 2},
+        {note: 48, order: 1}
+      ],
+      answer: [48, 50, 52, 53]
+    },
+    {
+      title: 'Dance of the Sugar Plum Fairy',
+      artist: 'Tchaikovsky',
+      level: '★★',
+      description: 'A Nutcracker classic.',
+      notes: [
+        {note: 53, order: 4},
+        {note: 52, order: 3},
+        {note: 50, order: 2},
+        {note: 48, order: 1}
+      ],
+      answer: [48, 50, 52, 53]
+    },
+    {
+      title: 'Imagine',
+      artist: 'John Lennon',
+      level: '★★',
+      description: "You're on your way to Grammy Hall of Fame.",
+      notes: [
+        {note: 53, order: 4},
+        {note: 52, order: 3},
+        {note: 50, order: 2},
+        {note: 48, order: 1}
+      ],
+      answer: [48, 50, 52, 53]
+    },
+    {
+      title: "I Don't Like Mondays",
+      artist: 'The Boomtown Rats',
+      level: '★★',
+      description: 'Question is, who does?',
+      notes: [
+        {note: 53, order: 4},
+        {note: 52, order: 3},
+        {note: 50, order: 2},
+        {note: 48, order: 1}
+      ],
+      answer: [48, 50, 52, 53]
+    },
+    {
+      title: 'Enter Sandman',
+      artist: 'Metallica',
+      level: '★★★',
+      description: 'Oh, so you like metal? Hardcore.',
+      notes: [
+        {note: 53, order: 4},
+        {note: 52, order: 3},
+        {note: 50, order: 2},
+        {note: 48, order: 1}
+      ],
+      answer: [48, 50, 52, 53]
+    },
+    {
+      title: 'Tiny Dancer',
+      artist: 'Elton John',
+      level: '★★★',
+      description: 'Hold me closer.',
+      notes: [
+        {note: 53, order: 4},
+        {note: 52, order: 3},
+        {note: 50, order: 2},
+        {note: 48, order: 1}
+      ],
+      answer: [48, 50, 52, 53]
+    },
+    {
+      title: 'Piano Man',
+      artist: 'Billy Joel',
+      level: '★★★',
+      description: 'Sing us a song tonight.',
+      notes: [
+        {note: 53, order: 4},
+        {note: 52, order: 3},
+        {note: 50, order: 2},
+        {note: 48, order: 1}
+      ],
+      answer: [48, 50, 52, 53]
+    },
+    {
+      title: 'Bohemian Rhapsody',
+      artist: 'Queen',
+      level: '★★★',
+      description: 'Is this the real life? Is this just fantasy?',
+      notes: [
+        {note: 53, order: 4},
+        {note: 52, order: 3},
+        {note: 50, order: 2},
+        {note: 48, order: 1}
+      ],
+      answer: [48, 50, 52, 53]
     }
   ])
 
   console.log(`seeded ${users.length} users`)
   console.log(`seeded ${lessons.length} lessons`)
+  console.log(`seeded ${songs.length} songs successfully`)
+  console.log(`seeded ${steps.length} steps`)
   console.log(`seeded successfully`)
 }
 

@@ -3,37 +3,73 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
+import Fade from 'react-reveal/Fade'
 
-const Navbar = ({handleClick, isLoggedIn}) => (
-  <nav className="navbar navbar-primary bg-light sticky-top">
-    <h1>O P U S</h1>
-    <nav>
-      {isLoggedIn ? (
-        <div>
-          {/* The navbar will show these links after you log in */}
-          <Link to="/home">Home</Link>
-          <a href="#" onClick={handleClick}>
-            Logout
-          </a>
-          <Link to="/">Free Play</Link>
-          <Link to="/lesson">Lessons</Link>
-          <Link to="/songs">Song Book</Link>
-          <Link to="/useranalytics">Analytics</Link>
+const Navbar = ({handleClick, isLoggedIn}) => {
+  return (
+    // <!--Navbar-->
+    <Fade top>
+      <nav className="navbar navbar-primary bg-light mb-30">
+        {/* <!-- Navbar brand --> */}
+        <a className="navbar-brand mx-auto" href="/">
+          <h1 style={{color: 'black'}}>OPUS</h1>
+        </a>
+
+        {/* <!-- Collapse button --> */}
+        <button
+          className="navbar-toggler first-button"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent20"
+          aria-controls="navbarSupportedContent20"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <div className="animated-icon1">
+            <span />
+            <span />
+            <span />
+          </div>
+        </button>
+
+        {/* <!-- Collapsible content --> */}
+        <div
+          className="collapse navbar-collapse"
+          id="navbarSupportedContent20"
+          border-color="none"
+        >
+          {/* <!-- Links --> */}
+          <nav>
+            {isLoggedIn ? (
+              <div>
+                {/* The navbar will show these links after you log in */}
+                <Link to="/home">Home</Link>
+                <a href="#" onClick={handleClick}>
+                  Logout
+                </a>
+                <Link to="/">Free Play</Link>
+                <Link to="/lesson">Lessons</Link>
+                <Link to="/songs">Song Book</Link>
+              </div>
+            ) : (
+              <div className="d-flex justify-content-center">
+                {/* The navbar will show these links before you log in */}
+                <Link to="/login">Login</Link>
+                <Link to="/signup">Signup</Link>
+                {/* <Link to="/">Free Play</Link> */}
+                <Link to="/lesson">Lessons</Link>
+                <Link to="/songs">Song Book</Link>
+              </div>
+            )}
+          </nav>
+          {/* <!-- Links --> */}
         </div>
-      ) : (
-        <div>
-          {/* The navbar will show these links before you log in */}
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Sign Up</Link>
-          <Link to="/">Free Play</Link>
-          <Link to="/lesson">Lessons</Link>
-          <Link to="/songs">Song Book</Link>
-        </div>
-      )}
-    </nav>
-    <hr />
-  </nav>
-)
+        {/* <!-- Collapsible content --> */}
+      </nav>
+    </Fade>
+    // <!--/.Navbar-->
+  )
+}
 
 /**
  * CONTAINER
@@ -61,3 +97,24 @@ Navbar.propTypes = {
   handleClick: PropTypes.func.isRequired,
   isLoggedIn: PropTypes.bool.isRequired
 }
+
+$(document).ready(function() {
+  $('.first-button').on('click', function() {
+    $('.animated-icon1').toggleClass('open')
+  })
+
+  // $('.first-button').mouseenter(function() {
+  //   $('.animated-icon1').toggleClass('open')
+  // })
+  // $('.first-button').mouseleave(function() {
+  //   $('.animated-icon1').removeClass('open')
+  // })
+
+  // $('.second-button').on('click', function() {
+  //   $('.animated-icon2').toggleClass('open')
+  // })
+
+  // $('.third-button').on('click', function() {
+  //   $('.animated-icon3').toggleClass('open')
+  // })
+})
