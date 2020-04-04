@@ -14,6 +14,9 @@ const Song = db.define('song', {
     set: function(val) {
       return this.setDataValue('notes', JSON.stringify(val))
     }
+  },
+  answer: {
+    type: Sequelize.ARRAY(Sequelize.INTEGER)
   }
 })
 

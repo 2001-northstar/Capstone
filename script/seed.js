@@ -177,7 +177,8 @@ async function seed() {
         {note: 52, order: 3},
         {note: 50, order: 2},
         {note: 48, order: 1}
-      ]
+      ],
+      answer: [48, 50, 52, 53]
     },
     {
       title: 'Jingle Bells',
