@@ -5,13 +5,13 @@ body {
   display: flex;
   height: 400px;
   overflow: hidden;
+  position: relative;
 }
 
 .noteContainer {
   width: 100%;
-  overflow: hidden;
+  position: absolute;
   max-height: 400px;
-  /* border: 1px solid black; */
 }
 
 ._48 {
@@ -21,6 +21,7 @@ body {
   height: 100px;
   background-color: salmon;
   border-radius: 5px;
+  border: 1px solid white;
 }
 
 ._50 {
@@ -30,6 +31,7 @@ body {
   height: 100px;
   background-color: salmon;
   border-radius: 5px;
+  border: 1px solid white;
 }
 ._52 {
   width: calc(100% / 11);
@@ -38,6 +40,7 @@ body {
   height: 100px;
   background-color: salmon;
   border-radius: 5px;
+  border: 1px solid white;
 }
 
 ._53 {
@@ -47,6 +50,77 @@ body {
   height: 100px;
   background-color: salmon;
   border-radius: 5px;
+  border: 1px solid white;
+}
+
+._55 {
+  width: calc(100% / 11);
+  position: relative;
+  left: calc(4 * (100% / 11));
+  height: 100px;
+  background-color: salmon;
+  border-radius: 5px;
+  border: 1px solid white;
+}
+
+._57 {
+  width: calc(100% / 11);
+  position: relative;
+  left: calc(5 * (100% / 11));
+  height: 100px;
+  background-color: salmon;
+  border-radius: 5px;
+  border: 1px solid white;
+}
+
+._59 {
+  width: calc(100% / 11);
+  position: relative;
+  left: calc(6 * (100% / 11));
+  height: 100px;
+  background-color: salmon;
+  border-radius: 5px;
+  border: 1px solid white;
+}
+
+._60 {
+  width: calc(100% / 11);
+  position: relative;
+  left: calc(7 * (100% / 11));
+  height: 100px;
+  background-color: salmon;
+  border-radius: 5px;
+  border: 1px solid white;
+}
+
+._62 {
+  width: calc(100% / 11);
+  position: relative;
+  left: calc(8 * (100% / 11));
+  height: 100px;
+  background-color: salmon;
+  border-radius: 5px;
+  border: 1px solid white;
+}
+
+._64 {
+  width: calc(100% / 11);
+  position: relative;
+  left: calc(9 * (100% / 11));
+  height: 100px;
+  background-color: salmon;
+  border-radius: 5px;
+  border: 1px solid white;
+}
+
+._65 {
+  width: calc(100% / 11);
+  position: relative;
+  left: calc(10 * (100% / 11));
+  height: 100px;
+  background-color: salmon;
+  border-radius: 5px;
+  border: 1px solid white;
 }
 
 #lesson-one-container {
@@ -71,10 +145,6 @@ body {
   font-size: 20px;
 }
 
-svg {
-  height: 100%;
-}
-
 a {
   text-decoration: none;
 }
@@ -91,10 +161,6 @@ nav a {
 form div {
   margin: 1em;
   display: inline-block;
-}
-
-#canvas {
-  border: 1px solid black;
 }
 
 .ReactPiano__Keyboard {

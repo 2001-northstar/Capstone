@@ -40,9 +40,7 @@ export default function Keyboard(props) {
   return (
     <Fade bottom>
       {/* <NoteContainer /> */}
-      <button type="button" onClick={handleKeyboardLabel}>
-        {toggleOn ? 'Hide Keyboard Labels' : 'Show Keyboard Labels'}
-      </button>
+
       {/* <input type="checkbox" {toggleOn ? "checked" : null} data-toggle="toggle"/> */}
       <DimensionsProvider>
         {({containerWidth, containerHeight}) => (
@@ -65,6 +63,9 @@ export default function Keyboard(props) {
           />
         )}
       </DimensionsProvider>
+      <button type="button" onClick={handleKeyboardLabel}>
+        {toggleOn ? 'Hide Keyboard Labels' : 'Show Keyboard Labels'}
+      </button>
     </Fade>
   )
 }

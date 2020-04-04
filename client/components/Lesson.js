@@ -20,7 +20,6 @@ export default function Lesson(props) {
 
   return (
     <>
-      {/* <NoteContainer /> */}
       <LessonOneContainer lesson={lesson} />
       <Keyboard />
       {step.noteLabels ? <NoteLabels /> : null}
