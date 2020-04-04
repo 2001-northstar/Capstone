@@ -6,6 +6,17 @@ const Song = db.define('song', {
     type: Sequelize.STRING,
     allowNull: false
   },
+  artist: {
+    type: Sequelize.STRING
+  },
+  level: {
+    type: Sequelize.ENUM({
+      values: ['★', '★★', '★★★']
+    })
+  },
+  description: {
+    type: Sequelize.STRING
+  },
   notes: {
     type: Sequelize.TEXT,
     get: function() {
@@ -14,6 +25,9 @@ const Song = db.define('song', {
     set: function(val) {
       return this.setDataValue('notes', JSON.stringify(val))
     }
+  },
+  answer: {
+    type: Sequelize.ARRAY(Sequelize.INTEGER)
   }
 })
 

@@ -37,6 +37,9 @@ const AllSongs = () => {
                       <Link to={`/songs/${song.id}`}>
                         <h2 className="card-title">{song.title}</h2>
                       </Link>
+                      <h4 className="card-text">{song.artist}</h4>
+                      <p className="card-text">Difficulty: {song.level}</p>
+                      <p className="card-text">{song.description}</p>
                     </div>
                   </div>
                 </div>
