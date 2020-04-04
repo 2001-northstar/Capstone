@@ -9,7 +9,6 @@ const setExercises = exercises => {
   }
 }
 
-// thunk-creators
 export const fetchExercises = () => {
   return async dispatch => {
     try {
@@ -21,7 +20,6 @@ export const fetchExercises = () => {
   }
 }
 
-//reducers
 const initialState = []
 
 export default (state = initialState, action) => {

@@ -1,8 +1,10 @@
 import axios from 'axios'
 import {setStep} from './step'
 
+// action-types
 const SET_SINGLE_EXERCISE = 'SET_SINGLE_EXERCISE'
 
+// action-creators
 const setSingleExercise = exercise => {
   return {
     type: SET_SINGLE_EXERCISE,
@@ -10,6 +12,7 @@ const setSingleExercise = exercise => {
   }
 }
 
+// thunk-creators
 export const fetchSingleExercise = exerciseId => {
   return async dispatch => {
     try {
@@ -32,6 +35,7 @@ export const fetchSingleExercise = exerciseId => {
   }
 }
 
+// reducers
 const initialState = {}
 
 export default (state = initialState, action) => {
