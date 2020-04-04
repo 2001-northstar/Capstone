@@ -102,8 +102,8 @@ const NoteContainer = props => {
             ))}
           </div>
         </div>
-        <Keyboard />
       </Fade>
+      <Keyboard highlightedNotes={[]} />
     </>
   )
 }

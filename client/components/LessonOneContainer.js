@@ -2,7 +2,6 @@ import React from 'react'
 import {useDispatch, useSelector} from 'react-redux' // import redux hooks
 import {Link} from 'react-router-dom'
 import {setStep} from '../store'
-import styled from 'styled-components'
 
 const LessonOneContainer = props => {
   // declare dispatch function - always when you need dispatch
@@ -62,7 +61,9 @@ const LessonOneContainer = props => {
       </button>
 
       {next ? (
-        <Link to="/exercise">Click here to test your skills!</Link>
+        <Link to={`/exercise/${props.lesson.id}`}>
+          Click here to test your skills!
+        </Link>
       ) : null}
     </div>
   )
