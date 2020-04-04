@@ -80,12 +80,17 @@ const NoteContainer = props => {
     let correctNote = answers[incrementAnswers]
     if (activeNotes[0] === correctNote) {
       moveNotes()
+      // reset activeNote array to '0'
+      // without it you can't play the same note in a row
+      // using .pop() mutates arrray & breaks it at the very last note since the array will equal undefined & enter an infinite loop
+      activeNotes[0] = 0
     }
   }
 
   return (
     <>
       <Fade top>
+        <h1 className="text-center">{song.title}</h1>
         <div className="fixed">
           <div
             style={{bottom: `${length * 100 - 400}px`}}

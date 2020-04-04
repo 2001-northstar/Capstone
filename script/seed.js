@@ -137,51 +137,27 @@ async function seed() {
 
   const songs = await Song.bulkCreate([
     {
-      title: 'Mary Had A Little Lamb',
+      title: 'Do-Re-Mi',
+      artist: 'Sound Of Music',
+      level: '★',
+      description: 'Pretty basic scale.',
       notes: [
-        {note: 48, order: 26},
-        {note: 50, order: 25},
-        {note: 52, order: 24},
-        {note: 50, order: 23},
-        {note: 50, order: 22},
-        {note: 52, order: 21},
-
-        {note: 55, order: 20},
-        {note: 55, order: 19},
-        {note: 55, order: 18},
-        {note: 50, order: 17},
-        {note: 48, order: 16},
-        {note: 50, order: 15},
-        {note: 52, order: 14},
-
-        {note: 52, order: 13},
-        {note: 52, order: 12},
-        {note: 52, order: 11},
-        {note: 50, order: 10},
-        {note: 50, order: 9},
-        {note: 50, order: 8},
-
-        {note: 52, order: 7},
-        {note: 52, order: 6},
-        {note: 52, order: 5},
-        {note: 50, order: 4},
-        {note: 48, order: 3},
-        {note: 50, order: 2},
-        {note: 52, order: 1}
-      ]
-    },
-    {
-      title: 'Do Re Mi',
-      notes: [
+        {note: 60, order: 8},
+        {note: 59, order: 7},
+        {note: 57, order: 6},
+        {note: 55, order: 5},
         {note: 53, order: 4},
         {note: 52, order: 3},
         {note: 50, order: 2},
         {note: 48, order: 1}
       ],
-      answer: [48, 50, 52, 53]
+      answer: [48, 50, 52, 53, 55, 57, 59, 60]
     },
     {
       title: 'Jingle Bells',
+      artist: 'Your Neighborhood Children',
+      level: '★',
+      description: "It's the most wonderful time of the year!",
       notes: [
         {note: 55, order: 24},
         {note: 50, order: 23},
@@ -207,7 +183,221 @@ async function seed() {
         {note: 52, order: 3},
         {note: 52, order: 2},
         {note: 52, order: 1}
+      ],
+      answer: [
+        52,
+        52,
+        52,
+        52,
+        52,
+        52,
+        52,
+        55,
+        48,
+        50,
+        52,
+        53,
+        53,
+        53,
+        53,
+        53,
+        53,
+        52,
+        52,
+        52,
+        50,
+        50,
+        52,
+        50,
+        55
       ]
+    },
+    {
+      title: 'Mary Had A Little Lamb',
+      artist: 'Mother Goose',
+      level: '★',
+      description: 'The thrilling adventures of Mary & her little lamb.',
+      notes: [
+        {note: 48, order: 26},
+        {note: 50, order: 25},
+        {note: 52, order: 24},
+        {note: 50, order: 23},
+        {note: 50, order: 22},
+        {note: 52, order: 21},
+
+        {note: 52, order: 20},
+        {note: 52, order: 19},
+        {note: 52, order: 18},
+        {note: 50, order: 17},
+        {note: 48, order: 16},
+        {note: 50, order: 15},
+        {note: 52, order: 14},
+
+        {note: 55, order: 13},
+        {note: 55, order: 12},
+        {note: 52, order: 11},
+        {note: 50, order: 10},
+        {note: 50, order: 9},
+        {note: 50, order: 8},
+
+        {note: 52, order: 7},
+        {note: 52, order: 6},
+        {note: 52, order: 5},
+        {note: 50, order: 4},
+        {note: 48, order: 3},
+        {note: 50, order: 2},
+        {note: 52, order: 1}
+      ],
+      answer: [
+        52,
+        50,
+        48,
+        50,
+        52,
+        52,
+        52,
+        50,
+        50,
+        50,
+        52,
+        55,
+        55,
+        52,
+        50,
+        48,
+        50,
+        52,
+        52,
+        52,
+        52,
+        50,
+        50,
+        52,
+        50,
+        48
+      ]
+    },
+    {
+      title: 'Baby Shark',
+      artist: 'Pinkfong',
+      level: '★',
+      description: "Do-do-do, dang that's catchy.",
+      notes: [
+        {note: 62, order: 9},
+        {note: 60, order: 8},
+        {note: 59, order: 7},
+        {note: 57, order: 6},
+        {note: 55, order: 5},
+        {note: 53, order: 4},
+        {note: 52, order: 3},
+        {note: 50, order: 2},
+        {note: 48, order: 1}
+      ],
+      answer: [48, 50, 52, 53, 55, 57, 59, 60, 62]
+    },
+    {
+      title: 'Canon in D',
+      artist: 'Pachelbel',
+      level: '★★',
+      description: '90% chance you heard this at a wedding.',
+      notes: [
+        {note: 53, order: 4},
+        {note: 52, order: 3},
+        {note: 50, order: 2},
+        {note: 48, order: 1}
+      ],
+      answer: [48, 50, 52, 53]
+    },
+    {
+      title: 'Dance of the Sugar Plum Fairy',
+      artist: 'Tchaikovsky',
+      level: '★★',
+      description: 'A Nutcracker classic.',
+      notes: [
+        {note: 53, order: 4},
+        {note: 52, order: 3},
+        {note: 50, order: 2},
+        {note: 48, order: 1}
+      ],
+      answer: [48, 50, 52, 53]
+    },
+    {
+      title: 'Imagine',
+      artist: 'John Lennon',
+      level: '★★',
+      description: "You're on your way to Grammy Hall of Fame.",
+      notes: [
+        {note: 53, order: 4},
+        {note: 52, order: 3},
+        {note: 50, order: 2},
+        {note: 48, order: 1}
+      ],
+      answer: [48, 50, 52, 53]
+    },
+    {
+      title: "I Don't Like Mondays",
+      artist: 'The Boomtown Rats',
+      level: '★★',
+      description: 'Question is, who does?',
+      notes: [
+        {note: 53, order: 4},
+        {note: 52, order: 3},
+        {note: 50, order: 2},
+        {note: 48, order: 1}
+      ],
+      answer: [48, 50, 52, 53]
+    },
+    {
+      title: 'Enter Sandman',
+      artist: 'Metallica',
+      level: '★★★',
+      description: 'Oh, so you like metal? Hardcore.',
+      notes: [
+        {note: 53, order: 4},
+        {note: 52, order: 3},
+        {note: 50, order: 2},
+        {note: 48, order: 1}
+      ],
+      answer: [48, 50, 52, 53]
+    },
+    {
+      title: 'Tiny Dancer',
+      artist: 'Elton John',
+      level: '★★★',
+      description: 'Hold me closer.',
+      notes: [
+        {note: 53, order: 4},
+        {note: 52, order: 3},
+        {note: 50, order: 2},
+        {note: 48, order: 1}
+      ],
+      answer: [48, 50, 52, 53]
+    },
+    {
+      title: 'Piano Man',
+      artist: 'Billy Joel',
+      level: '★★★',
+      description: 'Sing us a song tonight.',
+      notes: [
+        {note: 53, order: 4},
+        {note: 52, order: 3},
+        {note: 50, order: 2},
+        {note: 48, order: 1}
+      ],
+      answer: [48, 50, 52, 53]
+    },
+    {
+      title: 'Bohemian Rhapsody',
+      artist: 'Queen',
+      level: '★★★',
+      description: 'Is this the real life? Is this just fantasy?',
+      notes: [
+        {note: 53, order: 4},
+        {note: 52, order: 3},
+        {note: 50, order: 2},
+        {note: 48, order: 1}
+      ],
+      answer: [48, 50, 52, 53]
     }
   ])
 
