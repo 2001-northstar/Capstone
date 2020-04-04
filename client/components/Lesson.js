@@ -16,7 +16,6 @@ export default function Lesson(props) {
 
   return (
     <>
-      {/* <NoteContainer /> */}
       <LessonOneContainer lesson={lesson} />
       <Keyboard highlightedNotes={step.highlightedNotes} />
       {step.noteLabels ? <NoteLabels /> : null}

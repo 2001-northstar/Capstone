@@ -11,7 +11,8 @@ import {
   AllLessons,
   UserAnalytics,
   NoteContainer,
-  SingleExercise
+  SingleExercise,
+  AllSongs
 } from './components'
 import {me} from './store'
 
@@ -29,7 +30,8 @@ class Routes extends Component {
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
-        <Route path="/songs" component={NoteContainer} />
+        <Route exact path="/songs" component={AllSongs} />
+        <Route exact path="/songs/:id" component={NoteContainer} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route
@@ -53,6 +55,8 @@ class Routes extends Component {
             <Route exact path="/lesson" component={AllLessons} />
             <Route exact path="/lesson/:id" component={Lesson} />
             <Route path="/exercise/:id" component={SingleExercise} />
+            <Route exact path="/songs" component={AllSongs} />
+            <Route exact path="/songs/:id" component={NoteContainer} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}

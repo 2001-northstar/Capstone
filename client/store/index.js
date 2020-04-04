@@ -6,6 +6,9 @@ import user from './user'
 import lesson from './lesson'
 import lessons from './lessons'
 import step from './step'
+import userinfo from './userinfo'
+import song from './song'
+import songs from './songs'
 import activeNotes from './activeNotes'
 import progress from './progress'
 
@@ -15,8 +18,12 @@ const reducer = combineReducers({
   lesson,
   step,
   activeNotes,
-  progress
+  progress,
+  userinfo,
+  songs,
+  song
 })
+
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
 )
@@ -27,5 +34,8 @@ export * from './user'
 export * from './lesson'
 export * from './step'
 export * from './lessons'
+export * from './userinfo'
+export * from './song'
+export * from './songs'
 export * from './activeNotes'
 export * from './progress'

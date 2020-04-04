@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {Link} from 'react-router-dom'
-import updateCompleted from '../store'
 import axios from 'axios'
+import {Keyboard} from '../components'
 
 const SingleExercise = props => {
   const dispatch = useDispatch()
@@ -19,14 +19,27 @@ const SingleExercise = props => {
     setComplete(true)
   }
 
+  const answers = [
+    [48, 134],
+    [50, 146],
+    [62],
+    [48, 134],
+    [110],
+    [74],
+    [48, 134],
+    [98],
+    [86],
+    [50, 146]
+  ]
+
   return (
     <>
-      <div>This would be an exercise.</div>
       {exercise.length ? (
         <div>{exercise[0].content}</div>
       ) : (
         <div>{`No Exercise for Lesson ${lesson.id}`}</div>
       )}
+      <Keyboard highlightedNotes={[]} />
       <button type="button" onClick={handleCompleted}>
         Mark Lesson as Completed
       </button>
