@@ -99,6 +99,14 @@ async function seed() {
     {
       userId: 2,
       lessonId: 3
+    },
+    {
+      userId: 1,
+      lessonId: 4
+    },
+    {
+      userId: 2,
+      lessonId: 4
     }
   ])
 
