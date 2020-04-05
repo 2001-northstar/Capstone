@@ -8,15 +8,15 @@ import Fade from 'react-reveal/Fade'
 const AllLessons = () => {
   const dispatch = useDispatch()
 
-  const {lessons, user} = useSelector(state => {
-    return {lessons: state.lessons, user: state.user}
+  const {lessons, user, progress} = useSelector(state => {
+    return {lessons: state.lessons, user: state.user, progress: state.progress}
   })
 
   useEffect(() => {
     dispatch(fetchLessons())
   }, [])
 
-  const progress = lessons.progress || []
+  const progressArr = progress || []
 
   return (
     <div className="row">
