@@ -83,20 +83,20 @@ const NoteContainer = props => {
               style={{bottom: `${length * 100 - 300}px`}}
               className="justify-content-center"
             >
-              <h4 className="display-4 text-center">NICE JOB 👏</h4>
+              <h4 className="display-4 text-center">Nice job 👏</h4>
               <h5 className="text-center">Want to try another song?</h5>
               <div className="row justify-content-center">
-                <a href="/songs" className="m-1 btn btn-primary">
+                <a href="/songs" className="m-1 btn btn-outline-primary">
                   Heck Yes!
                 </a>
-                <a href="/" className="m-1 btn btn-secondary">
+                <a href="/" className="m-1 btn btn-outline-secondary">
                   Nah, take me back to free play
                 </a>
               </div>
             </div>
           </div>
-          <Keyboard highlightedNotes={[]} />
         </Fade>
+        <Keyboard highlightedNotes={[]} />
       </>
     )
   } else {

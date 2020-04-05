@@ -21,15 +21,17 @@ const HomePage = () => {
         <div className="keyboard">
           <Keyboard highlightedNotes={[]} />
         </div>
-        <div className="container my-2">
-          <h3 className="text-center display-4 my-4">
-            We get it. Instruments are expensive & private lessons add up.
-          </h3>
-          <h5 className="text-center my-2">
-            Our mission is make music accessible to all through an internet
-            connection & a humble keyboard.
-          </h5>
-        </div>
+        <Fade top>
+          <div className="container my-2">
+            <h3 className="text-center display-4 my-4">
+              We get it. Instruments are expensive & private lessons add up.
+            </h3>
+            <p className="lead text-center">
+              Our mission is make music accessible to all through an internet
+              connection & a humble keyboard.
+            </p>
+          </div>
+        </Fade>
         <DefaultDiv id="learning">
           <Fade bottom>
             <div className="row row-cols-1 row-cols-md-3">

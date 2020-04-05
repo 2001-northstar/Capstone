@@ -9,8 +9,8 @@ const About = () => {
         <DefaultDiv>
           <div className="container-fluid mb-4">
             <div className="row align-items-center">
-              <div className="col display-2 text-center">
-                INTRODUCING <strong>O P U S</strong>
+              <div className="col display-3 text-center">
+                Introducing <strong>Opus</strong>
               </div>
             </div>
           </div>
@@ -44,7 +44,7 @@ const About = () => {
         <Fade bottom>
           <div className="container my-2">
             <h4 className="text-center display-4 my-4">
-              MEET THE MINDS BEHIND THE KEYBOARD
+              Meet the minds behind the keyboard
             </h4>
           </div>
           <div className="row row-cols-1 row-cols-md-4">
