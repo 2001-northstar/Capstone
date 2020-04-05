@@ -7,10 +7,10 @@ const About = () => {
     <>
       <Fade top>
         <DefaultDiv>
-          <div className="container-fluid">
+          <div className="container-fluid mb-4">
             <div className="row align-items-center">
               <div className="col display-2 text-center">
-                INTRODUCING O P U S
+                INTRODUCING <strong>O P U S</strong>
               </div>
             </div>
           </div>
@@ -20,12 +20,13 @@ const About = () => {
                 <div className="card-body">
                   <h3 className="card-text text-justify">
                     We believe that anyone can learn the basics of music theory
-                    & what better way to teach than through a keyboard &
-                    internet connection. No matter what type of music you enjoy,
-                    from nursery rhymes to metal, you can master the skill and
-                    play your favorite tunes in no time! You’ll start with the
-                    basics and work your way to more complicated chords, and
-                    before you know it, you’ll be playing full songs!
+                    and now you don't even need to leave the comfort of your
+                    home...as long as you have internet, that is. No matter what
+                    type of music you enjoy, from nursery rhymes to heavy metal,
+                    you can master the skill and play your favorite tunes in no
+                    time! You’ll start with the basics and work your way to more
+                    complicated chords, and before you know it, you’ll be
+                    playing full songs!
                   </h3>
                 </div>
               </div>
