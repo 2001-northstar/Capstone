@@ -15,7 +15,9 @@ const setLessons = lessons => {
 export const fetchLessons = () => {
   return async dispatch => {
     try {
-      const {data} = await axios.get('/api/lessons')
+      let {data} = await axios.get('/api/lessons')
+      const progressArr = await axios.get('/api/users/progress')
+      data.progress = progressArr.data
       dispatch(setLessons(data))
     } catch (err) {
       console.log('fetchLessons error', err)
