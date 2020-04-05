@@ -1,4 +1,5 @@
 import axios from 'axios'
+import {setProgress} from '../store'
 
 // action-types
 const SET_LESSONS = 'SET_LESSONS'
@@ -15,10 +16,10 @@ const setLessons = lessons => {
 export const fetchLessons = () => {
   return async dispatch => {
     try {
-      let {data} = await axios.get('/api/lessons')
+      let lessons = await axios.get('/api/lessons')
       const progressArr = await axios.get('/api/users/progress')
-      data.progress = progressArr.data
-      dispatch(setLessons(data))
+      dispatch(setProgress(progressArr.data))
+      dispatch(setLessons(lessons.data))
     } catch (err) {
       console.log('fetchLessons error', err)
     }
