@@ -9,6 +9,7 @@ import {
 import {Dropdown} from 'react-bootstrap'
 import Fade from 'react-reveal/Fade'
 import {setActiveNote} from '../store'
+import styled from 'styled-components'
 
 // webkitAudioContext fallback needed to support Safari
 const audioContext = new (window.AudioContext || window.webkitAudioContext)()
@@ -37,7 +38,7 @@ export default function Keyboard(props) {
     toggle(!toggleOn)
   }
 
-  document.addEventListener('keydown', function(event) {
+  document.addEventListener('keydown', event => {
     if (event.which === 90) {
       toggle(!toggleOn)
     }
@@ -69,9 +70,21 @@ export default function Keyboard(props) {
           />
         )}
       </DimensionsProvider>
-      <button type="button" onClick={handleKeyboardLabel}>
+      {/* <button type="button" onClick={handleKeyboardLabel}>
         {toggleOn ? 'Hide Keyboard Labels' : 'Show Keyboard Labels'}
-      </button>
+      </button> */}
+      <br />
+      <div className="text-muted">
+        Press <ShortcutKey>z</ShortcutKey> to{' '}
+        {toggleOn ? 'hide keyboard labels' : 'show keyboard labels'}
+      </div>
     </Fade>
   )
 }
+
+const ShortcutKey = styled.span`
+  border: solid rgb(170, 170, 170);
+  border-width: 1px 1px 2px;
+  padding: 5px 9px;
+  border-radius: 4px;
+`
