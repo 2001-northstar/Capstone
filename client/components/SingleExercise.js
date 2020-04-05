@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 import {Keyboard} from '../components'
+import {setActiveNote} from '../store'
 
 const SingleExercise = props => {
   const dispatch = useDispatch()
@@ -17,7 +18,7 @@ const SingleExercise = props => {
   const exercise = lesson.exercises || []
 
   const [complete, setComplete] = useState(false)
-  const [correct, setCorrect] = useState(false)
+  const [firstAttempt, setAttempt] = useState(true)
 
   const handleCompleted = async () => {
     await axios.put(`/api/lessons/${lesson.id}`)
@@ -38,9 +39,9 @@ const SingleExercise = props => {
   useEffect(
     () => {
       if (activeNotes[0] === answer || activeNotes[0] === answer2) {
-        setCorrect(true)
         //advance step after time delay to read correct statement?
-      } else setCorrect(false)
+        dispatch(setActiveNote([]))
+      } //else setAttempt(false)
     },
     [activeNotes]
   )
@@ -53,7 +54,7 @@ const SingleExercise = props => {
         <div>{`No Exercise for Lesson ${lesson.id}`}</div>
       )}
       <div>Find a C</div>
-      {correct ? <div>Correct!</div> : <div>Whoops! Try Again!</div>}
+      {firstAttempt ? null : <div>Whoops! Try Again!</div>}
       <Keyboard highlightedNotes={[]} />
       <button type="button" onClick={handleCompleted}>
         Mark Lesson as Completed
