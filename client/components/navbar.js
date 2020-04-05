@@ -24,6 +24,7 @@ const Navbar = ({handleClick, isLoggedIn}) => {
           aria-controls="navbarSupportedContent20"
           aria-expanded="false"
           aria-label="Toggle navigation"
+          style={{outline: 'none'}}
         >
           <div className="animated-icon1">
             <span />
