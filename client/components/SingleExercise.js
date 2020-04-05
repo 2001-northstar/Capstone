@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
@@ -6,31 +6,44 @@ import {Keyboard} from '../components'
 
 const SingleExercise = props => {
   const dispatch = useDispatch()
-  const {lesson, user} = useSelector(state => {
-    return {lesson: state.lesson, user: state.user}
+  const {lesson, user, activeNotes} = useSelector(state => {
+    return {
+      lesson: state.lesson,
+      user: state.user,
+      activeNotes: state.activeNotes
+    }
   })
 
   const exercise = lesson.exercises || []
 
   const [complete, setComplete] = useState(false)
+  const [correct, setCorrect] = useState(false)
 
   const handleCompleted = async () => {
     await axios.put(`/api/lessons/${lesson.id}`)
     setComplete(true)
   }
 
-  const answers = [
-    [48, 134],
-    [50, 146],
-    [62],
-    [48, 134],
-    [110],
-    [74],
-    [48, 134],
-    [98],
-    [86],
-    [50, 146]
-  ]
+  const answer = 48
+  const answer2 = 60
+
+  //need to set answer 2 = answer if no answer2 in model or here
+
+  //if activenotes = [] first attempt so display nothing
+  //if correct advance with correct! before text, set active note back to []
+  //if wrong display try again, maybe shake keyboard animation?
+
+  //for scale: must get each step on first attempt or it sends you back to the start!
+
+  useEffect(
+    () => {
+      if (activeNotes[0] === answer || activeNotes[0] === answer2) {
+        setCorrect(true)
+        //advance step after time delay to read correct statement?
+      } else setCorrect(false)
+    },
+    [activeNotes]
+  )
 
   return (
     <>
@@ -39,6 +52,8 @@ const SingleExercise = props => {
       ) : (
         <div>{`No Exercise for Lesson ${lesson.id}`}</div>
       )}
+      <div>Find a C</div>
+      {correct ? <div>Correct!</div> : <div>Whoops! Try Again!</div>}
       <Keyboard highlightedNotes={[]} />
       <button type="button" onClick={handleCompleted}>
         Mark Lesson as Completed

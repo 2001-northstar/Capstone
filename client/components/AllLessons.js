@@ -1,21 +1,22 @@
 import React, {useEffect} from 'react' // don't forget to import useEffect
 import {Link} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux' // import redux hooks
-import {fetchLessons, fetchUserProgress} from '../store'
+import {fetchLessons} from '../store'
 import styled from 'styled-components'
 import Fade from 'react-reveal/Fade'
 
 const AllLessons = () => {
   const dispatch = useDispatch()
 
-  const {lessons, user, progress} = useSelector(state => {
-    return {lessons: state.lessons, user: state.user, progress: state.progress}
+  const {lessons, user} = useSelector(state => {
+    return {lessons: state.lessons, user: state.user}
   })
 
   useEffect(() => {
-    dispatch(fetchUserProgress())
     dispatch(fetchLessons())
   }, [])
+
+  const progress = lessons.progress || []
 
   return (
     <div className="row">

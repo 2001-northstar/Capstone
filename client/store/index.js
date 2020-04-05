@@ -10,7 +10,6 @@ import userinfo from './userinfo'
 import song from './song'
 import songs from './songs'
 import activeNotes from './activeNotes'
-import progress from './progress'
 
 const reducer = combineReducers({
   user,
@@ -18,7 +17,6 @@ const reducer = combineReducers({
   lesson,
   step,
   activeNotes,
-  progress,
   userinfo,
   songs,
   song
@@ -38,4 +36,3 @@ export * from './userinfo'
 export * from './song'
 export * from './songs'
 export * from './activeNotes'
-export * from './progress'
