@@ -11,7 +11,9 @@ import {
   AllLessons,
   UserAnalytics,
   NoteContainer,
-  AllSongs
+  AllSongs,
+  HomePage,
+  About
 } from './components'
 import {me} from './store'
 
@@ -33,9 +35,10 @@ class Routes extends Component {
         <Route exact path="/songs/:id" component={NoteContainer} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
-        <Route exact path="/" component={Keyboard} />
+        <Route exact path="/" component={HomePage} />
         <Route exact path="/lesson" component={AllLessons} />
         <Route exact path="/lesson/:id" component={Lesson} />
+        <Route exact path="/about" component={About} />
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
@@ -46,6 +49,7 @@ class Routes extends Component {
             <Route exact path="/lesson/:id" component={Lesson} />
             <Route exact path="/songs" component={AllSongs} />
             <Route exact path="/songs/:id" component={NoteContainer} />
+            <Route exact path="/about" component={About} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}

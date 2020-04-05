@@ -90,14 +90,14 @@ const NoteContainer = props => {
   return (
     <>
       <Fade top>
-        <h1 className="text-center">{song.title}</h1>
+        <h4 className="display-4 text-center">{song.title}</h4>
         <div className="fixed">
           <div
-            style={{bottom: `${length * 100 - 400}px`}}
+            style={{bottom: `${length * 100 - 300}px`}}
             className="noteContainer"
             ref={refContainer}
           >
-            {notes.map((element, idx) => (
+            {notes.map(element => (
               <div key={`${element.order}`} className={`_${element.note}`} />
             ))}
           </div>
