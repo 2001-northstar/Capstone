@@ -1,20 +1,43 @@
-import React from 'react'
+import React, {useRef, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
 import Fade from 'react-reveal/Fade'
+// import useSound from 'use-sound'
+import boopSfx from '../assets/boop.mp3'
 
 const Navbar = ({handleClick, isLoggedIn}) => {
+  // const [play] = useSound(boopSfx)
+  // console.log('boopSfx', boopSfx)
+  const audioRef = useRef(null)
+
+  const onClick = () => {
+    console.log(audioRef)
+    // audioRef.current.play()
+  }
+
+  useEffect(
+    () => {
+      console.log(audioRef.current)
+    },
+    [audioRef]
+  )
+
   return (
     // <!--Navbar-->
     <Fade top>
+      <audio ref={audioRef}>
+        <source src={boopSfx} type="audio/mpeg" />
+      </audio>
+      <button type="button" onClick={onClick}>
+        Boop!
+      </button>
       <nav className="navbar navbar-primary bg-light mb-30">
         {/* <!-- Navbar brand --> */}
         <a className="navbar-brand mx-auto" href="/">
           <h1 style={{color: 'black'}}>OPUS</h1>
         </a>
-
         {/* <!-- Collapse button --> */}
         <button
           className="navbar-toggler first-button"
@@ -31,7 +54,6 @@ const Navbar = ({handleClick, isLoggedIn}) => {
             <span />
           </div>
         </button>
-
         {/* <!-- Collapsible content --> */}
         <div
           className="collapse navbar-collapse"
