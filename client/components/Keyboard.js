@@ -37,6 +37,12 @@ export default function Keyboard(props) {
     toggle(!toggleOn)
   }
 
+  document.addEventListener('keydown', function(event) {
+    if (event.which === 90) {
+      toggle(!toggleOn)
+    }
+  })
+
   return (
     <Fade bottom>
       {/* <NoteContainer /> */}
