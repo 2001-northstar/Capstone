@@ -9,7 +9,7 @@ import boopSfx from '../assets/boop.mp3'
 
 const Navbar = ({handleClick, isLoggedIn}) => {
   // const [play] = useSound(boopSfx)
-  // console.log('boopSfx', boopSfx)
+  console.log('boopSfx', boopSfx)
   const audioRef = useRef(null)
 
   const onClick = () => {
