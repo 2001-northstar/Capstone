@@ -12,6 +12,7 @@ import {
   AllSongs,
   UserAnalytics,
   NoteContainer,
+  AllExercises,
   SingleExercise
 } from './components'
 import {me} from './store'

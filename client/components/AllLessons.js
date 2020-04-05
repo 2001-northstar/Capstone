@@ -16,7 +16,7 @@ const AllLessons = () => {
     dispatch(fetchLessons())
   }, [])
 
-  const progress = lessons.progress || []
+  const progressArr = lessons.progress || []
 
   return (
     <div className="row">
