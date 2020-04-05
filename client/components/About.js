@@ -18,7 +18,7 @@ const About = () => {
             <div className="row no-gutters">
               <div className="col-md-8">
                 <div className="card-body">
-                  <h3 className="card-text text-justify">
+                  <h3 classnewName="card-text text-justify">
                     We believe that anyone can learn the basics of music theory
                     and now you don't even need to leave the comfort of your
                     home...as long as you have internet, that is. No matter what
