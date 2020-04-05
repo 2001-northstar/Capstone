@@ -87,25 +87,54 @@ const NoteContainer = props => {
     }
   }
 
-  return (
-    <>
-      <Fade top>
-        <h1 className="text-center">{song.title}</h1>
-        <div className="fixed">
-          <div
-            style={{bottom: `${length * 100 - 400}px`}}
-            className="noteContainer"
-            ref={refContainer}
-          >
-            {notes.map((element, idx) => (
-              <div key={`${element.order}`} className={`_${element.note}`} />
-            ))}
+  // once we reach the end of the song, we want to display a congratulations message!
+  if (activeNotes[0] === 0 && !answers[incrementAnswers]) {
+    return (
+      <>
+        <Fade top>
+          <h4 className="display-4 text-center">{song.title}</h4>
+          <div className="fixed justify-content-center align-items-center">
+            <div
+              style={{bottom: `${length * 100 - 300}px`}}
+              className="justify-content-center"
+            >
+              <h4 className="display-4 text-center">NICE JOB 👏</h4>
+              <h5 className="text-center">Want to try another song?</h5>
+              <div className="row justify-content-center">
+                <a href="/songs" className="m-1 btn btn-primary">
+                  Heck Yes!
+                </a>
+                <a href="/" className="m-1 btn btn-secondary">
+                  Nah, take me back to free play
+                </a>
+              </div>
+            </div>
           </div>
-        </div>
-        <Keyboard />
-      </Fade>
-    </>
-  )
+          <Keyboard />
+        </Fade>
+      </>
+    )
+  } else {
+    return (
+      <>
+        <Fade top>
+          <h4 className="display-4 text-center">{song.title}</h4>
+          <div className="fixed">
+            <div
+              style={{bottom: `${length * 100 - 300}px`}}
+              className="noteContainer"
+              ref={refContainer}
+            >
+              {notes.map(element => (
+                <div key={`${element.order}`} className={`_${element.note}`} />
+              ))}
+            </div>
+          </div>
+          <Keyboard />
+        </Fade>
+      </>
+    )
+  }
 }
 
 export default NoteContainer

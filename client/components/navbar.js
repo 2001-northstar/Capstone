@@ -48,6 +48,7 @@ const Navbar = ({handleClick, isLoggedIn}) => {
                 <a href="#" onClick={handleClick}>
                   Logout
                 </a>
+                <Link to="/about">About</Link>
                 <Link to="/">Free Play</Link>
                 <Link to="/lesson">Lessons</Link>
                 <Link to="/songs">Song Book</Link>
@@ -57,6 +58,7 @@ const Navbar = ({handleClick, isLoggedIn}) => {
                 {/* The navbar will show these links before you log in */}
                 <Link to="/login">Login</Link>
                 <Link to="/signup">Signup</Link>
+                <Link to="/about">About</Link>
                 {/* <Link to="/">Free Play</Link> */}
                 <Link to="/lesson">Lessons</Link>
                 <Link to="/songs">Song Book</Link>

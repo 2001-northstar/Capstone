@@ -1,6 +1,6 @@
-import React, {useEffect} from 'react' // don't forget to import useEffect
+import React, {useEffect} from 'react'
 import {Link} from 'react-router-dom'
-import {useDispatch, useSelector} from 'react-redux' // import redux hooks
+import {useDispatch, useSelector} from 'react-redux'
 import {fetchSongs} from '../store/songs'
 import styled from 'styled-components'
 import Fade from 'react-reveal/Fade'

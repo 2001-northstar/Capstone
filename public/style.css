@@ -3,15 +3,19 @@ body {
 }
 .fixed {
   display: flex;
-  height: 400px;
+  height: 300px;
   overflow: hidden;
   position: relative;
+}
+
+.keyboard {
+  margin-bottom: 30px;
 }
 
 .noteContainer {
   width: 100%;
   position: absolute;
-  max-height: 400px;
+  max-height: 300px;
 }
 
 ._48 {
