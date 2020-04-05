@@ -1,11 +1,7 @@
 import React, {useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {Piano, KeyboardShortcuts, MidiNumbers} from 'react-piano'
-import {
-  NoteContainer,
-  DimensionsProvider,
-  SoundfontProvider
-} from '../components'
+import {DimensionsProvider, SoundfontProvider} from '../components'
 import {Dropdown} from 'react-bootstrap'
 import Fade from 'react-reveal/Fade'
 import {setActiveNote} from '../store'
@@ -27,7 +23,10 @@ const keyboardShortcuts = KeyboardShortcuts.create({
 
 export default function Keyboard(props) {
   const dispatch = useDispatch()
-  const activeNote = useSelector(state => state.activeNotes)
+  const {activeNote, step} = useSelector(state => ({
+    activeNote: state.activeNotes,
+    step: state.step
+  }))
 
   const callback = notes => {
     dispatch(setActiveNote(notes))
@@ -47,8 +46,6 @@ export default function Keyboard(props) {
   return (
     <Fade bottom>
       {/* <NoteContainer /> */}
-
-      {/* <input type="checkbox" {toggleOn ? "checked" : null} data-toggle="toggle"/> */}
       <DimensionsProvider>
         {({containerWidth, containerHeight}) => (
           <SoundfontProvider
@@ -57,6 +54,7 @@ export default function Keyboard(props) {
             hostname={soundfontHostname}
             render={({isLoading, playNote, stopNote}) => (
               <Piano
+                highlightedNotes={props.highlightedNotes}
                 callback={callback}
                 noteRange={noteRange}
                 width={containerWidth}

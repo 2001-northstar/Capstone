@@ -19,7 +19,7 @@ const HomePage = () => {
           </div>
         </Fade>
         <div className="keyboard">
-          <Keyboard />
+          <Keyboard highlightedNotes={[]} />
         </div>
         <div className="container my-2">
           <h3 className="text-center display-4 my-4">

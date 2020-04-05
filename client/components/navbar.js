@@ -51,6 +51,7 @@ const Navbar = ({handleClick, isLoggedIn}) => {
                 <Link to="/about">About</Link>
                 <Link to="/">Free Play</Link>
                 <Link to="/lesson">Lessons</Link>
+                <Link to="/exercise">Exercises</Link>
                 <Link to="/songs">Song Book</Link>
               </div>
             ) : (
@@ -61,6 +62,7 @@ const Navbar = ({handleClick, isLoggedIn}) => {
                 <Link to="/about">About</Link>
                 {/* <Link to="/">Free Play</Link> */}
                 <Link to="/lesson">Lessons</Link>
+                <Link to="/exercise">Exercises</Link>
                 <Link to="/songs">Song Book</Link>
               </div>
             )}
