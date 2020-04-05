@@ -8,15 +8,15 @@ import Fade from 'react-reveal/Fade'
 const AllLessons = () => {
   const dispatch = useDispatch()
 
-  const {lessons, user} = useSelector(state => {
-    return {lessons: state.lessons, user: state.user}
+  const {lessons, user, progress} = useSelector(state => {
+    return {lessons: state.lessons, user: state.user, progress: state.progress}
   })
 
   useEffect(() => {
     dispatch(fetchLessons())
   }, [])
 
-  const progress = lessons.progress || []
+  const progressArr = progress || []
 
   return (
     <div className="row">
@@ -56,7 +56,7 @@ const AllLessons = () => {
                         <h2 className="card-title">{lesson.name}</h2>
                       </Link>
                       <p className="card-text">{lesson.overview}</p>
-                      {progress[i].completed ? (
+                      {progressArr[i].completed ? (
                         <span>Complete!</span>
                       ) : (
                         <span>Incomplete</span>
