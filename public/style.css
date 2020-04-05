@@ -124,9 +124,10 @@ body {
 }
 
 #lesson-one-container {
-  height: 25em;
+  height: 225px;
+  width: 100%;
   display: inline-block;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 #noteLabelContainer {
@@ -140,8 +141,7 @@ body {
   flex-direction: column-reverse;
   width: calc(100% / 11);
   text-align: center;
-  font-family: Parkavenue, cursive;
-  color: darkblue;
+  color: darkgrey;
   font-size: 20px;
 }
 
@@ -317,15 +317,15 @@ form div {
 }
 
 .animated-icon1 span {
-  background: black;
+  background: #5d5b6a;
 }
 
 .animated-icon2 span {
-  background: #e3f2fd;
+  background: #5d5b6a;
 }
 
 .animated-icon3 span {
-  background: #f3e5f5;
+  background: #5d5b6a;
 }
 
 .animated-icon1 span:nth-child(1) {

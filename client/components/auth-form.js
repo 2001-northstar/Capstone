@@ -12,7 +12,7 @@ const AuthForm = props => {
 
   return (
     <Fade>
-      <div>
+      <div className="container">
         <form onSubmit={handleSubmit} name={name}>
           <div>
             <label htmlFor="email">
@@ -27,7 +27,9 @@ const AuthForm = props => {
             <input name="password" type="password" />
           </div>
           <div>
-            <button type="submit">{displayName}</button>
+            <button type="submit" className="btn btn-outline-secondary">
+              {displayName}
+            </button>
           </div>
           {error && error.response && <div> {error.response.data} </div>}
         </form>

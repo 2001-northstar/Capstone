@@ -9,10 +9,10 @@ const Navbar = ({handleClick, isLoggedIn}) => {
   return (
     // <!--Navbar-->
     <Fade top>
-      <nav className="navbar navbar-primary bg-light mb-30">
+      <nav className="navbar navbar-primary bg-light">
         {/* <!-- Navbar brand --> */}
         <a className="navbar-brand mx-auto" href="/">
-          <h1 style={{color: 'black'}}>OPUS</h1>
+          <h1 style={{color: '#5d5b6a'}}>OPUS</h1>
         </a>
 
         {/* <!-- Collapse button --> */}
@@ -24,7 +24,7 @@ const Navbar = ({handleClick, isLoggedIn}) => {
           aria-controls="navbarSupportedContent20"
           aria-expanded="false"
           aria-label="Toggle navigation"
-          style={{outline: 'none'}}
+          style={{outline: 'none', color: '#5d5b6a'}}
         >
           <div className="animated-icon1">
             <span />

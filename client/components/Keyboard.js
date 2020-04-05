@@ -75,8 +75,8 @@ export default function Keyboard(props) {
       </button> */}
       <br />
       <div className="text-muted">
-        Press <ShortcutKey>z</ShortcutKey> to{' '}
-        {toggleOn ? 'hide keyboard labels' : 'show keyboard labels'}
+        <ShortcutKey>z</ShortcutKey>{' '}
+        {toggleOn ? 'Show keyboard labels' : 'Hide keyboard labels'}
       </div>
     </Fade>
   )

@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux' // import redux hooks
 import {Link} from 'react-router-dom'
 import {setStep} from '../store'
 import styled from 'styled-components'
+import Fade from 'react-reveal/Fade'
 
 const LessonOneContainer = props => {
   // declare dispatch function - always when you need dispatch
@@ -40,32 +41,51 @@ const LessonOneContainer = props => {
   let newText = step.text.split('\n').map((item, i) => <p key={i}>{item}</p>)
 
   return (
-    <div id="lesson-one-container">
-      {newText}
-      <button
-        type="button"
-        onClick={handlePrevious}
-        className={`btn btn-primary btn-lg btn-block ${
-          previous ? 'disabled' : null
-        }`}
-      >
-        Previous
-      </button>
-      <button
-        type="button"
-        onClick={handleNext}
-        className={`btn btn-primary btn-lg btn-block ${
-          next ? 'disabled' : null
-        }`}
-      >
-        Next
-      </button>
+    <Fade top>
+      <div id="lesson-one-container">
+        <h1 className="text-center" style={{color: '#5d5b6a'}}>
+          {props.lesson.name}
+        </h1>
 
-      {next ? (
-        <Link to="/exercise">Click here to test your skills!</Link>
-      ) : null}
-    </div>
+        <LessonText>
+          {newText}
+          {next ? (
+            <Link to="/exercise">Click here to test your skills!</Link>
+          ) : null}
+        </LessonText>
+        <div className="d-flex justify-content-around">
+          <button
+            type="button"
+            onClick={handlePrevious}
+            className={`btn ${previous ? 'disabled' : null}`}
+          >
+            <img
+              src="https://image.flaticon.com/icons/svg/126/126492.svg"
+              width="75px"
+              height="75px"
+            />
+          </button>
+          <button
+            type="button"
+            onClick={handleNext}
+            className={`btn ${next ? 'disabled' : null}`}
+          >
+            <img
+              src="https://image.flaticon.com/icons/svg/126/126490.svg"
+              width="75px"
+              height="75px"
+            />
+          </button>
+        </div>
+        <br />
+      </div>
+    </Fade>
   )
 }
 
 export default LessonOneContainer
+
+const LessonText = styled.div`
+  padding: 10px;
+  height: 100%;
+`
