@@ -9,10 +9,6 @@ const Exercise = db.define('exercise', {
   overview: {
     type: Sequelize.TEXT,
     allowNull: false
-  },
-  content: {
-    type: Sequelize.TEXT,
-    allowNull: false
   }
 })
 

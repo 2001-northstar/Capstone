@@ -16,7 +16,7 @@ const AllLessons = () => {
     dispatch(fetchLessons())
   }, [])
 
-  const progress = lessons.progress || []
+  const progressArr = lessons.progress || []
 
   return (
     <div className="row">
@@ -56,7 +56,7 @@ const AllLessons = () => {
                         <h2 className="card-title">{lesson.name}</h2>
                       </Link>
                       <p className="card-text">{lesson.overview}</p>
-                      {progress[i].completed ? (
+                      {progressArr[i].completed ? (
                         <span>Complete!</span>
                       ) : (
                         <span>Incomplete</span>
