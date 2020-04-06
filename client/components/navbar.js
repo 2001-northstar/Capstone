@@ -4,33 +4,16 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
 import Fade from 'react-reveal/Fade'
-// import useSound from 'use-sound'
+import useSound from 'use-sound'
 import boopSfx from '../assets/boop.mp3'
 
 const Navbar = ({handleClick, isLoggedIn}) => {
-  // const [play] = useSound(boopSfx)
-  console.log('boopSfx', boopSfx)
-  const audioRef = useRef(null)
-
-  const onClick = () => {
-    console.log(audioRef)
-    // audioRef.current.play()
-  }
-
-  useEffect(
-    () => {
-      console.log(audioRef.current)
-    },
-    [audioRef]
-  )
+  const [play] = useSound(boopSfx)
 
   return (
     // <!--Navbar-->
     <Fade top>
-      <audio ref={audioRef}>
-        <source src={boopSfx} type="audio/mpeg" />
-      </audio>
-      <button type="button" onClick={onClick}>
+      <button type="button" onClick={play}>
         Boop!
       </button>
       <nav className="navbar navbar-primary bg-light mb-30">
