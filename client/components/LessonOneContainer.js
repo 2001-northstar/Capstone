@@ -8,16 +8,14 @@ const LessonOneContainer = props => {
   const dispatch = useDispatch()
 
   // just like map state to props but assigning to a const variable
-  const {step} = useSelector(state => {
-    return {
-      step: state.step
-    }
-  })
+  const {step} = useSelector(state => ({
+    step: state.step
+  }))
 
   let steps = props.lesson.steps || []
 
   if (steps.length) {
-    steps = props.lesson.steps.map((st, idx) => ({
+    steps = steps.map((st, idx) => ({
       text: st.content,
       noteLabels: st.noteLabels,
       highlightedNotes: st.highlightedNotes,

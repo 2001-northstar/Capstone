@@ -7,7 +7,8 @@ const {
   Step,
   Exercise,
   Song,
-  Progress
+  Progress,
+  ExerciseStep
 } = require('../server/db/models')
 
 async function seed() {
@@ -202,6 +203,69 @@ async function seed() {
       highlightedNotes: [],
       noteLabels: false,
       lessonId: 2
+    }
+  ])
+
+  const exerciseSteps = await ExerciseStep.bulkCreate([
+    {
+      content: 'Find a C.',
+      answer: 48,
+      answer2: 60,
+      exerciseId: 1
+    },
+    {
+      content: 'Nice job, Einstein. Now find a D.',
+      answer: 50,
+      answer2: 62,
+      exerciseId: 1
+    },
+    {
+      content: 'Correctomundo. Find an E.',
+      answer: 52,
+      answer2: 64,
+      exerciseId: 1
+    },
+    {
+      content: 'Find a C again. Your safe house, remember?',
+      answer: 48,
+      answer2: 60,
+      exerciseId: 1
+    },
+    {
+      content: 'All right, genius. Find a B.',
+      answer: 59,
+      answer2: 59,
+      exerciseId: 1
+    },
+    {
+      content: 'Congrats! Find an F.',
+      answer: 53,
+      answer2: 65,
+      exerciseId: 1
+    },
+    {
+      content: 'Now find a C. Yes, again.',
+      answer: 48,
+      answer2: 60,
+      exerciseId: 1
+    },
+    {
+      content: "Great, you're done! Just kidding. Find an A.",
+      answer: 57,
+      answer2: 57,
+      exerciseId: 1
+    },
+    {
+      content: "Think you're a wiseguy, huh? Find a G.",
+      answer: 55,
+      answer2: 55,
+      exerciseId: 1
+    },
+    {
+      content: 'File that MENSA application yet? Finally, find a D.',
+      answer: 50,
+      answer2: 62,
+      exerciseId: 1
     }
   ])
 
@@ -534,9 +598,10 @@ async function seed() {
   console.log(`seeded ${users.length} users`)
   console.log(`seeded ${lessons.length} lessons`)
   console.log(`seeded ${exercises.length} exercises`)
-  console.log(`seeded ${songs.length} songs successfully`)
+  console.log(`seeded ${songs.length} songs`)
   console.log(`seeded ${steps.length} steps`)
-  console.log(`seeded ${progressRows.length} progress rows successfully`)
+  console.log(`seeded ${progressRows.length} progress rows`)
+  console.log(`seeded ${exerciseSteps.length} exercise steps`)
   console.log(`seeded successfully`)
 }
 
