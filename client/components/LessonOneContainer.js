@@ -59,7 +59,7 @@ const LessonOneContainer = props => {
           {newText}
           {next ? (
             <Link
-              to="/exercise"
+              to={`/exercise/${props.lesson.id}`}
               className="m-1 btn btn-outline-primary"
               onClick={playButton}
             >
