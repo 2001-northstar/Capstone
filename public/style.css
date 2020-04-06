@@ -1,5 +1,6 @@
 body {
   font-family: sans-serif;
+  margin-bottom: 100px;
 }
 .fixed {
   display: flex;
@@ -23,9 +24,9 @@ body {
   position: relative;
   left: 0;
   height: 100px;
-  background-color: salmon;
+  background-color: #f4b942;
   border-radius: 5px;
-  border: 1px solid white;
+  border: 1px solid #eff2f1;
 }
 
 ._50 {
@@ -33,18 +34,18 @@ body {
   position: relative;
   left: calc(100% / 11);
   height: 100px;
-  background-color: salmon;
+  background-color: #f4b942;
   border-radius: 5px;
-  border: 1px solid white;
+  border: 1px solid #eff2f1;
 }
 ._52 {
   width: calc(100% / 11);
   position: relative;
   left: calc(2 * (100% / 11));
   height: 100px;
-  background-color: salmon;
+  background-color: #f4b942;
   border-radius: 5px;
-  border: 1px solid white;
+  border: 1px solid #eff2f1;
 }
 
 ._53 {
@@ -52,9 +53,9 @@ body {
   position: relative;
   left: calc(3 * (100% / 11));
   height: 100px;
-  background-color: salmon;
+  background-color: #f4b942;
   border-radius: 5px;
-  border: 1px solid white;
+  border: 1px solid #eff2f1;
 }
 
 ._55 {
@@ -62,9 +63,9 @@ body {
   position: relative;
   left: calc(4 * (100% / 11));
   height: 100px;
-  background-color: salmon;
+  background-color: #f4b942;
   border-radius: 5px;
-  border: 1px solid white;
+  border: 1px solid #eff2f1;
 }
 
 ._57 {
@@ -72,9 +73,9 @@ body {
   position: relative;
   left: calc(5 * (100% / 11));
   height: 100px;
-  background-color: salmon;
+  background-color: #f4b942;
   border-radius: 5px;
-  border: 1px solid white;
+  border: 1px solid #eff2f1;
 }
 
 ._59 {
@@ -82,9 +83,9 @@ body {
   position: relative;
   left: calc(6 * (100% / 11));
   height: 100px;
-  background-color: salmon;
+  background-color: #f4b942;
   border-radius: 5px;
-  border: 1px solid white;
+  border: 1px solid #eff2f1;
 }
 
 ._60 {
@@ -92,9 +93,9 @@ body {
   position: relative;
   left: calc(7 * (100% / 11));
   height: 100px;
-  background-color: salmon;
+  background-color: #f4b942;
   border-radius: 5px;
-  border: 1px solid white;
+  border: 1px solid #eff2f1;
 }
 
 ._62 {
@@ -102,9 +103,9 @@ body {
   position: relative;
   left: calc(8 * (100% / 11));
   height: 100px;
-  background-color: salmon;
+  background-color: #f4b942;
   border-radius: 5px;
-  border: 1px solid white;
+  border: 1px solid #eff2f1;
 }
 
 ._64 {
@@ -112,9 +113,9 @@ body {
   position: relative;
   left: calc(9 * (100% / 11));
   height: 100px;
-  background-color: salmon;
+  background-color: #f4b942;
   border-radius: 5px;
-  border: 1px solid white;
+  border: 1px solid #eff2f1;
 }
 
 ._65 {
@@ -122,9 +123,9 @@ body {
   position: relative;
   left: calc(10 * (100% / 11));
   height: 100px;
-  background-color: salmon;
+  background-color: #f4b942;
   border-radius: 5px;
-  border: 1px solid white;
+  border: 1px solid #eff2f1;
 }
 
 #lesson-one-container {
@@ -144,8 +145,7 @@ body {
   flex-direction: column-reverse;
   width: calc(100% / 11);
   text-align: center;
-  font-family: Parkavenue, cursive;
-  color: darkblue;
+  color: #4059ad;
   font-size: 20px;
 }
 
@@ -222,18 +222,18 @@ form div {
  * Styles of "active" or pressed-down keys
  */
 .ReactPiano__Key--active {
-  background: #3ac8da;
+  background: #97d8c4;
 }
 
 .ReactPiano__Key--active.ReactPiano__Key--accidental {
   border: 1px solid #fff;
-  border-top: 1px solid #3ac8da;
+  border-top: 1px solid #97d8c4;
   /* Slight height reduction for "pushed-down" effect */
   height: 65%;
 }
 
 .ReactPiano__Key--active.ReactPiano__Key--natural {
-  border: 1px solid #3ac8da;
+  border: 1px solid #97d8c4;
   /* Slight height reduction for "pushed-down" effect */
   height: 98%;
 }

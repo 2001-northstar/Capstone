@@ -36,10 +36,7 @@ const HomePage = () => {
               <div className="col mb-4">
                 <div className="card">
                   <Link to="/lesson">
-                    <img
-                      src="https://www.pngrepo.com/png/8331/180/sheet-music.png"
-                      className="card-img-top"
-                    />
+                    <img src="/assets/sheets1.svg" className="card-img-top" />
                   </Link>
                   <div className="card-body text-center">
                     <h5 className="card-title text-center">Lessons</h5>
@@ -52,10 +49,7 @@ const HomePage = () => {
               <div className="col mb-4">
                 <div className="card">
                   <Link to="/songs">
-                    <img
-                      src="https://www.pngrepo.com/png/8331/180/sheet-music.png"
-                      className="card-img-top"
-                    />
+                    <img src="/assets/piano.svg" className="card-img-top" />
                   </Link>
                   <div className="card-body text-center">
                     <h5 className="card-title text-center">Songs</h5>
@@ -69,10 +63,7 @@ const HomePage = () => {
               <div className="col mb-4">
                 <div className="card">
                   <Link to="/signup">
-                    <img
-                      src="https://www.pngrepo.com/png/8331/180/sheet-music.png"
-                      className="card-img-top"
-                    />
+                    <img src="/assets/notes1.svg" className="card-img-top" />
                   </Link>
                   <div className="card-body">
                     <h5 className="card-title text-center">Become A Pro</h5>

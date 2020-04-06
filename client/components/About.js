@@ -15,10 +15,10 @@ const About = () => {
             </div>
           </div>
           <div className="card mb-3">
-            <div className="row no-gutters">
+            <div className="row no-gutters align-items-center">
               <div className="col-md-8">
                 <div className="card-body">
-                  <h3 classnewName="card-text text-justify">
+                  <h4 className="card-text text-justify">
                     We believe that anyone can learn the basics of music theory
                     and now you don't even need to leave the comfort of your
                     home...as long as you have internet, that is. No matter what
@@ -27,7 +27,7 @@ const About = () => {
                     time! You’ll start with the basics and work your way to more
                     complicated chords, and before you know it, you’ll be
                     playing full songs!
-                  </h3>
+                  </h4>
                 </div>
               </div>
               <div className="col-md-4">
@@ -44,17 +44,14 @@ const About = () => {
         <Fade bottom>
           <div className="container my-2">
             <h4 className="text-center display-4 my-4">
-              MEET THE MINDS BEHIND THE KEYBOARD
+              Meet The Minds Behind The Keyboard
             </h4>
           </div>
           <div className="row row-cols-1 row-cols-md-4">
             <div className="col mb-4">
               <div className="card">
                 <a href="https://www.linkedin.com/in/drewlu/">
-                  <img
-                    src="https://www.pngrepo.com/png/8331/180/sheet-music.png"
-                    className="card-img-top"
-                  />
+                  <img src="/assets/drew.jpg" className="card-img-top" />
                 </a>
                 <div className="card-body text-center">
                   <h5 className="card-title text-center">DREW</h5>
@@ -65,14 +62,14 @@ const About = () => {
             <div className="col mb-4">
               <div className="card">
                 <a href="https://www.linkedin.com/in/kylie-hess/">
-                  <img
-                    src="https://www.pngrepo.com/png/8331/180/sheet-music.png"
-                    className="card-img-top"
-                  />
+                  <img src="/assets/kylie.jpg" className="card-img-top" />
                 </a>
                 <div className="card-body text-center">
                   <h5 className="card-title text-center">KYLIE</h5>
-                  <p className="card-text text-center">words words words</p>
+                  <p className="card-text text-center">
+                    If you think you can write a better piano tutorial app, you
+                    have another thunk coming.
+                  </p>
                 </div>
               </div>
             </div>
@@ -95,8 +92,8 @@ const About = () => {
                 <div className="card-body">
                   <h5 className="card-title text-center">JENN</h5>
                   <p className="card-text text-center">
-                    Before O P U S, I didn't know what an octave was. Now I can
-                    play Mary Had A Little Lamb with my eyes closed.
+                    Before O P U S, I didn't know the first thing about an
+                    octave. Now I can play Mary Had A Little Lamb in my sleep.
                   </p>
                 </div>
               </div>
