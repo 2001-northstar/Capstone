@@ -92,8 +92,8 @@ const About = () => {
                 <div className="card-body">
                   <h5 className="card-title text-center">JENN</h5>
                   <p className="card-text text-center">
-                    Before O P U S, I didn't know the first thing about an
-                    octave. Now I can play Mary Had A Little Lamb in my sleep.
+                    Before OPUS, I didn't know the first thing about an octave.
+                    Now I can play Mary Had A Little Lamb in my sleep.
                   </p>
                 </div>
               </div>
