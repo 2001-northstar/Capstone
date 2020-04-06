@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react' // don't forget to import useEffect
 import {Link} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux' // import redux hooks
-import {fetchExercises} from '../store/exercises'
+import {fetchExercises} from '../store'
 import styled from 'styled-components'
 import Fade from 'react-reveal/Fade'
 

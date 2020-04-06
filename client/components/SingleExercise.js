@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 import {Keyboard} from '../components'
-import {setActiveNote, setExerciseStep} from '../store'
+import {setActiveNote, setExerciseStep, fetchSingleExercise} from '../store'
 
 const SingleExercise = props => {
   const dispatch = useDispatch()
@@ -14,6 +14,10 @@ const SingleExercise = props => {
       exerciseStep: state.exerciseStep
     }
   })
+
+  useEffect(() => {
+    dispatch(fetchSingleExercise(props.match.params.id))
+  }, [])
 
   const [complete, setComplete] = useState(false)
   const [firstAttempt, setAttempt] = useState(true)
@@ -50,10 +54,10 @@ const SingleExercise = props => {
           setAttempt(true)
         }
       } else if (!activeNotes[0]) {
-          console.log('first run!')
-        } else {
-          setAttempt(false)
-        }
+        console.log('first run!')
+      } else {
+        setAttempt(false)
+      }
     },
     [activeNotes]
   )
