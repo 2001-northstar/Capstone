@@ -4,8 +4,12 @@ import {useDispatch, useSelector} from 'react-redux' // import redux hooks
 import {fetchExercises} from '../store/exercises'
 import styled from 'styled-components'
 import Fade from 'react-reveal/Fade'
+import useSound from 'use-sound'
+import boopSfx from '../assets/boop.mp3'
 
 const AllExercises = () => {
+  const [play] = useSound(boopSfx, {volume: 0.05})
+
   const dispatch = useDispatch()
 
   const {exercises} = useSelector(state => {
@@ -25,7 +29,7 @@ const AllExercises = () => {
               <div className="card">
                 <div className="row no-gutters">
                   <div className="col-md-3">
-                    <Link to={`/exercise/${exercise.id}`}>
+                    <Link to={`/exercise/${exercise.id}`} onClick={play}>
                       <img
                         src="https://www.svgrepo.com/show/72278/piano.svg"
                         className="card-img px-3 py-5"
@@ -34,7 +38,7 @@ const AllExercises = () => {
                   </div>
                   <div className="col-md-8">
                     <div className="card-body text-center">
-                      <Link to={`/exercise/${exercise.id}`}>
+                      <Link to={`/exercise/${exercise.id}`} onClick={play}>
                         <h2 className="card-title">{exercise.name}</h2>
                       </Link>
                       <p className="card-text">{exercise.overview}</p>

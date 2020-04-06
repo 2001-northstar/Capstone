@@ -4,8 +4,16 @@ import {Link} from 'react-router-dom'
 import {setStep} from '../store'
 import styled from 'styled-components'
 import Fade from 'react-reveal/Fade'
+import useSound from 'use-sound'
+import boopSfx from '../assets/boop.mp3'
+import forwardSfx from '../assets/forward.mp3'
+import backSfx from '../assets/back.mp3'
 
 const LessonOneContainer = props => {
+  const [play] = useSound(boopSfx, {volume: 0.05})
+  const [playForward] = useSound(forwardSfx, {volume: 0.05})
+  const [playBack] = useSound(backSfx, {volume: 0.05})
+
   // declare dispatch function - always when you need dispatch
   const dispatch = useDispatch()
 
@@ -50,13 +58,18 @@ const LessonOneContainer = props => {
         <LessonText>
           {newText}
           {next ? (
-            <Link to="/exercise">Click here to test your skills!</Link>
+            <Link to="/exercise" onClick={play}>
+              Click here to test your skills!
+            </Link>
           ) : null}
         </LessonText>
         <div className="d-flex justify-content-around">
           <button
             type="button"
-            onClick={handlePrevious}
+            onClick={() => {
+              handlePrevious()
+              playBack()
+            }}
             className={`btn ${previous ? 'disabled' : null}`}
           >
             <img
@@ -67,7 +80,10 @@ const LessonOneContainer = props => {
           </button>
           <button
             type="button"
-            onClick={handleNext}
+            onClick={() => {
+              handleNext()
+              playForward()
+            }}
             className={`btn ${next ? 'disabled' : null}`}
           >
             <img

@@ -6,6 +6,8 @@ import {Dropdown} from 'react-bootstrap'
 import Fade from 'react-reveal/Fade'
 import {setActiveNote} from '../store'
 import styled from 'styled-components'
+import useSound from 'use-sound'
+import qwertySfx from '../assets/qwerty.mp3'
 
 // webkitAudioContext fallback needed to support Safari
 const audioContext = new (window.AudioContext || window.webkitAudioContext)()
@@ -22,6 +24,7 @@ const keyboardShortcuts = KeyboardShortcuts.create({
 })
 
 export default function Keyboard(props) {
+  const [playQwerty] = useSound(qwertySfx, {volume: 0.075})
   const dispatch = useDispatch()
   const {activeNote, step} = useSelector(state => ({
     activeNote: state.activeNotes,
@@ -33,12 +36,14 @@ export default function Keyboard(props) {
   }
 
   const [toggleOn, toggle] = useState(true)
+
   const handleKeyboardLabel = () => {
     toggle(!toggleOn)
   }
 
   document.addEventListener('keydown', event => {
     if (event.which === 90) {
+      playQwerty()
       toggle(!toggleOn)
     }
   })
@@ -68,12 +73,17 @@ export default function Keyboard(props) {
           />
         )}
       </DimensionsProvider>
-      {/* <button type="button" onClick={handleKeyboardLabel}>
-        {toggleOn ? 'Hide Keyboard Labels' : 'Show Keyboard Labels'}
-      </button> */}
       <br />
+
       <div className="text-muted">
-        <ShortcutKey>z</ShortcutKey>{' '}
+        <a
+          onClick={() => {
+            handleKeyboardLabel()
+            play()
+          }}
+        >
+          <ShortcutKey>z</ShortcutKey>{' '}
+        </a>
         {toggleOn ? 'Show keyboard labels' : 'Hide keyboard labels'}
       </div>
     </Fade>

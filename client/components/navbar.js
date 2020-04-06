@@ -6,17 +6,34 @@ import {logout} from '../store'
 import Fade from 'react-reveal/Fade'
 import useSound from 'use-sound'
 import boopSfx from '../assets/boop.mp3'
+import collapseSfx from '../assets/collapse.mp3'
+import vinylSfx from '../assets/vinyl.mp3'
 
 const Navbar = ({handleClick, isLoggedIn}) => {
   const [play] = useSound(boopSfx, {volume: 0.05})
+  const [playCollapse] = useSound(collapseSfx, {volume: 0.03})
+  const [playVinyl, {stop}] = useSound(vinylSfx, {volume: 0.06})
+
+  const [isHovering, setIsHovering] = React.useState(false)
 
   return (
     // <!--Navbar-->
     <Fade top>
       <nav className="navbar navbar-primary bg-light mb-30">
         {/* <!-- Navbar brand --> */}
-        <a className="navbar-brand mx-auto" href="/">
-          <h1 onClick={play} style={{color: '#5d5b6a'}}>
+        <a
+          className="navbar-brand mx-auto"
+          href="/"
+          onMouseEnter={() => {
+            setIsHovering(true)
+            playVinyl()
+          }}
+          onMouseLeave={() => {
+            setIsHovering(false)
+            stop()
+          }}
+        >
+          <h1 onClick={play} isHovering={isHovering} style={{color: '#5d5b6a'}}>
             opus
           </h1>
         </a>
@@ -30,7 +47,7 @@ const Navbar = ({handleClick, isLoggedIn}) => {
           aria-expanded="false"
           aria-label="Toggle navigation"
           style={{outline: 'none', color: '#5d5b6a'}}
-          onClick={play}
+          onClick={playCollapse}
         >
           <div className="animated-icon1">
             <span />

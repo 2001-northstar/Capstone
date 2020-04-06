@@ -4,8 +4,12 @@ import {useDispatch, useSelector} from 'react-redux'
 import {fetchSongs} from '../store/songs'
 import styled from 'styled-components'
 import Fade from 'react-reveal/Fade'
+import useSound from 'use-sound'
+import boopSfx from '../assets/boop.mp3'
 
 const AllSongs = () => {
+  const [play] = useSound(boopSfx, {volume: 0.05})
+
   const dispatch = useDispatch()
 
   const {songs} = useSelector(state => {
@@ -25,7 +29,7 @@ const AllSongs = () => {
               <div className="card">
                 <div className="row no-gutters">
                   <div className="col-md-3">
-                    <Link to={`/songs/${song.id}`}>
+                    <Link to={`/songs/${song.id}`} onClick={play}>
                       <img
                         src="https://www.svgrepo.com/show/72278/piano.svg"
                         className="card-img px-3 py-5"
@@ -34,7 +38,7 @@ const AllSongs = () => {
                   </div>
                   <div className="col-md-8">
                     <div className="card-body text-center">
-                      <Link to={`/songs/${song.id}`}>
+                      <Link to={`/songs/${song.id}`} onClick={play}>
                         <h2 className="card-title">{song.title}</h2>
                       </Link>
                       <h4 className="card-text">{song.artist}</h4>

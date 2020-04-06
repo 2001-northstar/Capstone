@@ -4,7 +4,12 @@ import Keyboard from './Keyboard'
 import {useDispatch, useSelector} from 'react-redux'
 import {fetchSingleSong} from '../store'
 import Fade from 'react-reveal/Fade'
+import useSound from 'use-sound'
+import boopSfx from '../assets/boop.mp3'
+
 const NoteContainer = props => {
+  const [play] = useSound(boopSfx, {volume: 0.05})
+
   // dispatch action to the store to grab the current song info
   // issues using more than one use effect
   const dispatch = useDispatch()
@@ -86,10 +91,18 @@ const NoteContainer = props => {
               <h4 className="display-4 text-center">Nice job 👏</h4>
               <h5 className="text-center">Want to try another song?</h5>
               <div className="row justify-content-center">
-                <a href="/songs" className="m-1 btn btn-outline-primary">
+                <a
+                  href="/songs"
+                  className="m-1 btn btn-outline-primary"
+                  onClick={play}
+                >
                   Heck Yes!
                 </a>
-                <a href="/" className="m-1 btn btn-outline-secondary">
+                <a
+                  href="/"
+                  className="m-1 btn btn-outline-secondary"
+                  onClick={play}
+                >
                   Nah, take me back to free play
                 </a>
               </div>
