@@ -2,6 +2,7 @@ body {
   font-family: sans-serif;
   margin-bottom: 100px;
 }
+
 .fixed {
   display: flex;
   height: 300px;
@@ -222,18 +223,18 @@ form div {
  * Styles of "active" or pressed-down keys
  */
 .ReactPiano__Key--active {
-  background: #97d8c4;
+  background: #f4b942;
 }
 
 .ReactPiano__Key--active.ReactPiano__Key--accidental {
   border: 1px solid #fff;
-  border-top: 1px solid #97d8c4;
+  border-top: 1px solid #f4b942;
   /* Slight height reduction for "pushed-down" effect */
   height: 65%;
 }
 
 .ReactPiano__Key--active.ReactPiano__Key--natural {
-  border: 1px solid #97d8c4;
+  border: 1px solid #f4b942;
   /* Slight height reduction for "pushed-down" effect */
   height: 98%;
 }

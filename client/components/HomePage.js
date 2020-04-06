@@ -9,7 +9,7 @@ const HomePage = () => {
     <>
       <div id="body">
         <Fade top>
-          <div className="jumbotron jumbotron-fluid ">
+          <div className="jumbotron jumbotron-fluid">
             <div className="container">
               <h1 className="display-4 text-center">Learn Music Anywhere</h1>
               <p className="lead text-center">

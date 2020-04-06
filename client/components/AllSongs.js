@@ -27,7 +27,7 @@ const AllSongs = () => {
                   <div className="col-md-3">
                     <Link to={`/songs/${song.id}`}>
                       <img
-                        src="/assets/exercise-notes-big.svg"
+                        src="/assets/piano-big.svg"
                         className="card-img px-3 py-5"
                       />
                     </Link>
