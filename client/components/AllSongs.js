@@ -24,10 +24,10 @@ const AllSongs = () => {
             <div className="col mx-5">
               <div className="card">
                 <div className="row no-gutters align-items-center">
-                  <div className="col-md-3">
+                  <div className="col-md-4">
                     <Link to={`/songs/${song.id}`}>
                       <img
-                        src="/assets/piano-big.svg"
+                        src="/assets/music-notes.svg"
                         className="card-img px-3 py-5"
                       />
                     </Link>

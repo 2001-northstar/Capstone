@@ -67,14 +67,41 @@ const SingleExercise = props => {
 
   return (
     <>
-      {done ? <div>You did it!</div> : <div>{exerciseStep.content}</div>}
-      {firstAttempt ? null : <div>Whoops! Try Again!</div>}
+      <div className="container my-3 py-3 text-center">
+        {done ? (
+          <h3 style={{color: '#6B9AC4'}} className="my-3 py-3 text-center">
+            You did it!
+          </h3>
+        ) : (
+          <p className="lead">{exerciseStep.content}</p>
+        )}
+
+        {firstAttempt ? null : (
+          <h3 style={{color: '#6B9AC4'}} className="my-3 py-3 text-center">
+            Whoops! Try Again!
+          </h3>
+        )}
+      </div>
+
       <Keyboard highlightedNotes={[]} />
       {complete ? (
         <>
-          <div>Lesson Progress Saved!</div>
-          <Link to={`/lesson/${exercise.id + 1}`}>Next Lesson</Link>
-          <Link to="/lesson">Back to Lessons List</Link>
+          <div className="container my-2 py-2">
+            <p className="lead mt-3">
+              <strong>Lesson Progress Saved!</strong>
+            </p>
+          </div>
+          <div className="my-1 py-1">
+            <Link
+              to={`/lesson/${exercise.id + 1}`}
+              className="m-1 btn btn-outline-primary"
+            >
+              Next Lesson
+            </Link>
+            <Link to="/lesson" className="m-1 btn btn-outline-secondary">
+              Back to Lessons List
+            </Link>
+          </div>
         </>
       ) : null}
     </>

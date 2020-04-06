@@ -24,7 +24,7 @@ const AllExercises = () => {
             <div className="col mx-5">
               <div className="card">
                 <div className="row no-gutters">
-                  <div className="col-md-3">
+                  <div className="col-md-4">
                     <Link to={`/exercise/${exercise.id}`}>
                       <img
                         src="/assets/exercise-notes-big.svg"
