@@ -15,7 +15,7 @@ const setScores = scores => {
 export const fetchScores = userId => {
   return async dispatch => {
     try {
-      const {data} = await axios.get(`/api/user/${userId}/score`)
+      const {data} = await axios.get(`/api/user/${userId}/scores`)
       dispatch(setScores(data))
     } catch (err) {
       console.log(err)

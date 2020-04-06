@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 import {Keyboard} from '../components'
+import {scoreKeeper} from '../utils'
 
 const SingleExercise = props => {
   const dispatch = useDispatch()
@@ -15,20 +16,23 @@ const SingleExercise = props => {
   })
 
   const exercise = lesson.exercises || []
+  const answer = 48
+  const answer2 = 60
+
+  //SCOREKEEPER
+  //Here's the problem: I need to be able to feed the AnswerNotes
+  //into the scoreKeeper function. The will be easy for this exercise
+  //But how do I do it for the others?
+  //Each time the right note is pressed we need to cycle one through the answer
 
   const [complete, setComplete] = useState(false)
   const [correct, setCorrect] = useState(false)
-  const [score, setScore] = useState(0)
 
   const handleCompleted = async () => {
     await axios.put(`/api/lessons/${lesson.id}`)
-    await axios.put(`/api/scores/`, score)
+    // await axios.put(`/api/scores/`, scorekeeper)
     setComplete(true)
   }
-
-  const answer = 48
-  const answer2 = 60
-  let scorekeeper = 0
 
   //need to set answer 2 = answer if no answer2 in model or here
 
@@ -40,7 +44,7 @@ const SingleExercise = props => {
 
   useEffect(
     () => {
-      if (activeNotes[0] === answer || activeNotes[0] === answer2) {
+      if (scorekeeper(activeNotes[0] === answer)) {
         setCorrect(true)
         //advance step after time delay to read correct statement?
       } else setCorrect(false)
@@ -56,9 +60,7 @@ const SingleExercise = props => {
         <div>{`No Exercise for Lesson ${lesson.id}`}</div>
       )}
       <div>Find a C</div>
-      {correct
-        ? setScore(++scorekeeper) && <div>Correct!</div>
-        : setScore(--scorekeeper) && <div>Whoops! Try Again!</div>}
+      {correct ? <div>Correct!</div> : <div>Whoops! Try Again!</div>}
       <Keyboard highlightedNotes={[]} />
       <button type="button" onClick={handleCompleted}>
         Mark Lesson as Completed
