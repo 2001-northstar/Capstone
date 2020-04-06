@@ -4,7 +4,14 @@ import Keyboard from './Keyboard'
 import {useDispatch, useSelector} from 'react-redux'
 import {fetchSingleSong} from '../store'
 import Fade from 'react-reveal/Fade'
+import useSound from 'use-sound'
+import buttonSfx from '../assets/button.mp3'
+import applauseSfx from '../assets/applause.mp3'
+
 const NoteContainer = props => {
+  const [playButton] = useSound(buttonSfx, {volume: 0.05})
+  const [playApplause] = useSound(applauseSfx, {volume: 0.05})
+
   // dispatch action to the store to grab the current song info
   // issues using more than one use effect
   const dispatch = useDispatch()
@@ -79,7 +86,10 @@ const NoteContainer = props => {
         <Fade bottom>
           <div className="justify-content-center">
             <h4 className="display-4 text-center">{song.title}</h4>
-            <div className="fixed justify-content-center align-items-center">
+            <div
+              className="fixed justify-content-center align-items-center"
+              onMouseEnter={playApplause}
+            >
               <div className="justify-content-center">
                 <h4
                   style={{color: '#6B9AC4'}}
@@ -89,10 +99,18 @@ const NoteContainer = props => {
                 </h4>
                 <h5 className="text-center">Want to try another song?</h5>
                 <div className="row justify-content-center">
-                  <a href="/songs" className="m-1 btn btn-outline-primary">
+                  <a
+                    href="/songs"
+                    className="m-1 btn btn-outline-primary"
+                    onClick={playButton}
+                  >
                     Heck Yes!
                   </a>
-                  <a href="/" className="m-1 btn btn-outline-secondary">
+                  <a
+                    href="/"
+                    className="m-1 btn btn-outline-secondary"
+                    onClick={playButton}
+                  >
                     Nah, take me back to free play
                   </a>
                 </div>

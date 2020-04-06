@@ -1,8 +1,14 @@
 import React from 'react'
 import Fade from 'react-reveal/Fade'
 import styled from 'styled-components'
+import useSound from 'use-sound'
+import buttonSfx from '../assets/button.mp3'
+import hoverSfx from '../assets/hover.mp3'
 
 const About = () => {
+  const [playButton] = useSound(buttonSfx, {volume: 0.05})
+  const [playHover] = useSound(hoverSfx, {volume: 0.05})
+
   return (
     <>
       <Fade top>
@@ -51,18 +57,30 @@ const About = () => {
             <div className="col mb-4">
               <div className="card">
                 <a href="https://www.linkedin.com/in/drewlu/">
-                  <img src="/assets/drew.jpg" className="card-img-top" />
+                  <img
+                    src="/assets/drew.png"
+                    className="card-img-top"
+                    onClick={playButton}
+                    onMouseEnter={playHover}
+                  />
                 </a>
                 <div className="card-body text-center">
                   <h5 className="card-title text-center">DREW</h5>
-                  <p className="card-text text-center">words words words</p>
+                  <p className="card-text text-center">
+                    The piano ain't go no wrong notes.
+                  </p>
                 </div>
               </div>
             </div>
             <div className="col mb-4">
               <div className="card">
                 <a href="https://www.linkedin.com/in/kylie-hess/">
-                  <img src="/assets/kylie.jpg" className="card-img-top" />
+                  <img
+                    src="/assets/kylie.png"
+                    className="card-img-top"
+                    onClick={playButton}
+                    onMouseEnter={playHover}
+                  />
                 </a>
                 <div className="card-body text-center">
                   <h5 className="card-title text-center">KYLIE</h5>
@@ -76,7 +94,12 @@ const About = () => {
             <div className="col mb-4">
               <div className="card">
                 <a href="https://www.linkedin.com/in/joshua-connor-7a4044172/">
-                  <img src="/assets/josh.jpg" className="card-img-top" />
+                  <img
+                    src="/assets/josh.jpg"
+                    className="card-img-top"
+                    onClick={playButton}
+                    onMouseEnter={playHover}
+                  />
                 </a>
                 <div className="card-body">
                   <h5 className="card-title text-center">JOSH</h5>
@@ -87,7 +110,12 @@ const About = () => {
             <div className="col mb-4">
               <div className="card">
                 <a href="https://www.linkedin.com/in/jennmez/">
-                  <img src="/assets/jenn.jpg" className="card-img-top" />
+                  <img
+                    src="/assets/jenn.jpg"
+                    className="card-img-top"
+                    onClick={playButton}
+                    onMouseEnter={playHover}
+                  />
                 </a>
                 <div className="card-body">
                   <h5 className="card-title text-center">JENN</h5>

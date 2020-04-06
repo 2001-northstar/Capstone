@@ -4,9 +4,13 @@ import {useDispatch, useSelector} from 'react-redux' // import redux hooks
 import {fetchLessons} from '../store'
 import styled from 'styled-components'
 import Fade from 'react-reveal/Fade'
+import useSound from 'use-sound'
+import boopSfx from '../assets/boop.mp3'
 
 const AllLessons = () => {
   const dispatch = useDispatch()
+
+  const [play] = useSound(boopSfx, {volume: 0.05})
 
   const {lessons, user, progress} = useSelector(state => {
     return {lessons: state.lessons, user: state.user, progress: state.progress}
@@ -22,28 +26,12 @@ const AllLessons = () => {
     <div className="row">
       {lessons.map((lesson, i) => (
         <DefaultDiv key={lesson.id}>
-          <Fade bottom>
+          <Fade top>
             <div className="col mx-5">
-              {/* <div className="card text-center">
-              <Link to={`/lesson/${lesson.id}`}>
-                <img
-                  src="https://www.svgrepo.com/show/72278/piano.svg"
-                  className="card-img mx-10 my-10"
-                  height="100em"
-                  width="100em"
-                />
-              </Link>
-              <div className="card-body">
-                <Link to={`/lesson/${lesson.id}`}>
-                  <h2 className="card-title">{lesson.name}</h2>
-                </Link>
-                <p className="card-text">{lesson.overview}</p>
-              </div>
-            </div> */}
               <div className="card">
                 <div className="row no-gutters">
                   <div className="col-md-4">
-                    <Link to={`/lesson/${lesson.id}`}>
+                    <Link to={`/lesson/${lesson.id}`} onClick={play}>
                       <img
                         src="/assets/sheet-big.svg"
                         className="card-img px-3 py-5"
@@ -52,7 +40,7 @@ const AllLessons = () => {
                   </div>
                   <div className="col-md-8">
                     <div className="card-body text-center">
-                      <Link to={`/lesson/${lesson.id}`}>
+                      <Link to={`/lesson/${lesson.id}`} onClick={play}>
                         <h2 className="card-title">{lesson.name}</h2>
                       </Link>
                       <p className="card-text">{lesson.overview}</p>

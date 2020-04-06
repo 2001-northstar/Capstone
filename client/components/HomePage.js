@@ -3,8 +3,14 @@ import Keyboard from './Keyboard'
 import Fade from 'react-reveal/Fade'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
+import useSound from 'use-sound'
+import buttonSfx from '../assets/button.mp3'
+import hoverSfx from '../assets/hover.mp3'
 
 const HomePage = () => {
+  const [playButton] = useSound(buttonSfx, {volume: 0.05})
+  const [playHover] = useSound(hoverSfx, {volume: 0.05})
+
   return (
     <>
       <div id="body">
@@ -23,7 +29,7 @@ const HomePage = () => {
         <div className="keyboard">
           <Keyboard highlightedNotes={[]} />
         </div>
-        <Fade top>
+        <Fade bottom>
           <div className="container my-2">
             <h3
               className="text-center display-4 my-4"
@@ -42,7 +48,11 @@ const HomePage = () => {
             <div className="row row-cols-1 row-cols-md-3">
               <div className="col mb-4">
                 <div className="card">
-                  <Link to="/lesson">
+                  <Link
+                    to="/lesson"
+                    onClick={playButton}
+                    onMouseEnter={playHover}
+                  >
                     <img src="/assets/sheets1.svg" className="card-img-top" />
                   </Link>
                   <div className="card-body text-center">
@@ -55,7 +65,11 @@ const HomePage = () => {
               </div>
               <div className="col mb-4">
                 <div className="card">
-                  <Link to="/songs">
+                  <Link
+                    to="/songs"
+                    onClick={playButton}
+                    onMouseEnter={playHover}
+                  >
                     <img src="/assets/piano.svg" className="card-img-top" />
                   </Link>
                   <div className="card-body text-center">
@@ -69,7 +83,11 @@ const HomePage = () => {
               </div>
               <div className="col mb-4">
                 <div className="card">
-                  <Link to="/signup">
+                  <Link
+                    to="/signup"
+                    onClick={playButton}
+                    onMouseEnter={playHover}
+                  >
                     <img src="/assets/notes1.svg" className="card-img-top" />
                   </Link>
                   <div className="card-body">
@@ -95,7 +113,11 @@ const HomePage = () => {
                       Bringing entertaining, affordable and accessible music
                       lessons to all.
                     </p>
-                    <a href="/about" className="m-1 btn btn-outline-primary">
+                    <a
+                      href="/about"
+                      className="m-1 btn btn-outline-primary"
+                      onClick={playButton}
+                    >
                       Read More
                     </a>
                   </div>
@@ -112,6 +134,7 @@ const HomePage = () => {
                     <a
                       href="/contact-us"
                       className="m-1 btn btn-outline-primary"
+                      onClick={playButton}
                     >
                       Drop us a note
                     </a>
