@@ -1,8 +1,12 @@
 import React from 'react'
 import Fade from 'react-reveal/Fade'
 import styled from 'styled-components'
+import useSound from 'use-sound'
+import boopSfx from '../assets/boop.mp3'
 
 const About = () => {
+  const [play] = useSound(boopSfx, {volume: 0.05})
+
   return (
     <>
       <Fade top>
@@ -52,8 +56,9 @@ const About = () => {
               <div className="card">
                 <a href="https://www.linkedin.com/in/drewlu/">
                   <img
-                    src="https://www.pngrepo.com/png/8331/180/sheet-music.png"
+                    src="/assets/drew.jpg"
                     className="card-img-top"
+                    onClick={play}
                   />
                 </a>
                 <div className="card-body text-center">
@@ -68,6 +73,7 @@ const About = () => {
                   <img
                     src="https://www.pngrepo.com/png/8331/180/sheet-music.png"
                     className="card-img-top"
+                    onClick={play}
                   />
                 </a>
                 <div className="card-body text-center">
@@ -79,7 +85,11 @@ const About = () => {
             <div className="col mb-4">
               <div className="card">
                 <a href="https://www.linkedin.com/in/joshua-connor-7a4044172/">
-                  <img src="/assets/josh.jpg" className="card-img-top" />
+                  <img
+                    src="/assets/josh.jpg"
+                    className="card-img-top"
+                    onClick={play}
+                  />
                 </a>
                 <div className="card-body">
                   <h5 className="card-title text-center">JOSH</h5>
@@ -90,7 +100,11 @@ const About = () => {
             <div className="col mb-4">
               <div className="card">
                 <a href="https://www.linkedin.com/in/jennmez/">
-                  <img src="/assets/jenn.jpg" className="card-img-top" />
+                  <img
+                    src="/assets/jenn.jpg"
+                    className="card-img-top"
+                    onClick={play}
+                  />
                 </a>
                 <div className="card-body">
                   <h5 className="card-title text-center">JENN</h5>

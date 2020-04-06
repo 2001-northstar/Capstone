@@ -3,12 +3,15 @@ import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {auth} from '../store'
 import Fade from 'react-reveal/Fade'
+import useSound from 'use-sound'
+import boopSfx from '../assets/boop.mp3'
 
 /**
  * COMPONENT
  */
 const AuthForm = props => {
   const {name, displayName, handleSubmit, error} = props
+  const [play] = useSound(boopSfx, {volume: 0.05})
 
   return (
     <Fade>
@@ -27,7 +30,11 @@ const AuthForm = props => {
             <input name="password" type="password" />
           </div>
           <div>
-            <button type="submit" className="btn btn-outline-secondary">
+            <button
+              type="submit"
+              className="btn btn-outline-secondary"
+              onClick={play}
+            >
               {displayName}
             </button>
           </div>

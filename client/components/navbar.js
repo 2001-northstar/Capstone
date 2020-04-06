@@ -8,18 +8,17 @@ import useSound from 'use-sound'
 import boopSfx from '../assets/boop.mp3'
 
 const Navbar = ({handleClick, isLoggedIn}) => {
-  const [play] = useSound(boopSfx, {volume: 0.25})
+  const [play] = useSound(boopSfx, {volume: 0.05})
 
   return (
     // <!--Navbar-->
     <Fade top>
-      <button type="button" onClick={play}>
-        Boop!
-      </button>
       <nav className="navbar navbar-primary bg-light mb-30">
         {/* <!-- Navbar brand --> */}
         <a className="navbar-brand mx-auto" href="/">
-          <h1 style={{color: '#5d5b6a'}}>OPUS</h1>
+          <h1 onClick={play} style={{color: '#5d5b6a'}}>
+            opus
+          </h1>
         </a>
         {/* <!-- Collapse button --> */}
         <button
@@ -31,6 +30,7 @@ const Navbar = ({handleClick, isLoggedIn}) => {
           aria-expanded="false"
           aria-label="Toggle navigation"
           style={{outline: 'none', color: '#5d5b6a'}}
+          onClick={play}
         >
           <div className="animated-icon1">
             <span />
@@ -49,10 +49,18 @@ const Navbar = ({handleClick, isLoggedIn}) => {
             {isLoggedIn ? (
               <div className="d-flex justify-content-center">
                 {/* The navbar will show these links after you log in */}
-                <Link to="/home">Home</Link>
-                <a href="#" onClick={handleClick}>
+                <Link onClick={play} to="/home">
+                  Home
+                </Link>
+                <Link
+                  onClick={() => {
+                    handleClick()
+                    play()
+                  }}
+                  to="/home"
+                >
                   Logout
-                </a>
+                </Link>
                 <Link onClick={play} to="/about">
                   About
                 </Link>
