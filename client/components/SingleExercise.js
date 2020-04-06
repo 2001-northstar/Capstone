@@ -72,9 +72,22 @@ const SingleExercise = props => {
       <Keyboard highlightedNotes={[]} />
       {complete ? (
         <>
-          <div>Lesson Progress Saved!</div>
-          <Link to={`/lesson/${exercise.id + 1}`}>Next Lesson</Link>
-          <Link to="/lesson">Back to Lessons List</Link>
+          <div className="container my-2 py-2">
+            <p className="lead mt-3">
+              <strong>Lesson Progress Saved!</strong>
+            </p>
+          </div>
+          <div className="my-1 py-1">
+            <Link
+              to={`/lesson/${exercise.id + 1}`}
+              className="m-1 btn btn-outline-primary"
+            >
+              Next Lesson
+            </Link>
+            <Link to="/lesson" className="m-1 btn btn-outline-secondary">
+              Back to Lessons List
+            </Link>
+          </div>
         </>
       ) : null}
     </>
