@@ -42,10 +42,10 @@ const AllLessons = () => {
             </div> */}
               <div className="card">
                 <div className="row no-gutters">
-                  <div className="col-md-3">
+                  <div className="col-md-4">
                     <Link to={`/lesson/${lesson.id}`}>
                       <img
-                        src="https://www.pngrepo.com/png/8331/180/sheet-music.png"
+                        src="/assets/sheet-big.svg"
                         className="card-img px-3 py-5"
                       />
                     </Link>

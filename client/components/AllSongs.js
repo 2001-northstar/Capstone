@@ -1,6 +1,6 @@
-import React, {useEffect} from 'react' // don't forget to import useEffect
+import React, {useEffect} from 'react'
 import {Link} from 'react-router-dom'
-import {useDispatch, useSelector} from 'react-redux' // import redux hooks
+import {useDispatch, useSelector} from 'react-redux'
 import {fetchSongs} from '../store/songs'
 import styled from 'styled-components'
 import Fade from 'react-reveal/Fade'
@@ -23,11 +23,11 @@ const AllSongs = () => {
           <Fade bottom>
             <div className="col mx-5">
               <div className="card">
-                <div className="row no-gutters">
+                <div className="row no-gutters align-items-center">
                   <div className="col-md-3">
                     <Link to={`/songs/${song.id}`}>
                       <img
-                        src="https://www.svgrepo.com/show/72278/piano.svg"
+                        src="/assets/piano-big.svg"
                         className="card-img px-3 py-5"
                       />
                     </Link>
@@ -35,9 +35,9 @@ const AllSongs = () => {
                   <div className="col-md-8">
                     <div className="card-body text-center">
                       <Link to={`/songs/${song.id}`}>
-                        <h2 className="card-title">{song.title}</h2>
+                        <h3 className="card-title">{song.title}</h3>
                       </Link>
-                      <h4 className="card-text">{song.artist}</h4>
+                      <h5 className="card-text">{song.artist}</h5>
                       <p className="card-text">Difficulty: {song.level}</p>
                       <p className="card-text">{song.description}</p>
                     </div>

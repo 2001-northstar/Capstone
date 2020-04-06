@@ -27,7 +27,7 @@ const AllExercises = () => {
                   <div className="col-md-3">
                     <Link to={`/exercise/${exercise.id}`}>
                       <img
-                        src="https://www.svgrepo.com/show/72278/piano.svg"
+                        src="/assets/exercise-notes-big.svg"
                         className="card-img px-3 py-5"
                       />
                     </Link>
