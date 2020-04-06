@@ -25,7 +25,7 @@ body {
   position: relative;
   left: 0;
   height: 100px;
-  background-color: #f4b942;
+  background-color: #97d8c4;
   border-radius: 5px;
   border: 1px solid #eff2f1;
 }
@@ -35,7 +35,7 @@ body {
   position: relative;
   left: calc(100% / 11);
   height: 100px;
-  background-color: #f4b942;
+  background-color: #97d8c4;
   border-radius: 5px;
   border: 1px solid #eff2f1;
 }
@@ -44,7 +44,7 @@ body {
   position: relative;
   left: calc(2 * (100% / 11));
   height: 100px;
-  background-color: #f4b942;
+  background-color: #97d8c4;
   border-radius: 5px;
   border: 1px solid #eff2f1;
 }
@@ -54,7 +54,7 @@ body {
   position: relative;
   left: calc(3 * (100% / 11));
   height: 100px;
-  background-color: #f4b942;
+  background-color: #97d8c4;
   border-radius: 5px;
   border: 1px solid #eff2f1;
 }
@@ -64,7 +64,7 @@ body {
   position: relative;
   left: calc(4 * (100% / 11));
   height: 100px;
-  background-color: #f4b942;
+  background-color: #97d8c4;
   border-radius: 5px;
   border: 1px solid #eff2f1;
 }
@@ -74,7 +74,7 @@ body {
   position: relative;
   left: calc(5 * (100% / 11));
   height: 100px;
-  background-color: #f4b942;
+  background-color: #97d8c4;
   border-radius: 5px;
   border: 1px solid #eff2f1;
 }
@@ -84,7 +84,7 @@ body {
   position: relative;
   left: calc(6 * (100% / 11));
   height: 100px;
-  background-color: #f4b942;
+  background-color: #97d8c4;
   border-radius: 5px;
   border: 1px solid #eff2f1;
 }
@@ -94,7 +94,7 @@ body {
   position: relative;
   left: calc(7 * (100% / 11));
   height: 100px;
-  background-color: #f4b942;
+  background-color: #97d8c4;
   border-radius: 5px;
   border: 1px solid #eff2f1;
 }
@@ -104,7 +104,7 @@ body {
   position: relative;
   left: calc(8 * (100% / 11));
   height: 100px;
-  background-color: #f4b942;
+  background-color: #97d8c4;
   border-radius: 5px;
   border: 1px solid #eff2f1;
 }
@@ -114,7 +114,7 @@ body {
   position: relative;
   left: calc(9 * (100% / 11));
   height: 100px;
-  background-color: #f4b942;
+  background-color: #97d8c4;
   border-radius: 5px;
   border: 1px solid #eff2f1;
 }
@@ -124,15 +124,16 @@ body {
   position: relative;
   left: calc(10 * (100% / 11));
   height: 100px;
-  background-color: #f4b942;
+  background-color: #97d8c4;
   border-radius: 5px;
   border: 1px solid #eff2f1;
 }
 
 #lesson-one-container {
-  height: 25em;
+  height: 225px;
+  width: 100%;
   display: inline-block;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 #noteLabelContainer {
@@ -223,18 +224,18 @@ form div {
  * Styles of "active" or pressed-down keys
  */
 .ReactPiano__Key--active {
-  background: #f4b942;
+  background: #97d8c4;
 }
 
 .ReactPiano__Key--active.ReactPiano__Key--accidental {
   border: 1px solid #fff;
-  border-top: 1px solid #f4b942;
+  border-top: 1px solid #97d8c4;
   /* Slight height reduction for "pushed-down" effect */
   height: 65%;
 }
 
 .ReactPiano__Key--active.ReactPiano__Key--natural {
-  border: 1px solid #f4b942;
+  border: 1px solid #97d8c4;
   /* Slight height reduction for "pushed-down" effect */
   height: 98%;
 }
@@ -322,15 +323,15 @@ form div {
 }
 
 .animated-icon1 span {
-  background: black;
+  background: #5d5b6a;
 }
 
 .animated-icon2 span {
-  background: #e3f2fd;
+  background: #5d5b6a;
 }
 
 .animated-icon3 span {
-  background: #f3e5f5;
+  background: #5d5b6a;
 }
 
 .animated-icon1 span:nth-child(1) {

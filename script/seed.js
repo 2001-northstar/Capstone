@@ -1,7 +1,14 @@
 'use strict'
 
 const db = require('../server/db')
-const {User, Lesson, Step, Song} = require('../server/db/models')
+const {
+  User,
+  Lesson,
+  Step,
+  Exercise,
+  Song,
+  Progress
+} = require('../server/db/models')
 
 async function seed() {
   await db.sync({force: true})
@@ -37,6 +44,69 @@ async function seed() {
       name: 'III. Chords',
       overview: 'Learn what a chords is.',
       numOfSteps: 0
+    },
+    {
+      name: 'IV. Modes',
+      overview: 'Learn about Major, Minor, and More!',
+      numOfSteps: 0
+    }
+  ])
+
+  const exercises = await Exercise.bulkCreate([
+    {
+      name: 'I. The Basics',
+      overview: 'Identify notes on the keyboard.',
+      numOfSteps: 2
+    },
+    {
+      name: 'II. Scales',
+      overview: 'Practice some scales',
+      numOfSteps: 2
+    },
+    {
+      name: 'III. Chords',
+      overview: 'Practice some chords',
+      numOfSteps: 2
+    },
+    {
+      name: 'IV. Modes',
+      overview: 'Identify notes on the keyboard.',
+      numOfSteps: 2
+    }
+  ])
+
+  const progressRows = await Progress.bulkCreate([
+    {
+      userId: 1,
+      lessonId: 1
+    },
+    {
+      userId: 1,
+      lessonId: 2
+    },
+    {
+      userId: 1,
+      lessonId: 3
+    },
+    {
+      userId: 1,
+      lessonId: 4
+    },
+    {
+      userId: 2,
+      lessonId: 1
+    },
+    {
+      userId: 2,
+      lessonId: 2
+    },
+    {
+      userId: 2,
+      lessonId: 3
+    },
+    {
+      userId: 2,
+      lessonId: 4
     }
   ])
 
@@ -463,8 +533,10 @@ async function seed() {
 
   console.log(`seeded ${users.length} users`)
   console.log(`seeded ${lessons.length} lessons`)
+  console.log(`seeded ${exercises.length} exercises`)
   console.log(`seeded ${songs.length} songs successfully`)
   console.log(`seeded ${steps.length} steps`)
+  console.log(`seeded ${progressRows.length} progress rows successfully`)
   console.log(`seeded successfully`)
 }
 

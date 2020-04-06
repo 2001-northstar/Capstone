@@ -10,8 +10,8 @@ const Song = require('./song')
 User.belongsToMany(Lesson, {through: Progress})
 Lesson.belongsToMany(User, {through: Progress})
 
-User.belongsToMany(Exercise, {through: Progress})
-Exercise.belongsToMany(User, {through: Progress})
+// User.belongsToMany(Exercise, {through: Progress})
+// Exercise.belongsToMany(User, {through: Progress})
 
 Lesson.hasMany(LessonGIF)
 LessonGIF.belongsTo(Lesson)

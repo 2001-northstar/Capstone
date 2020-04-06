@@ -9,10 +9,10 @@ const Navbar = ({handleClick, isLoggedIn}) => {
   return (
     // <!--Navbar-->
     <Fade top>
-      <nav className="navbar navbar-primary bg-light mb-30">
+      <nav className="navbar navbar-primary bg-light">
         {/* <!-- Navbar brand --> */}
         <a className="navbar-brand mx-auto" href="/">
-          <h1 style={{color: 'black'}}>OPUS</h1>
+          <h1 style={{color: '#5d5b6a'}}>OPUS</h1>
         </a>
 
         {/* <!-- Collapse button --> */}
@@ -24,6 +24,7 @@ const Navbar = ({handleClick, isLoggedIn}) => {
           aria-controls="navbarSupportedContent20"
           aria-expanded="false"
           aria-label="Toggle navigation"
+          style={{outline: 'none', color: '#5d5b6a'}}
         >
           <div className="animated-icon1">
             <span />
@@ -43,14 +44,16 @@ const Navbar = ({handleClick, isLoggedIn}) => {
             {isLoggedIn ? (
               <div>
                 {/* The navbar will show these links after you log in */}
-                <Link to="/home">Home</Link>
+                <Link to="/home">👤</Link>
                 <a href="#" onClick={handleClick}>
                   Logout
                 </a>
                 <Link to="/about">About</Link>
                 <Link to="/">Free Play</Link>
                 <Link to="/lesson">Lessons</Link>
+                <Link to="/exercise">Exercises</Link>
                 <Link to="/songs">Song Book</Link>
+                <Link to="/contact-us">Contact Us</Link>
               </div>
             ) : (
               <div className="d-flex justify-content-center">
@@ -60,7 +63,9 @@ const Navbar = ({handleClick, isLoggedIn}) => {
                 <Link to="/about">About</Link>
                 {/* <Link to="/">Free Play</Link> */}
                 <Link to="/lesson">Lessons</Link>
+                <Link to="/exercise">Exercises</Link>
                 <Link to="/songs">Song Book</Link>
+                <Link to="/contact-us">Contact Us</Link>
               </div>
             )}
           </nav>

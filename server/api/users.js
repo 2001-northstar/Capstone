@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const {User} = require('../db/models')
+const {User, Progress} = require('../db/models')
 module.exports = router
 
 router.get('/', async (req, res, next) => {
@@ -11,6 +11,18 @@ router.get('/', async (req, res, next) => {
       attributes: ['id', 'email']
     })
     res.json(users)
+  } catch (err) {
+    next(err)
+  }
+})
+
+router.get('/progress', async (req, res, next) => {
+  try {
+    const progress = await Progress.findAll({
+      where: {userId: req.user.id},
+      attributes: ['lessonId', 'completed']
+    })
+    res.json(progress)
   } catch (err) {
     next(err)
   }

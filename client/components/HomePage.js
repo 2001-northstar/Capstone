@@ -9,27 +9,34 @@ const HomePage = () => {
     <>
       <div id="body">
         <Fade top>
-          <div className="jumbotron jumbotron-fluid">
+          <div className="jumbotron jumbotron-fluid mt-3">
             <div className="container">
-              <h1 className="display-4 text-center">Learn Music Anywhere</h1>
+              <h1 className="display-3 text-center" style={{color: '#4059AD'}}>
+                <strong>Learn Music Anywhere</strong>
+              </h1>
               <p className="lead text-center">
-                Go on, press a note. You know you want to.
+                Go on, press a key. You know you want to.
               </p>
             </div>
           </div>
         </Fade>
         <div className="keyboard">
-          <Keyboard />
+          <Keyboard highlightedNotes={[]} />
         </div>
-        <div className="container my-2">
-          <h3 className="text-center display-4 my-4">
-            We get it. Instruments are expensive & private lessons add up.
-          </h3>
-          <h5 className="text-center my-2">
-            Our mission is make music accessible to all through an internet
-            connection & a humble keyboard.
-          </h5>
-        </div>
+        <Fade top>
+          <div className="container my-2">
+            <h3
+              className="text-center display-4 my-4"
+              style={{color: '#6B9AC4'}}
+            >
+              We get it. Instruments are expensive & private lessons add up.
+            </h3>
+            <p className="lead text-center">
+              Our mission is make music accessible to all through an internet
+              connection & a humble keyboard.
+            </p>
+          </div>
+        </Fade>
         <DefaultDiv id="learning">
           <Fade bottom>
             <div className="row row-cols-1 row-cols-md-3">
@@ -83,11 +90,12 @@ const HomePage = () => {
               <div className="col mb-4">
                 <div className="card">
                   <div className="card-body text-center">
-                    <h5 className="card-title text-center">About O P U S</h5>
+                    <h5 className="card-title text-center">About OPUS</h5>
                     <p className="card-text text-center">
-                      Bringing affordable & accessible music lessons to all.
+                      Bringing entertaining, affordable and accessible music
+                      lessons to all.
                     </p>
-                    <a href="/about" className="btn btn-primary">
+                    <a href="/about" className="m-1 btn btn-outline-primary">
                       Read More
                     </a>
                   </div>
@@ -101,7 +109,10 @@ const HomePage = () => {
                       Maybe you want to make beautiful tunes together. Maybe you
                       found a bug.
                     </p>
-                    <a href="/contact-us" className="btn btn-primary">
+                    <a
+                      href="/contact-us"
+                      className="m-1 btn btn-outline-primary"
+                    >
                       Drop us a note
                     </a>
                   </div>

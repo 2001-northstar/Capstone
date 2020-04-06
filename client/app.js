@@ -1,12 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
-import {Navbar, Footer} from './components'
+import {Navbar, Footer, Keyboard} from './components'
+import GlobalStyle from './styles/Global'
 import Routes from './routes'
 
 const App = () => {
   return (
     <>
       <div>
+        <GlobalStyle />
         <Navbar />
         <div className="container">
           <Content>
@@ -23,7 +25,6 @@ export default App
 
 const Content = styled.div`
   text-align: left;
-  color: #000000;
   padding-top: 15px;
   padding-bottom: 15px;
   padding-right: 15px;

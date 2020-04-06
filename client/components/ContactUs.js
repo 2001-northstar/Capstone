@@ -32,9 +32,8 @@ class ContactUs extends Component {
           <h4 className="text-justify">
             Whether you want to give us song suggestions for our growing library
             or you see an issue on the site, send us some mail! We love hearing
-            from you; it makes us feel the warm and fuzzies.
+            from you; it makes us feel all warm and fuzzy.
           </h4>
-          <h4 className="display-4 text-center">KEEP JAMMIN'</h4>
           <form>
             <div className="row">
               <div className="form-group">
@@ -84,7 +83,7 @@ class ContactUs extends Component {
             </div>
             <div className="row">
               <button
-                className="btn btn-primary"
+                className="btn btn-outline-primary"
                 onClick={event => this.handleSubmit(event)}
               >
                 Contact Us
