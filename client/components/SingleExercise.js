@@ -21,6 +21,7 @@ const SingleExercise = props => {
 
   const [complete, setComplete] = useState(false)
   const [firstAttempt, setAttempt] = useState(true)
+  const [done, setDone] = useState(false)
 
   const handleCompleted = async () => {
     await axios.put(`/api/lessons/${exercise.id}`)
@@ -47,6 +48,8 @@ const SingleExercise = props => {
         activeNotes[0] === exerciseStep.answer2
       ) {
         if (exerciseStep.index === steps.length - 1) {
+          setAttempt(true)
+          setDone(true)
           handleCompleted()
         } else {
           dispatch(setExerciseStep(steps[++exerciseStep.index]))
@@ -64,7 +67,7 @@ const SingleExercise = props => {
 
   return (
     <>
-      <div>{exerciseStep.content}</div>
+      {done ? <div>You did it!</div> : <div>{exerciseStep.content}</div>}
       {firstAttempt ? null : <div>Whoops! Try Again!</div>}
       <Keyboard highlightedNotes={[]} />
       {complete ? (
