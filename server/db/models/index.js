@@ -6,6 +6,7 @@ const AudioFile = require('./audioFile')
 const Progress = require('./progress')
 const Step = require('./step')
 const Song = require('./song')
+const ExerciseStep = require('./exerciseStep')
 
 User.belongsToMany(Lesson, {through: Progress})
 Lesson.belongsToMany(User, {through: Progress})
@@ -21,6 +22,9 @@ Step.belongsTo(Lesson)
 
 Lesson.hasMany(Exercise)
 Exercise.belongsTo(Lesson)
+
+Exercise.hasMany(ExerciseStep)
+ExerciseStep.belongsTo(Exercise)
 
 Lesson.hasMany(AudioFile)
 AudioFile.belongsTo(Lesson)
@@ -39,6 +43,7 @@ module.exports = {
   AudioFile,
   Progress,
   Step,
-  Song
+  Song,
+  ExerciseStep
   // SheetMusic
 }

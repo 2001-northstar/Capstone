@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {setStep} from './step'
+import {setExerciseStep} from '../store'
 
 // action-types
 const SET_SINGLE_EXERCISE = 'SET_SINGLE_EXERCISE'
@@ -18,13 +18,13 @@ export const fetchSingleExercise = exerciseId => {
     try {
       const {data} = await axios.get(`/api/exercises/${exerciseId}`)
       dispatch(setSingleExercise(data))
-      if (data.steps.length) {
-        const step1 = data.steps[0]
+      if (data.exerciseSteps.length) {
+        const step1 = data.exerciseSteps[0]
         dispatch(
-          setStep({
-            text: step1.content,
-            noteLabels: step1.noteLabels,
-            highlightedNotes: step1.highlightedNotes,
+          setExerciseStep({
+            content: step1.content,
+            answer: step1.answer,
+            answer2: step1.answer2,
             index: 0
           })
         )
