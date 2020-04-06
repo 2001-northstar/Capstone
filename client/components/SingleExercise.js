@@ -18,14 +18,17 @@ const SingleExercise = props => {
 
   const [complete, setComplete] = useState(false)
   const [correct, setCorrect] = useState(false)
+  const [score, setScore] = useState(0)
 
   const handleCompleted = async () => {
     await axios.put(`/api/lessons/${lesson.id}`)
+    await axios.put(`/api/scores/`, score)
     setComplete(true)
   }
 
   const answer = 48
   const answer2 = 60
+  let scorekeeper = 0
 
   //need to set answer 2 = answer if no answer2 in model or here
 
@@ -53,7 +56,9 @@ const SingleExercise = props => {
         <div>{`No Exercise for Lesson ${lesson.id}`}</div>
       )}
       <div>Find a C</div>
-      {correct ? <div>Correct!</div> : <div>Whoops! Try Again!</div>}
+      {correct
+        ? setScore(++scorekeeper) && <div>Correct!</div>
+        : setScore(--scorekeeper) && <div>Whoops! Try Again!</div>}
       <Keyboard highlightedNotes={[]} />
       <button type="button" onClick={handleCompleted}>
         Mark Lesson as Completed

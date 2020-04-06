@@ -12,6 +12,7 @@ import userinfo from './userinfo'
 import song from './song'
 import songs from './songs'
 import activeNotes from './activeNotes'
+import score from './score'
 
 const reducer = combineReducers({
   user,
@@ -23,7 +24,8 @@ const reducer = combineReducers({
   activeNotes,
   userinfo,
   songs,
-  song
+  song,
+  score
 })
 
 const middleware = composeWithDevTools(

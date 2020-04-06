@@ -6,6 +6,7 @@ const AudioFile = require('./audioFile')
 const Progress = require('./progress')
 const Step = require('./step')
 const Song = require('./song')
+const Score = require('./score')
 
 User.belongsToMany(Lesson, {through: Progress})
 Lesson.belongsToMany(User, {through: Progress})
@@ -24,6 +25,12 @@ Exercise.belongsTo(Lesson)
 
 Lesson.hasMany(AudioFile)
 AudioFile.belongsTo(Lesson)
+
+User.hasMany(Score)
+Score.belongsTo(User)
+
+Exercise.hasMany(Score)
+Score.belongsTo(Exercise)
 
 /**
  * We'll export all of our models here, so that any time a module needs a model,

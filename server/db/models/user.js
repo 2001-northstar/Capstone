@@ -14,9 +14,6 @@ const User = db.define('user', {
   level: {
     type: Sequelize.INTEGER
   },
-  scores: {
-    type: Sequelize.INTEGER
-  },
   password: {
     type: Sequelize.STRING,
     // Making `.password` act like a func hides it when serializing to JSON.
