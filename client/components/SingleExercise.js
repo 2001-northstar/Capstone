@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 import {Keyboard} from '../components'
-import {setActiveNote, setExerciseStep} from '../store'
+import {setActiveNote, setExerciseStep, fetchSingleExercise} from '../store'
 
 const SingleExercise = props => {
   const dispatch = useDispatch()
@@ -15,8 +15,13 @@ const SingleExercise = props => {
     }
   })
 
+  useEffect(() => {
+    dispatch(fetchSingleExercise(props.match.params.id))
+  }, [])
+
   const [complete, setComplete] = useState(false)
   const [firstAttempt, setAttempt] = useState(true)
+  const [done, setDone] = useState(false)
 
   const handleCompleted = async () => {
     await axios.put(`/api/lessons/${exercise.id}`)
@@ -43,6 +48,8 @@ const SingleExercise = props => {
         activeNotes[0] === exerciseStep.answer2
       ) {
         if (exerciseStep.index === steps.length - 1) {
+          setAttempt(true)
+          setDone(true)
           handleCompleted()
         } else {
           dispatch(setExerciseStep(steps[++exerciseStep.index]))
@@ -61,7 +68,13 @@ const SingleExercise = props => {
   return (
     <>
       <div className="container my-3 py-3 text-center">
-        <p className="lead">{exerciseStep.content}</p>
+        {done ? (
+          <h3 style={{color: '#6B9AC4'}} className="my-3 py-3 text-center">
+            You did it!
+          </h3>
+        ) : (
+          <p className="lead">{exerciseStep.content}</p>
+        )}
 
         {firstAttempt ? null : (
           <h3 style={{color: '#6B9AC4'}} className="my-3 py-3 text-center">
@@ -69,6 +82,7 @@ const SingleExercise = props => {
           </h3>
         )}
       </div>
+
       <Keyboard highlightedNotes={[]} />
       {complete ? (
         <>

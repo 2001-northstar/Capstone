@@ -48,7 +48,9 @@ const LessonOneContainer = props => {
         <LessonText>
           {newText}
           {next ? (
-            <Link to="/exercise">Click here to test your skills!</Link>
+            <Link to={`/exercise/${props.lesson.id}`}>
+              Click here to test your skills!
+            </Link>
           ) : null}
         </LessonText>
         <div className="d-flex justify-content-around">
