@@ -8,7 +8,7 @@ import useSound from 'use-sound'
 import boopSfx from '../assets/boop.mp3'
 
 const Navbar = ({handleClick, isLoggedIn}) => {
-  const [play] = useSound(boopSfx)
+  const [play] = useSound(boopSfx, {volume: 0.25})
 
   return (
     // <!--Navbar-->
@@ -47,28 +47,50 @@ const Navbar = ({handleClick, isLoggedIn}) => {
           {/* <!-- Links --> */}
           <nav>
             {isLoggedIn ? (
-              <div>
+              <div className="d-flex justify-content-center">
                 {/* The navbar will show these links after you log in */}
                 <Link to="/home">Home</Link>
                 <a href="#" onClick={handleClick}>
                   Logout
                 </a>
-                <Link to="/about">About</Link>
-                <Link to="/">Free Play</Link>
-                <Link to="/lesson">Lessons</Link>
-                <Link to="/exercise">Exercises</Link>
-                <Link to="/songs">Song Book</Link>
+                <Link onClick={play} to="/about">
+                  About
+                </Link>
+                <Link onClick={play} to="/">
+                  Free Play
+                </Link>
+                <Link onClick={play} to="/lesson">
+                  Lessons
+                </Link>
+                <Link onClick={play} to="/exercise">
+                  Exercises
+                </Link>
+                <Link onClick={play} to="/songs">
+                  Song Book
+                </Link>
               </div>
             ) : (
               <div className="d-flex justify-content-center">
                 {/* The navbar will show these links before you log in */}
-                <Link to="/login">Login</Link>
-                <Link to="/signup">Signup</Link>
-                <Link to="/about">About</Link>
+                <Link onClick={play} to="/login">
+                  Login
+                </Link>
+                <Link onClick={play} to="/signup">
+                  Signup
+                </Link>
+                <Link onClick={play} to="/about">
+                  About
+                </Link>
                 {/* <Link to="/">Free Play</Link> */}
-                <Link to="/lesson">Lessons</Link>
-                <Link to="/exercise">Exercises</Link>
-                <Link to="/songs">Song Book</Link>
+                <Link onClick={play} to="/lesson">
+                  Lessons
+                </Link>
+                <Link onClick={play} to="/exercise">
+                  Exercises
+                </Link>
+                <Link onClick={play} to="/songs">
+                  Song Book
+                </Link>
               </div>
             )}
           </nav>
