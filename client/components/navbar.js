@@ -1,20 +1,26 @@
-import React from 'react'
+import React, {useRef, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
 import Fade from 'react-reveal/Fade'
+import useSound from 'use-sound'
+import boopSfx from '../assets/boop.mp3'
 
 const Navbar = ({handleClick, isLoggedIn}) => {
+  const [play] = useSound(boopSfx)
+
   return (
     // <!--Navbar-->
     <Fade top>
-      <nav className="navbar navbar-primary bg-light">
+      <button type="button" onClick={play}>
+        Boop!
+      </button>
+      <nav className="navbar navbar-primary bg-light mb-30">
         {/* <!-- Navbar brand --> */}
         <a className="navbar-brand mx-auto" href="/">
           <h1 style={{color: '#5d5b6a'}}>OPUS</h1>
         </a>
-
         {/* <!-- Collapse button --> */}
         <button
           className="navbar-toggler first-button"
@@ -32,7 +38,6 @@ const Navbar = ({handleClick, isLoggedIn}) => {
             <span />
           </div>
         </button>
-
         {/* <!-- Collapsible content --> */}
         <div
           className="collapse navbar-collapse"

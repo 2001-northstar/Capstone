@@ -1,4 +1,4 @@
-;(window.webpackJsonp = window.webpackJsonp || []).push([
+;(window['webpackJsonp'] = window['webpackJsonp'] || []).push([
   [0],
   {
     /***/ './node_modules/howler/dist/howler.js':
@@ -18,6 +18,7 @@
  *
  *  MIT License
  */
+
           ;(function() {
             'use strict'
 
@@ -1834,19 +1835,21 @@
                     } else {
                       seekAndEmit()
                     }
-                  } else if (self._webAudio) {
-                    var realTime = self.playing(id)
-                      ? Howler.ctx.currentTime - sound._playStart
-                      : 0
-                    var rateSeek = sound._rateSeek
-                      ? sound._rateSeek - sound._seek
-                      : 0
-                    return (
-                      sound._seek +
-                      (rateSeek + realTime * Math.abs(sound._rate))
-                    )
                   } else {
-                    return sound._node.currentTime
+                    if (self._webAudio) {
+                      var realTime = self.playing(id)
+                        ? Howler.ctx.currentTime - sound._playStart
+                        : 0
+                      var rateSeek = sound._rateSeek
+                        ? sound._rateSeek - sound._seek
+                        : 0
+                      return (
+                        sound._seek +
+                        (rateSeek + realTime * Math.abs(sound._rate))
+                      )
+                    } else {
+                      return sound._node.currentTime
+                    }
                   }
                 }
 
@@ -2816,6 +2819,7 @@
  *
  *  MIT License
  */
+
           ;(function() {
             'use strict'
 
