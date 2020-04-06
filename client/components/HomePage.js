@@ -27,7 +27,7 @@ const HomePage = () => {
         <div className="keyboard">
           <Keyboard highlightedNotes={[]} />
         </div>
-        <Fade top>
+        <Fade bottom>
           <div className="container my-2">
             <h3 className="text-center display-4 my-4">
               We get it. Instruments are expensive & private lessons add up.
@@ -120,7 +120,6 @@ const HomePage = () => {
                       href="/about"
                       className="btn btn-primary"
                       onClick={playButton}
-                      onMouseEnter={playHover}
                     >
                       Read More
                     </a>
@@ -139,7 +138,6 @@ const HomePage = () => {
                       href="/contact-us"
                       className="btn btn-primary"
                       onClick={playButton}
-                      onMouseEnter={playHover}
                     >
                       Drop us a note
                     </a>

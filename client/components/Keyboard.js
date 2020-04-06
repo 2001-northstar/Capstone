@@ -8,6 +8,7 @@ import {setActiveNote} from '../store'
 import styled from 'styled-components'
 import useSound from 'use-sound'
 import qwertySfx from '../assets/qwerty.mp3'
+import hoverSfx from '../assets/hover.mp3'
 
 // webkitAudioContext fallback needed to support Safari
 const audioContext = new (window.AudioContext || window.webkitAudioContext)()
@@ -25,6 +26,8 @@ const keyboardShortcuts = KeyboardShortcuts.create({
 
 export default function Keyboard(props) {
   const [playQwerty] = useSound(qwertySfx, {volume: 0.075})
+  const [playHover] = useSound(hoverSfx, {volume: 0.05})
+
   const dispatch = useDispatch()
   const {activeNote, step} = useSelector(state => ({
     activeNote: state.activeNotes,
@@ -43,7 +46,6 @@ export default function Keyboard(props) {
 
   document.addEventListener('keydown', event => {
     if (event.which === 90) {
-      playQwerty()
       toggle(!toggleOn)
     }
   })
@@ -77,6 +79,7 @@ export default function Keyboard(props) {
 
       <div className="text-muted">
         <a
+          onMouseEnter={playHover}
           onClick={() => {
             handleKeyboardLabel()
             playQwerty()

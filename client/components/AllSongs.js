@@ -24,7 +24,7 @@ const AllSongs = () => {
     <div className="row">
       {songs.map(song => (
         <DefaultDiv key={song.id}>
-          <Fade bottom>
+          <Fade top>
             <div className="col mx-5">
               <div className="card">
                 <div className="row no-gutters">

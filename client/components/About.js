@@ -66,7 +66,9 @@ const About = () => {
                 </a>
                 <div className="card-body text-center">
                   <h5 className="card-title text-center">DREW</h5>
-                  <p className="card-text text-center">words words words</p>
+                  <p className="card-text text-center">
+                    The piano ain't go no wrong notes.
+                  </p>
                 </div>
               </div>
             </div>

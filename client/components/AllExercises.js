@@ -24,7 +24,7 @@ const AllExercises = () => {
     <div className="row">
       {exercises.map(exercise => (
         <DefaultDiv key={exercise.id}>
-          <Fade bottom>
+          <Fade top>
             <div className="col mx-5">
               <div className="card">
                 <div className="row no-gutters">

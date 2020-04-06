@@ -26,7 +26,7 @@ const AllLessons = () => {
     <div className="row">
       {lessons.map((lesson, i) => (
         <DefaultDiv key={lesson.id}>
-          <Fade bottom>
+          <Fade top>
             <div className="col mx-5">
               <div className="card">
                 <div className="row no-gutters">
