@@ -79,7 +79,7 @@ export default function Keyboard(props) {
         <a
           onClick={() => {
             handleKeyboardLabel()
-            play()
+            playQwerty()
           }}
         >
           <ShortcutKey>z</ShortcutKey>{' '}

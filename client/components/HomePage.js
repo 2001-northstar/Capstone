@@ -4,10 +4,12 @@ import Fade from 'react-reveal/Fade'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 import useSound from 'use-sound'
-import boopSfx from '../assets/boop.mp3'
+import buttonSfx from '../assets/button.mp3'
+import hoverSfx from '../assets/hover.mp3'
 
 const HomePage = () => {
-  const [play] = useSound(boopSfx, {volume: 0.05})
+  const [playButton] = useSound(buttonSfx, {volume: 0.05})
+  const [playHover] = useSound(hoverSfx, {volume: 0.05})
 
   return (
     <>
@@ -41,7 +43,11 @@ const HomePage = () => {
             <div className="row row-cols-1 row-cols-md-3">
               <div className="col mb-4">
                 <div className="card">
-                  <Link to="/lesson" onClick={play}>
+                  <Link
+                    to="/lesson"
+                    onClick={playButton}
+                    onMouseEnter={playHover}
+                  >
                     <img
                       src="https://www.pngrepo.com/png/8331/180/sheet-music.png"
                       className="card-img-top"
@@ -57,7 +63,11 @@ const HomePage = () => {
               </div>
               <div className="col mb-4">
                 <div className="card">
-                  <Link to="/songs" onClick={play}>
+                  <Link
+                    to="/songs"
+                    onClick={playButton}
+                    onMouseEnter={playHover}
+                  >
                     <img
                       src="https://www.pngrepo.com/png/8331/180/sheet-music.png"
                       className="card-img-top"
@@ -74,7 +84,11 @@ const HomePage = () => {
               </div>
               <div className="col mb-4">
                 <div className="card">
-                  <Link to="/signup" onClick={play}>
+                  <Link
+                    to="/signup"
+                    onClick={playButton}
+                    onMouseEnter={playHover}
+                  >
                     <img
                       src="https://www.pngrepo.com/png/8331/180/sheet-music.png"
                       className="card-img-top"
@@ -102,7 +116,12 @@ const HomePage = () => {
                     <p className="card-text text-center">
                       Bringing affordable & accessible music lessons to all.
                     </p>
-                    <a href="/about" className="btn btn-primary" onClick={play}>
+                    <a
+                      href="/about"
+                      className="btn btn-primary"
+                      onClick={playButton}
+                      onMouseEnter={playHover}
+                    >
                       Read More
                     </a>
                   </div>
@@ -119,7 +138,8 @@ const HomePage = () => {
                     <a
                       href="/contact-us"
                       className="btn btn-primary"
-                      onClick={play}
+                      onClick={playButton}
+                      onMouseEnter={playHover}
                     >
                       Drop us a note
                     </a>

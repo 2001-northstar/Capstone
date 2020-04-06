@@ -2,10 +2,12 @@ import React from 'react'
 import Fade from 'react-reveal/Fade'
 import styled from 'styled-components'
 import useSound from 'use-sound'
-import boopSfx from '../assets/boop.mp3'
+import buttonSfx from '../assets/button.mp3'
+import hoverSfx from '../assets/hover.mp3'
 
 const About = () => {
-  const [play] = useSound(boopSfx, {volume: 0.05})
+  const [playButton] = useSound(buttonSfx, {volume: 0.05})
+  const [playHover] = useSound(hoverSfx, {volume: 0.05})
 
   return (
     <>
@@ -56,9 +58,10 @@ const About = () => {
               <div className="card">
                 <a href="https://www.linkedin.com/in/drewlu/">
                   <img
-                    src="/assets/drew.jpg"
+                    src="/assets/drew.png"
                     className="card-img-top"
-                    onClick={play}
+                    onClick={playButton}
+                    onMouseEnter={playHover}
                   />
                 </a>
                 <div className="card-body text-center">
@@ -71,9 +74,10 @@ const About = () => {
               <div className="card">
                 <a href="https://www.linkedin.com/in/kylie-hess/">
                   <img
-                    src="https://www.pngrepo.com/png/8331/180/sheet-music.png"
+                    src="/assets/kylie.png"
                     className="card-img-top"
-                    onClick={play}
+                    onClick={playButton}
+                    onMouseEnter={playHover}
                   />
                 </a>
                 <div className="card-body text-center">
@@ -88,7 +92,8 @@ const About = () => {
                   <img
                     src="/assets/josh.jpg"
                     className="card-img-top"
-                    onClick={play}
+                    onClick={playButton}
+                    onMouseEnter={playHover}
                   />
                 </a>
                 <div className="card-body">
@@ -103,7 +108,8 @@ const About = () => {
                   <img
                     src="/assets/jenn.jpg"
                     className="card-img-top"
-                    onClick={play}
+                    onClick={playButton}
+                    onMouseEnter={playHover}
                   />
                 </a>
                 <div className="card-body">

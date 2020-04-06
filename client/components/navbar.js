@@ -8,9 +8,11 @@ import useSound from 'use-sound'
 import boopSfx from '../assets/boop.mp3'
 import collapseSfx from '../assets/collapse.mp3'
 import vinylSfx from '../assets/vinyl.mp3'
+import hoverSfx from '../assets/hover.mp3'
 
 const Navbar = ({handleClick, isLoggedIn}) => {
   const [play] = useSound(boopSfx, {volume: 0.05})
+  const [playHover] = useSound(hoverSfx, {volume: 0.05})
   const [playCollapse] = useSound(collapseSfx, {volume: 0.03})
   const [playVinyl, {stop}] = useSound(vinylSfx, {volume: 0.06})
 
@@ -47,6 +49,7 @@ const Navbar = ({handleClick, isLoggedIn}) => {
           aria-expanded="false"
           aria-label="Toggle navigation"
           style={{outline: 'none', color: '#5d5b6a'}}
+          onMouseEnter={playHover}
           onClick={playCollapse}
         >
           <div className="animated-icon1">

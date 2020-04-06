@@ -5,10 +5,12 @@ import {useDispatch, useSelector} from 'react-redux'
 import {fetchSingleSong} from '../store'
 import Fade from 'react-reveal/Fade'
 import useSound from 'use-sound'
-import boopSfx from '../assets/boop.mp3'
+import buttonSfx from '../assets/button.mp3'
+import applauseSfx from '../assets/applause.mp3'
 
 const NoteContainer = props => {
-  const [play] = useSound(boopSfx, {volume: 0.05})
+  const [playButton] = useSound(buttonSfx, {volume: 0.05})
+  const [playApplause] = useSound(applauseSfx, {volume: 0.05})
 
   // dispatch action to the store to grab the current song info
   // issues using more than one use effect
@@ -83,7 +85,10 @@ const NoteContainer = props => {
       <>
         <Fade top>
           <h4 className="display-4 text-center">{song.title}</h4>
-          <div className="fixed justify-content-center align-items-center">
+          <div
+            className="fixed justify-content-center align-items-center"
+            onMouseEnter={playApplause}
+          >
             <div
               style={{bottom: `${length * 100 - 300}px`}}
               className="justify-content-center"
@@ -94,14 +99,14 @@ const NoteContainer = props => {
                 <a
                   href="/songs"
                   className="m-1 btn btn-outline-primary"
-                  onClick={play}
+                  onClick={playButton}
                 >
                   Heck Yes!
                 </a>
                 <a
                   href="/"
                   className="m-1 btn btn-outline-secondary"
-                  onClick={play}
+                  onClick={playButton}
                 >
                   Nah, take me back to free play
                 </a>

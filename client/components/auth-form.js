@@ -4,14 +4,14 @@ import PropTypes from 'prop-types'
 import {auth} from '../store'
 import Fade from 'react-reveal/Fade'
 import useSound from 'use-sound'
-import boopSfx from '../assets/boop.mp3'
+import buttonSfx from '../assets/button.mp3'
 
 /**
  * COMPONENT
  */
 const AuthForm = props => {
   const {name, displayName, handleSubmit, error} = props
-  const [play] = useSound(boopSfx, {volume: 0.05})
+  const [playButton] = useSound(buttonSfx, {volume: 0.05})
 
   return (
     <Fade>
@@ -33,7 +33,7 @@ const AuthForm = props => {
             <button
               type="submit"
               className="btn btn-outline-secondary"
-              onClick={play}
+              onClick={playButton}
             >
               {displayName}
             </button>

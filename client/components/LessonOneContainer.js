@@ -8,9 +8,11 @@ import useSound from 'use-sound'
 import boopSfx from '../assets/boop.mp3'
 import forwardSfx from '../assets/forward.mp3'
 import backSfx from '../assets/back.mp3'
+import buttonSfx from '../assets/button.mp3'
 
 const LessonOneContainer = props => {
   const [play] = useSound(boopSfx, {volume: 0.05})
+  const [playButton] = useSound(buttonSfx, {volume: 0.05})
   const [playForward] = useSound(forwardSfx, {volume: 0.05})
   const [playBack] = useSound(backSfx, {volume: 0.05})
 
@@ -58,7 +60,11 @@ const LessonOneContainer = props => {
         <LessonText>
           {newText}
           {next ? (
-            <Link to="/exercise" onClick={play}>
+            <Link
+              to="/exercise"
+              className="m-1 btn btn-outline-primary"
+              onClick={playButton}
+            >
               Click here to test your skills!
             </Link>
           ) : null}
