@@ -1,24 +1,26 @@
 import React, {useEffect} from 'react' // don't forget to import useEffect
 import {Link} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux' // import redux hooks
-import {fetchLessons} from '../store/lessons'
+import {fetchLessons} from '../store'
 import styled from 'styled-components'
 import Fade from 'react-reveal/Fade'
 
 const AllLessons = () => {
   const dispatch = useDispatch()
 
-  const {lessons, user} = useSelector(state => {
-    return {lessons: state.lessons, user: state.user}
+  const {lessons, user, progress} = useSelector(state => {
+    return {lessons: state.lessons, user: state.user, progress: state.progress}
   })
 
   useEffect(() => {
     dispatch(fetchLessons())
   }, [])
 
+  const progressArr = progress || []
+
   return (
     <div className="row">
-      {lessons.map(lesson => (
+      {lessons.map((lesson, i) => (
         <DefaultDiv key={lesson.id}>
           <Fade bottom>
             <div className="col mx-5">
@@ -40,10 +42,10 @@ const AllLessons = () => {
             </div> */}
               <div className="card">
                 <div className="row no-gutters">
-                  <div className="col-md-3">
+                  <div className="col-md-4">
                     <Link to={`/lesson/${lesson.id}`}>
                       <img
-                        src="https://www.pngrepo.com/png/8331/180/sheet-music.png"
+                        src="/assets/sheet-big.svg"
                         className="card-img px-3 py-5"
                       />
                     </Link>
@@ -54,6 +56,11 @@ const AllLessons = () => {
                         <h2 className="card-title">{lesson.name}</h2>
                       </Link>
                       <p className="card-text">{lesson.overview}</p>
+                      {progressArr[i].completed ? (
+                        <span>Complete!</span>
+                      ) : (
+                        <span>Incomplete</span>
+                      )}
                     </div>
                   </div>
                 </div>

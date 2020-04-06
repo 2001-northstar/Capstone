@@ -9,9 +9,13 @@ import {
   Keyboard,
   Lesson,
   AllLessons,
-  UserAnalytics,
+  AllSongs,
   NoteContainer,
-  AllSongs
+  HomePage,
+  About,
+  ContactUs,
+  AllExercises,
+  SingleExercise
 } from './components'
 import {me} from './store'
 
@@ -33,19 +37,37 @@ class Routes extends Component {
         <Route exact path="/songs/:id" component={NoteContainer} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
-        <Route exact path="/" component={Keyboard} />
+        <Route exact path="/" component={HomePage} />
         <Route exact path="/lesson" component={AllLessons} />
         <Route exact path="/lesson/:id" component={Lesson} />
+        <Route exact path="/about" component={About} />
+        <Route exact path="/contact-us" component={ContactUs} />
+        <Route
+          exact
+          path="/"
+          render={props => <Keyboard {...props} highlightedNotes={[]} />}
+        />
+        <Route exact path="/exercise" component={AllExercises} />
+        <Route exact path="/exercise/:id" component={SingleExercise} />
+        <Route path="/exercise/:id" component={SingleExercise} />
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
             <Route path="/home" component={UserHome} />
-            <Route exact path="/" component={Keyboard} />
-            <Route exact path="/useranalytics" component={UserAnalytics} />
+            <Route
+              exact
+              path="/"
+              render={props => <Keyboard {...props} highlightedNotes={[]} />}
+            />
+            <Route exact path="/exercise" component={AllExercises} />
+            <Route exact path="/exercise/:id" component={SingleExercise} />
             <Route exact path="/lesson" component={AllLessons} />
             <Route exact path="/lesson/:id" component={Lesson} />
+            <Route path="/exercise/:id" component={SingleExercise} />
             <Route exact path="/songs" component={AllSongs} />
             <Route exact path="/songs/:id" component={NoteContainer} />
+            <Route exact path="/about" component={About} />
+            <Route exact path="/contact-us" component={ContactUs} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}

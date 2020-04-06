@@ -1,14 +1,11 @@
 import React, {useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {Piano, KeyboardShortcuts, MidiNumbers} from 'react-piano'
-import {
-  NoteContainer,
-  DimensionsProvider,
-  SoundfontProvider
-} from '../components'
+import {DimensionsProvider, SoundfontProvider} from '../components'
 import {Dropdown} from 'react-bootstrap'
 import Fade from 'react-reveal/Fade'
 import {setActiveNote} from '../store'
+import styled from 'styled-components'
 
 // webkitAudioContext fallback needed to support Safari
 const audioContext = new (window.AudioContext || window.webkitAudioContext)()
@@ -26,7 +23,10 @@ const keyboardShortcuts = KeyboardShortcuts.create({
 
 export default function Keyboard(props) {
   const dispatch = useDispatch()
-  const activeNote = useSelector(state => state.activeNotes)
+  const {activeNote, step} = useSelector(state => ({
+    activeNote: state.activeNotes,
+    step: state.step
+  }))
 
   const callback = notes => {
     dispatch(setActiveNote(notes))
@@ -37,11 +37,15 @@ export default function Keyboard(props) {
     toggle(!toggleOn)
   }
 
+  document.addEventListener('keydown', event => {
+    if (event.which === 90) {
+      toggle(!toggleOn)
+    }
+  })
+
   return (
     <Fade bottom>
       {/* <NoteContainer /> */}
-
-      {/* <input type="checkbox" {toggleOn ? "checked" : null} data-toggle="toggle"/> */}
       <DimensionsProvider>
         {({containerWidth, containerHeight}) => (
           <SoundfontProvider
@@ -50,6 +54,7 @@ export default function Keyboard(props) {
             hostname={soundfontHostname}
             render={({isLoading, playNote, stopNote}) => (
               <Piano
+                highlightedNotes={props.highlightedNotes}
                 callback={callback}
                 noteRange={noteRange}
                 width={containerWidth}
@@ -63,9 +68,21 @@ export default function Keyboard(props) {
           />
         )}
       </DimensionsProvider>
-      <button type="button" onClick={handleKeyboardLabel}>
+      {/* <button type="button" onClick={handleKeyboardLabel}>
         {toggleOn ? 'Hide Keyboard Labels' : 'Show Keyboard Labels'}
-      </button>
+      </button> */}
+      <br />
+      <div className="text-muted">
+        <ShortcutKey>z</ShortcutKey>{' '}
+        {toggleOn ? 'Show keyboard labels' : 'Hide keyboard labels'}
+      </div>
     </Fade>
   )
 }
+
+const ShortcutKey = styled.span`
+  border: solid rgb(170, 170, 170);
+  border-width: 1px 1px 2px;
+  padding: 5px 9px;
+  border-radius: 4px;
+`
