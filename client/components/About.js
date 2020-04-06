@@ -16,15 +16,15 @@ const About = () => {
           <div className="container-fluid mb-4">
             <div className="row align-items-center">
               <div className="col display-3 text-center">
-                Introducing <strong>Opus</strong>
+                Introducing <strong>OPUS</strong>
               </div>
             </div>
           </div>
           <div className="card mb-3">
-            <div className="row no-gutters">
+            <div className="row no-gutters align-items-center">
               <div className="col-md-8">
                 <div className="card-body">
-                  <h3 classnewName="card-text text-justify">
+                  <h4 className="card-text text-justify">
                     We believe that anyone can learn the basics of music theory
                     and now you don't even need to leave the comfort of your
                     home...as long as you have internet, that is. No matter what
@@ -33,7 +33,7 @@ const About = () => {
                     time! You’ll start with the basics and work your way to more
                     complicated chords, and before you know it, you’ll be
                     playing full songs!
-                  </h3>
+                  </h4>
                 </div>
               </div>
               <div className="col-md-4">
@@ -84,7 +84,10 @@ const About = () => {
                 </a>
                 <div className="card-body text-center">
                   <h5 className="card-title text-center">KYLIE</h5>
-                  <p className="card-text text-center">words words words</p>
+                  <p className="card-text text-center">
+                    If you think you can write a better piano tutorial app, you
+                    have another thunk coming.
+                  </p>
                 </div>
               </div>
             </div>
@@ -117,8 +120,8 @@ const About = () => {
                 <div className="card-body">
                   <h5 className="card-title text-center">JENN</h5>
                   <p className="card-text text-center">
-                    Before O P U S, I didn't know what an octave was. Now I can
-                    play Mary Had A Little Lamb with my eyes closed.
+                    Before OPUS, I didn't know the first thing about an octave.
+                    Now I can play Mary Had A Little Lamb in my sleep.
                   </p>
                 </div>
               </div>

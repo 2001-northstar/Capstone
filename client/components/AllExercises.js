@@ -28,10 +28,10 @@ const AllExercises = () => {
             <div className="col mx-5">
               <div className="card">
                 <div className="row no-gutters">
-                  <div className="col-md-3">
+                  <div className="col-md-4">
                     <Link to={`/exercise/${exercise.id}`} onClick={play}>
                       <img
-                        src="https://www.svgrepo.com/show/72278/piano.svg"
+                        src="/assets/exercise-notes-big.svg"
                         className="card-img px-3 py-5"
                       />
                     </Link>

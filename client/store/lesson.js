@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {setStep} from './step'
+import {setStep, fetchSingleExercise} from '../store'
 
 // action-types
 const SET_SINGLE_LESSON = 'SET_SINGLE_LESSON'
@@ -16,10 +16,10 @@ const setSingleLesson = lesson => {
 export const fetchSingleLesson = lessonId => {
   return async dispatch => {
     try {
-      const {data} = await axios.get(`/api/lessons/${lessonId}`)
-      dispatch(setSingleLesson(data))
-      if (data.steps.length) {
-        const step1 = data.steps[0]
+      const lessons = await axios.get(`/api/lessons/${lessonId}`)
+      dispatch(setSingleLesson(lessons.data))
+      if (lessons.data.steps.length) {
+        const step1 = lessons.data.steps[0]
         dispatch(
           setStep({
             text: step1.content,
@@ -28,6 +28,7 @@ export const fetchSingleLesson = lessonId => {
             index: 0
           })
         )
+        dispatch(fetchSingleExercise(lessonId))
       }
     } catch (err) {
       console.log(err)

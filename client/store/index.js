@@ -13,6 +13,7 @@ import song from './song'
 import songs from './songs'
 import activeNotes from './activeNotes'
 import progress from './progress'
+import exerciseStep from './exerciseStep'
 
 const reducer = combineReducers({
   user,
@@ -25,7 +26,8 @@ const reducer = combineReducers({
   userinfo,
   songs,
   song,
-  progress
+  progress,
+  exerciseStep
 })
 
 const middleware = composeWithDevTools(
@@ -45,3 +47,4 @@ export * from './song'
 export * from './songs'
 export * from './activeNotes'
 export * from './progress'
+export * from './exerciseStep'

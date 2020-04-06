@@ -83,57 +83,66 @@ const NoteContainer = props => {
   if (activeNotes[0] === 0 && !answers[incrementAnswers]) {
     return (
       <>
-        <Fade top>
-          <h4 className="display-4 text-center">{song.title}</h4>
-          <div
-            className="fixed justify-content-center align-items-center"
-            onMouseEnter={playApplause}
-          >
+        <Fade bottom>
+          <div className="justify-content-center">
+            <h4 className="display-4 text-center">{song.title}</h4>
             <div
-              style={{bottom: `${length * 100 - 300}px`}}
-              className="justify-content-center"
+              className="fixed justify-content-center align-items-center"
+              onMouseEnter={playApplause}
             >
-              <h4 className="display-4 text-center">Nice job 👏</h4>
-              <h5 className="text-center">Want to try another song?</h5>
-              <div className="row justify-content-center">
-                <a
-                  href="/songs"
-                  className="m-1 btn btn-outline-primary"
-                  onClick={playButton}
+              <div className="justify-content-center">
+                <h4
+                  style={{color: '#6B9AC4'}}
+                  className="display-4 text-center"
                 >
-                  Heck Yes!
-                </a>
-                <a
-                  href="/"
-                  className="m-1 btn btn-outline-secondary"
-                  onClick={playButton}
-                >
-                  Nah, take me back to free play
-                </a>
+                  <strong>Nice job</strong>👏
+                </h4>
+                <h5 className="text-center">Want to try another song?</h5>
+                <div className="row justify-content-center">
+                  <a
+                    href="/songs"
+                    className="m-1 btn btn-outline-primary"
+                    onClick={playButton}
+                  >
+                    Heck Yes!
+                  </a>
+                  <a
+                    href="/"
+                    className="m-1 btn btn-outline-secondary"
+                    onClick={playButton}
+                  >
+                    Nah, take me back to free play
+                  </a>
+                </div>
               </div>
             </div>
+            <Keyboard highlightedNotes={[]} />
           </div>
         </Fade>
-        <Keyboard highlightedNotes={[]} />
       </>
     )
   } else {
     return (
       <>
-        <Fade top>
-          <h4 className="display-4 text-center">{song.title}</h4>
-          <div className="fixed">
-            <div
-              style={{bottom: `${length * 100 - 300}px`}}
-              className="noteContainer"
-              ref={refContainer}
-            >
-              {notes.map(element => (
-                <div key={`${element.order}`} className={`_${element.note}`} />
-              ))}
+        <Fade bottom>
+          <div className="justify-content-center">
+            <h4 className="display-4 text-center">{song.title}</h4>
+            <div className="fixed">
+              <div
+                style={{bottom: `${length * 100 - 300}px`}}
+                className="noteContainer"
+                ref={refContainer}
+              >
+                {notes.map(element => (
+                  <div
+                    key={`${element.order}`}
+                    className={`_${element.note}`}
+                  />
+                ))}
+              </div>
             </div>
+            <Keyboard highlightedNotes={[]} />
           </div>
-          <Keyboard highlightedNotes={[]} />
         </Fade>
       </>
     )

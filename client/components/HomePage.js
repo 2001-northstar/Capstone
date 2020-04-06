@@ -15,11 +15,13 @@ const HomePage = () => {
     <>
       <div id="body">
         <Fade top>
-          <div className="jumbotron jumbotron-fluid ">
+          <div className="jumbotron jumbotron-fluid mt-3">
             <div className="container">
-              <h1 className="display-4 text-center">Learn Music Anywhere</h1>
+              <h1 className="display-3 text-center" style={{color: '#4059AD'}}>
+                <strong>Learn Music Anywhere</strong>
+              </h1>
               <p className="lead text-center">
-                Go on, press a note. You know you want to.
+                Go on, press a key. You know you want to.
               </p>
             </div>
           </div>
@@ -29,7 +31,10 @@ const HomePage = () => {
         </div>
         <Fade bottom>
           <div className="container my-2">
-            <h3 className="text-center display-4 my-4">
+            <h3
+              className="text-center display-4 my-4"
+              style={{color: '#6B9AC4'}}
+            >
               We get it. Instruments are expensive & private lessons add up.
             </h3>
             <p className="lead text-center">
@@ -48,10 +53,7 @@ const HomePage = () => {
                     onClick={playButton}
                     onMouseEnter={playHover}
                   >
-                    <img
-                      src="https://www.pngrepo.com/png/8331/180/sheet-music.png"
-                      className="card-img-top"
-                    />
+                    <img src="/assets/sheets1.svg" className="card-img-top" />
                   </Link>
                   <div className="card-body text-center">
                     <h5 className="card-title text-center">Lessons</h5>
@@ -68,10 +70,7 @@ const HomePage = () => {
                     onClick={playButton}
                     onMouseEnter={playHover}
                   >
-                    <img
-                      src="https://www.pngrepo.com/png/8331/180/sheet-music.png"
-                      className="card-img-top"
-                    />
+                    <img src="/assets/piano.svg" className="card-img-top" />
                   </Link>
                   <div className="card-body text-center">
                     <h5 className="card-title text-center">Songs</h5>
@@ -89,10 +88,7 @@ const HomePage = () => {
                     onClick={playButton}
                     onMouseEnter={playHover}
                   >
-                    <img
-                      src="https://www.pngrepo.com/png/8331/180/sheet-music.png"
-                      className="card-img-top"
-                    />
+                    <img src="/assets/notes1.svg" className="card-img-top" />
                   </Link>
                   <div className="card-body">
                     <h5 className="card-title text-center">Become A Pro</h5>
@@ -112,13 +108,14 @@ const HomePage = () => {
               <div className="col mb-4">
                 <div className="card">
                   <div className="card-body text-center">
-                    <h5 className="card-title text-center">About O P U S</h5>
+                    <h5 className="card-title text-center">About OPUS</h5>
                     <p className="card-text text-center">
-                      Bringing affordable & accessible music lessons to all.
+                      Bringing entertaining, affordable and accessible music
+                      lessons to all.
                     </p>
                     <a
                       href="/about"
-                      className="btn btn-primary"
+                      className="m-1 btn btn-outline-primary"
                       onClick={playButton}
                     >
                       Read More
@@ -136,7 +133,7 @@ const HomePage = () => {
                     </p>
                     <a
                       href="/contact-us"
-                      className="btn btn-primary"
+                      className="m-1 btn btn-outline-primary"
                       onClick={playButton}
                     >
                       Drop us a note

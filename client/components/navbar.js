@@ -96,6 +96,9 @@ const Navbar = ({handleClick, isLoggedIn}) => {
                 <Link onClick={play} to="/songs">
                   Song Book
                 </Link>
+                <Link onClick={play} to="/contact-us">
+                  Contact Us
+                </Link>
               </div>
             ) : (
               <div className="d-flex justify-content-center">
@@ -118,6 +121,9 @@ const Navbar = ({handleClick, isLoggedIn}) => {
                 </Link>
                 <Link onClick={play} to="/songs">
                   Song Book
+                </Link>
+                <Link onClick={play} to="/contact-us">
+                  Contact Us
                 </Link>
               </div>
             )}

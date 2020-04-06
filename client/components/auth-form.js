@@ -16,29 +16,31 @@ const AuthForm = props => {
   return (
     <Fade>
       <div className="container">
-        <form onSubmit={handleSubmit} name={name}>
-          <div>
-            <label htmlFor="email">
-              <small>Email</small>
-            </label>
-            <input name="email" type="text" />
+        <form className="form-inline" onSubmit={handleSubmit} name={name}>
+          <div className="form-row align-items-center">
+            <div className="form-group mb-2">
+              <label htmlFor="email">
+                <small>Email</small>
+              </label>
+              <input name="email" className="form-control" type="text" />
+            </div>
+            <div className="form-group mb-2">
+              <label htmlFor="password">
+                <small>Password</small>
+              </label>
+              <input name="password" className="form-control" type="password" />
+            </div>
+            <div>
+              <button
+                type="submit"
+                className="btn btn-outline-secondary"
+                onClick={playButton}
+              >
+                {displayName}
+              </button>
+            </div>
+            {error && error.response && <div> {error.response.data} </div>}
           </div>
-          <div>
-            <label htmlFor="password">
-              <small>Password</small>
-            </label>
-            <input name="password" type="password" />
-          </div>
-          <div>
-            <button
-              type="submit"
-              className="btn btn-outline-secondary"
-              onClick={playButton}
-            >
-              {displayName}
-            </button>
-          </div>
-          {error && error.response && <div> {error.response.data} </div>}
         </form>
         <a href="/auth/google">{displayName} with Google</a>
       </div>
