@@ -490,6 +490,29 @@ async function seed() {
       ]
     },
     {
+      title: 'Twinkle, Twinkle, Little Star',
+      artist: 'Traditional',
+      level: '★★',
+      description: 'How I wonder what you are.',
+      notes: [
+        {note: 48, order: 14},
+        {note: 50, order: 13},
+        {note: 50, order: 12},
+        {note: 52, order: 11},
+        {note: 52, order: 10},
+        {note: 53, order: 9},
+        {note: 53, order: 8},
+        {note: 55, order: 7},
+        {note: 57, order: 6},
+        {note: 57, order: 5},
+        {note: 55, order: 4},
+        {note: 55, order: 3},
+        {note: 48, order: 2},
+        {note: 48, order: 1}
+      ],
+      answer: [48, 48, 55, 55, 57, 57, 55, 53, 53, 52, 52, 50, 50, 48]
+    },
+    {
       title: 'Canon in D',
       artist: 'Pachelbel',
       level: '★★',
@@ -585,6 +608,19 @@ async function seed() {
       artist: 'Queen',
       level: '★★★',
       description: 'Is this the real life? Is this just fantasy?',
+      notes: [
+        {note: 53, order: 4},
+        {note: 52, order: 3},
+        {note: 50, order: 2},
+        {note: 48, order: 1}
+      ],
+      answer: [48, 50, 52, 53]
+    },
+    {
+      title: 'Prelude in C, BWV 846',
+      artist: 'J.S. Bach',
+      level: '★★★',
+      description: 'Guaranteed to impress all your friends on Zoom.',
       notes: [
         {note: 53, order: 4},
         {note: 52, order: 3},

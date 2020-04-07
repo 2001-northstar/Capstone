@@ -4,14 +4,19 @@ import {Link} from 'react-router-dom'
 import axios from 'axios'
 import {Keyboard} from '../components'
 import {setActiveNote, setExerciseStep} from '../store'
+import useSound from 'use-sound'
+import buttonSfx from '../assets/button.mp3'
+import Fade from 'react-reveal/Fade'
 
-const SingleExercise = props => {
+const SingleExercise = (props) => {
+  const [playButton] = useSound(buttonSfx, {volume: 0.05})
+
   const dispatch = useDispatch()
-  const {activeNotes, exercise, exerciseStep} = useSelector(state => {
+  const {activeNotes, exercise, exerciseStep} = useSelector((state) => {
     return {
       activeNotes: state.activeNotes,
       exercise: state.exercise,
-      exerciseStep: state.exerciseStep
+      exerciseStep: state.exerciseStep,
     }
   })
 
@@ -30,36 +35,64 @@ const SingleExercise = props => {
       content: st.content,
       answer: st.answer,
       answer2: st.answer2,
-      index: i
+      index: i,
     }))
   }
 
   //for scale: must get each step on first attempt or it sends you back to the start!
 
-  useEffect(
-    () => {
-      if (
-        activeNotes[0] === exerciseStep.answer ||
-        activeNotes[0] === exerciseStep.answer2
-      ) {
-        if (exerciseStep.index === steps.length - 1) {
-          handleCompleted()
-        } else {
-          dispatch(setExerciseStep(steps[++exerciseStep.index]))
-          dispatch(setActiveNote([]))
-          setAttempt(true)
-        }
-      } else if (!activeNotes[0]) {
-        console.log('first run!')
+  useEffect(() => {
+    if (
+      activeNotes[0] === exerciseStep.answer ||
+      activeNotes[0] === exerciseStep.answer2
+    ) {
+      if (exerciseStep.index === steps.length - 1) {
+        handleCompleted()
       } else {
-        setAttempt(false)
+        dispatch(setExerciseStep(steps[++exerciseStep.index]))
+        dispatch(setActiveNote([]))
+        setAttempt(true)
       }
-    },
-    [activeNotes]
-  )
+    } else if (!activeNotes[0]) {
+      console.log('first run!')
+    } else {
+      setAttempt(false)
+    }
+  }, [activeNotes])
 
   return (
     <>
+      {complete ? (
+        <>
+          <Fade top>
+            <div className="justify-content-center">
+              <div className="fixed justify-content-center align-items-center">
+                <div className="justify-content-center">
+                  <p className="lead text-center mt-3">
+                    Lesson Progress Saved!
+                  </p>
+                  <div className="row justify-content-center">
+                    <Link
+                      to={`/lesson/${exercise.id + 1}`}
+                      className="m-1 btn btn-outline-primary"
+                      onClick={playButton}
+                    >
+                      Next Lesson
+                    </Link>
+                    <Link
+                      to="/lesson"
+                      className="m-1 btn btn-outline-secondary"
+                      onClick={playButton}
+                    >
+                      Back to Lesson List
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Fade>
+        </>
+      ) : null}
       <div className="container my-3 py-3 text-center">
         <p className="lead">{exerciseStep.content}</p>
 
@@ -70,26 +103,6 @@ const SingleExercise = props => {
         )}
       </div>
       <Keyboard highlightedNotes={[]} />
-      {complete ? (
-        <>
-          <div className="container my-2 py-2">
-            <p className="lead mt-3">
-              <strong>Lesson Progress Saved!</strong>
-            </p>
-          </div>
-          <div className="my-1 py-1">
-            <Link
-              to={`/lesson/${exercise.id + 1}`}
-              className="m-1 btn btn-outline-primary"
-            >
-              Next Lesson
-            </Link>
-            <Link to="/lesson" className="m-1 btn btn-outline-secondary">
-              Back to Lessons List
-            </Link>
-          </div>
-        </>
-      ) : null}
     </>
   )
 }

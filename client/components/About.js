@@ -103,7 +103,10 @@ const About = () => {
                 </a>
                 <div className="card-body">
                   <h5 className="card-title text-center">JOSH</h5>
-                  <p className="card-text text-center">words words words</p>
+                  <p className="card-text text-center">
+                    I used to think a piano was just a really uncomfortable
+                    chaise lounge. OPUS changed my life!
+                  </p>
                 </div>
               </div>
             </div>
