@@ -16,7 +16,7 @@ const About = () => {
           <div className="container-fluid mb-4">
             <div className="row align-items-center">
               <div className="col display-3 text-center">
-                Introducing <strong>OPUS</strong>
+                Introducing <strong>Opus</strong>
               </div>
             </div>
           </div>
@@ -24,7 +24,7 @@ const About = () => {
             <div className="row no-gutters align-items-center">
               <div className="col-md-8">
                 <div className="card-body">
-                  <h4 className="card-text text-justify">
+                  <h5 className="lead text-center mt-3">
                     We believe that anyone can learn the basics of music theory
                     and now you don't even need to leave the comfort of your
                     home...as long as you have internet, that is. No matter what
@@ -33,7 +33,7 @@ const About = () => {
                     time! You’ll start with the basics and work your way to more
                     complicated chords, and before you know it, you’ll be
                     playing full songs!
-                  </h4>
+                  </h5>
                 </div>
               </div>
               <div className="col-md-4">
@@ -103,7 +103,10 @@ const About = () => {
                 </a>
                 <div className="card-body">
                   <h5 className="card-title text-center">JOSH</h5>
-                  <p className="card-text text-center">words words words</p>
+                  <p className="card-text text-center">
+                    I used to think a piano was just a really uncomfortable
+                    chaise lounge. OPUS changed my life!
+                  </p>
                 </div>
               </div>
             </div>

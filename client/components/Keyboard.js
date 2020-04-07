@@ -98,4 +98,5 @@ const ShortcutKey = styled.span`
   border-width: 1px 1px 2px;
   padding: 5px 9px;
   border-radius: 4px;
+  cursor: pointer;
 `
