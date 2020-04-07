@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 import {Keyboard} from '../components'
-import {setActiveNote, setExerciseStep} from '../store'
+import {setActiveNote, setExerciseStep, fetchSingleExercise} from '../store'
 import useSound from 'use-sound'
 import buttonSfx from '../assets/button.mp3'
 import Fade from 'react-reveal/Fade'
@@ -20,8 +20,13 @@ const SingleExercise = props => {
     }
   })
 
+  useEffect(() => {
+    dispatch(fetchSingleExercise(props.match.params.id))
+  }, [])
+
   const [complete, setComplete] = useState(false)
   const [firstAttempt, setAttempt] = useState(true)
+  const [done, setDone] = useState(false)
 
   const handleCompleted = async () => {
     await axios.put(`/api/lessons/${exercise.id}`)
@@ -48,6 +53,8 @@ const SingleExercise = props => {
         activeNotes[0] === exerciseStep.answer2
       ) {
         if (exerciseStep.index === steps.length - 1) {
+          setAttempt(true)
+          setDone(true)
           handleCompleted()
         } else {
           dispatch(setExerciseStep(steps[++exerciseStep.index]))
@@ -108,6 +115,7 @@ const SingleExercise = props => {
           </h3>
         )}
       </div>
+
       <Keyboard highlightedNotes={[]} />
     </>
   )
