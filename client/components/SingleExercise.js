@@ -8,15 +8,15 @@ import useSound from 'use-sound'
 import buttonSfx from '../assets/button.mp3'
 import Fade from 'react-reveal/Fade'
 
-const SingleExercise = (props) => {
+const SingleExercise = props => {
   const [playButton] = useSound(buttonSfx, {volume: 0.05})
 
   const dispatch = useDispatch()
-  const {activeNotes, exercise, exerciseStep} = useSelector((state) => {
+  const {activeNotes, exercise, exerciseStep} = useSelector(state => {
     return {
       activeNotes: state.activeNotes,
       exercise: state.exercise,
-      exerciseStep: state.exerciseStep,
+      exerciseStep: state.exerciseStep
     }
   })
 
@@ -35,30 +35,33 @@ const SingleExercise = (props) => {
       content: st.content,
       answer: st.answer,
       answer2: st.answer2,
-      index: i,
+      index: i
     }))
   }
 
   //for scale: must get each step on first attempt or it sends you back to the start!
 
-  useEffect(() => {
-    if (
-      activeNotes[0] === exerciseStep.answer ||
-      activeNotes[0] === exerciseStep.answer2
-    ) {
-      if (exerciseStep.index === steps.length - 1) {
-        handleCompleted()
+  useEffect(
+    () => {
+      if (
+        activeNotes[0] === exerciseStep.answer ||
+        activeNotes[0] === exerciseStep.answer2
+      ) {
+        if (exerciseStep.index === steps.length - 1) {
+          handleCompleted()
+        } else {
+          dispatch(setExerciseStep(steps[++exerciseStep.index]))
+          dispatch(setActiveNote([]))
+          setAttempt(true)
+        }
+      } else if (!activeNotes[0]) {
+        console.log('first run!')
       } else {
-        dispatch(setExerciseStep(steps[++exerciseStep.index]))
-        dispatch(setActiveNote([]))
-        setAttempt(true)
+        setAttempt(false)
       }
-    } else if (!activeNotes[0]) {
-      console.log('first run!')
-    } else {
-      setAttempt(false)
-    }
-  }, [activeNotes])
+    },
+    [activeNotes]
+  )
 
   return (
     <>
@@ -66,7 +69,7 @@ const SingleExercise = (props) => {
         <>
           <Fade top>
             <div className="justify-content-center">
-              <div className="fixed justify-content-center align-items-center">
+              <div className="justify-content-center align-items-center">
                 <div className="justify-content-center">
                   <p className="lead text-center mt-3">
                     Lesson Progress Saved!
@@ -93,7 +96,10 @@ const SingleExercise = (props) => {
           </Fade>
         </>
       ) : null}
-      <div className="container my-3 py-3 text-center">
+      <div
+        className="container my-3 py-3 text-center"
+        style={{height: '200px'}}
+      >
         <p className="lead">{exerciseStep.content}</p>
 
         {firstAttempt ? null : (
