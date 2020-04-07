@@ -45,9 +45,9 @@ const AllLessons = () => {
                       </Link>
                       <p className="card-text">{lesson.overview}</p>
                       {progressArr[i].completed ? (
-                        <span>Complete!</span>
+                        <span>✅ Complete</span>
                       ) : (
-                        <span>Incomplete</span>
+                        <span>❌ Incomplete</span>
                       )}
                     </div>
                   </div>
