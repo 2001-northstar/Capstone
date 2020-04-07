@@ -4,8 +4,13 @@ import {Link} from 'react-router-dom'
 import axios from 'axios'
 import {Keyboard} from '../components'
 import {setActiveNote, setExerciseStep, fetchSingleExercise} from '../store'
+import useSound from 'use-sound'
+import buttonSfx from '../assets/button.mp3'
+import Fade from 'react-reveal/Fade'
 
 const SingleExercise = props => {
+  const [playButton] = useSound(buttonSfx, {volume: 0.05})
+
   const dispatch = useDispatch()
   const {activeNotes, exercise, exerciseStep} = useSelector(state => {
     return {
@@ -67,14 +72,42 @@ const SingleExercise = props => {
 
   return (
     <>
-      <div className="container my-3 py-3 text-center">
-        {done ? (
-          <h3 style={{color: '#6B9AC4'}} className="my-3 py-3 text-center">
-            You did it!
-          </h3>
-        ) : (
-          <p className="lead">{exerciseStep.content}</p>
-        )}
+      <div
+        className="container my-3 py-3 text-center"
+        style={{height: '200px'}}
+      >
+        {complete ? (
+          <>
+            <Fade top>
+              <div className="justify-content-center">
+                <div className="justify-content-center align-items-center">
+                  <div className="justify-content-center">
+                    <p className="lead text-center mt-3">
+                      Lesson Progress Saved!
+                    </p>
+                    <div className="row justify-content-center mb-3">
+                      <Link
+                        to={`/lesson/${exercise.id + 1}`}
+                        className="m-1 btn btn-outline-primary"
+                        onClick={playButton}
+                      >
+                        Next Lesson
+                      </Link>
+                      <Link
+                        to="/lesson"
+                        className="m-1 btn btn-outline-secondary"
+                        onClick={playButton}
+                      >
+                        Back to Lesson List
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Fade>
+          </>
+        ) : null}
+        <p className="lead">{exerciseStep.content}</p>
 
         {firstAttempt ? null : (
           <h3 style={{color: '#6B9AC4'}} className="my-3 py-3 text-center">
@@ -84,26 +117,6 @@ const SingleExercise = props => {
       </div>
 
       <Keyboard highlightedNotes={[]} />
-      {complete ? (
-        <>
-          <div className="container my-2 py-2">
-            <p className="lead mt-3">
-              <strong>Lesson Progress Saved!</strong>
-            </p>
-          </div>
-          <div className="my-1 py-1">
-            <Link
-              to={`/lesson/${exercise.id + 1}`}
-              className="m-1 btn btn-outline-primary"
-            >
-              Next Lesson
-            </Link>
-            <Link to="/lesson" className="m-1 btn btn-outline-secondary">
-              Back to Lessons List
-            </Link>
-          </div>
-        </>
-      ) : null}
     </>
   )
 }
