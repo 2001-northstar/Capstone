@@ -65,41 +65,41 @@ const SingleExercise = props => {
 
   return (
     <>
-      {complete ? (
-        <>
-          <Fade top>
-            <div className="justify-content-center">
-              <div className="justify-content-center align-items-center">
-                <div className="justify-content-center">
-                  <p className="lead text-center mt-3">
-                    Lesson Progress Saved!
-                  </p>
-                  <div className="row justify-content-center">
-                    <Link
-                      to={`/lesson/${exercise.id + 1}`}
-                      className="m-1 btn btn-outline-primary"
-                      onClick={playButton}
-                    >
-                      Next Lesson
-                    </Link>
-                    <Link
-                      to="/lesson"
-                      className="m-1 btn btn-outline-secondary"
-                      onClick={playButton}
-                    >
-                      Back to Lesson List
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Fade>
-        </>
-      ) : null}
       <div
         className="container my-3 py-3 text-center"
         style={{height: '200px'}}
       >
+        {complete ? (
+          <>
+            <Fade top>
+              <div className="justify-content-center">
+                <div className="justify-content-center align-items-center">
+                  <div className="justify-content-center">
+                    <p className="lead text-center mt-3">
+                      Lesson Progress Saved!
+                    </p>
+                    <div className="row justify-content-center">
+                      <Link
+                        to={`/lesson/${exercise.id + 1}`}
+                        className="m-1 btn btn-outline-primary"
+                        onClick={playButton}
+                      >
+                        Next Lesson
+                      </Link>
+                      <Link
+                        to="/lesson"
+                        className="m-1 btn btn-outline-secondary"
+                        onClick={playButton}
+                      >
+                        Back to Lesson List
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Fade>
+          </>
+        ) : null}
         <p className="lead">{exerciseStep.content}</p>
 
         {firstAttempt ? null : (
