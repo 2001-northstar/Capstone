@@ -48,7 +48,17 @@ async function seed() {
     },
     {
       name: 'IV. Modes',
-      overview: 'Learn about Major, Minor, and More!',
+      overview: 'Learn about Major, Minor, and more.',
+      numOfSteps: 0
+    },
+    {
+      name: 'V. Arpeggios',
+      overview: 'It is not a type of pasta.',
+      numOfSteps: 0
+    },
+    {
+      name: 'VI. Playing with Both Hands',
+      overview: 'Ready to get fancy?',
       numOfSteps: 0
     }
   ])
@@ -66,12 +76,22 @@ async function seed() {
     },
     {
       name: 'III. Chords',
-      overview: 'Practice some chords',
+      overview: 'Practice forming basic chords',
       numOfSteps: 2
     },
     {
       name: 'IV. Modes',
-      overview: 'Identify notes on the keyboard.',
+      overview: 'Identify Major and Minor chords.',
+      numOfSteps: 2
+    },
+    {
+      name: 'V. Arpeggios',
+      overview: 'Is an arpeggio a type of noodle?',
+      numOfSteps: 2
+    },
+    {
+      name: 'IV. Playing with both hands',
+      overview: 'Let us get your brain moving.',
       numOfSteps: 2
     }
   ])
@@ -94,6 +114,14 @@ async function seed() {
       lessonId: 4
     },
     {
+      userId: 1,
+      lessonId: 5
+    },
+    {
+      userId: 1,
+      lessonId: 6
+    },
+    {
       userId: 2,
       lessonId: 1
     },
@@ -108,6 +136,14 @@ async function seed() {
     {
       userId: 2,
       lessonId: 4
+    },
+    {
+      userId: 2,
+      lessonId: 5
+    },
+    {
+      userId: 2,
+      lessonId: 6
     }
   ])
 
