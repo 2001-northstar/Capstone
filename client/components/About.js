@@ -16,7 +16,7 @@ const About = () => {
           <div className="container-fluid mb-4">
             <div className="row align-items-center">
               <div className="col display-3 text-center">
-                Introducing <strong>OPUS</strong>
+                Introducing <strong>Opus</strong>
               </div>
             </div>
           </div>
