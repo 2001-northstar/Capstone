@@ -28,12 +28,23 @@ class ContactUs extends Component {
   render() {
     return (
       <Fade bottom>
+        <div className="jumbotron jumbotron-fluid mt-3">
+          <div className="container">
+            <h1 className="display-3 text-center" style={{color: '#4059AD'}}>
+              <strong>Contact Us</strong>
+            </h1>
+            <p className="lead text-center">
+              It makes us feel all warm and fuzzy.
+            </p>
+          </div>
+        </div>
+
         <div className="container-fluid">
-          <h4 className="text-justify">
+          {/* <h4 className="text-justify">
             Whether you want to give us song suggestions for our growing library
             or you see an issue on the site, send us some mail! We love hearing
             from you; it makes us feel all warm and fuzzy.
-          </h4>
+          </h4> */}
           <form>
             <div className="row">
               <div className="form-group">

@@ -5,6 +5,7 @@ import {auth} from '../store'
 import Fade from 'react-reveal/Fade'
 import useSound from 'use-sound'
 import buttonSfx from '../assets/button.mp3'
+import {Link} from 'react-router-dom'
 
 /**
  * COMPONENT
@@ -15,34 +16,50 @@ const AuthForm = props => {
 
   return (
     <Fade>
-      <div className="container">
-        <form className="form-inline" onSubmit={handleSubmit} name={name}>
-          <div className="form-row align-items-center">
-            <div className="form-group mb-2">
+      <div className="container justify-content-center">
+        <h4 className="display-3 text-center mt-3">Let's play</h4>
+        <form className="form" onSubmit={handleSubmit} name={name}>
+          <div className="row justify-content-center">
+            <div className="form-group">
               <label htmlFor="email">
                 <small>Email</small>
               </label>
               <input name="email" className="form-control" type="text" />
             </div>
-            <div className="form-group mb-2">
+          </div>
+
+          <div className="row justify-content-center">
+            <div className="form-group">
               <label htmlFor="password">
                 <small>Password</small>
               </label>
               <input name="password" className="form-control" type="password" />
             </div>
-            <div>
-              <button
-                type="submit"
-                className="btn btn-outline-secondary"
-                onClick={playButton}
-              >
-                {displayName}
-              </button>
-            </div>
-            {error && error.response && <div> {error.response.data} </div>}
           </div>
+          <div className="row justify-content-center mb-3">
+            <button
+              type="submit"
+              className="btn btn-outline-secondary"
+              onClick={playButton}
+              style={{width: '12em'}}
+            >
+              {displayName}
+            </button>
+          </div>
+          {error && error.response && <div> {error.response.data} </div>}
         </form>
-        <a href="/auth/google">{displayName} with Google</a>
+        <div className="row justify-content-center">
+          <button
+            type="submit"
+            className="btn btn-outline-secondary justify-content-center"
+            onClick={playButton}
+            style={{width: '12em'}}
+          >
+            <a href="/auth/google" onClick={playButton}>
+              {displayName} with Google
+            </a>
+          </button>
+        </div>
       </div>
     </Fade>
   )
