@@ -78,7 +78,7 @@ const SingleExercise = props => {
                     <p className="lead text-center mt-3">
                       Lesson Progress Saved!
                     </p>
-                    <div className="row justify-content-center">
+                    <div className="row justify-content-center mb-3">
                       <Link
                         to={`/lesson/${exercise.id + 1}`}
                         className="m-1 btn btn-outline-primary"
