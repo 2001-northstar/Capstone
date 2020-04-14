@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react'
-import {TimelineMax} from 'gsap'
+import gsap from 'gsap'
 import Keyboard from './Keyboard'
 import {useDispatch, useSelector} from 'react-redux'
 import {fetchSingleSong} from '../store'
@@ -36,7 +36,7 @@ const NoteContainer = props => {
   // useRef accesses the dom nodes (html element) so that we can interact with that dom element
   // this way state doesn't change to a new timeline and it keeps updating the old one
   // if you used setState you would have a new timeline each time
-  let tlRef = useRef(new TimelineMax({paused: false}))
+  let tlRef = useRef(gsap.timeline({paused: false}))
   //reference
   let refContainer = useRef(null)
   // increments the movement each time state changes
@@ -54,11 +54,13 @@ const NoteContainer = props => {
     //position: [ Number | String ](default = "+=0") — controls the insertion point in the timeline (by default, it's the end of the timeline)
     tlRef.current.play()
     tlRef.current
-      .to(noteBars, 0.5, {
+      .to(noteBars, {
+        // time taken to move
+        duration: 0.5,
         // linear motion
         ease: 'none',
         // moves down by 100px
-        top: counter
+        y: counter
       })
       // pauses at each movement
       .addPause()
