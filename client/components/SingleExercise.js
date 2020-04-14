@@ -29,8 +29,12 @@ const SingleExercise = props => {
   const [done, setDone] = useState(false)
 
   const handleCompleted = async () => {
-    await axios.put(`/api/lessons/${exercise.id}`)
-    setComplete(true)
+    try {
+      await axios.put(`/api/lessons/${exercise.id}`)
+      setComplete(true)
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   let steps = exercise.exerciseSteps || []
